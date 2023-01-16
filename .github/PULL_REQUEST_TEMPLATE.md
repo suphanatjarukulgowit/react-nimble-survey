@@ -1,4 +1,4 @@
-https://github.com/nimblehq/{YOUR_REPOSITORY}/issues/??
+- Close #
 
 ## What happened 👀
 

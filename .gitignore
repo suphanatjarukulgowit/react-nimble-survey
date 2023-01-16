@@ -1,27 +1,36 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+*.gem
+*.rbc
+/.config
+/.idea
+/coverage/
+/InstalledFiles
 /node_modules
-/.pnp
-.pnp.js
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
 
-# testing
-/cypress/screenshots
-/cypress/videos
-/coverage
-.nyc_output
+# Used by dotenv library to load environment variables.
+# .env
 
-# production
-/build
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+## Environment normalization:
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
 
-npm-debug.log*
+# for a library or gem, you might want to ignore these files since the code is
+# intended to run in multiple environments; otherwise, check them in:
+# Gemfile.lock
+# .ruby-version
+# .ruby-gemset
 
-# editors
-.vscode
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
