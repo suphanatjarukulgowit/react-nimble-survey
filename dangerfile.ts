@@ -13,7 +13,7 @@ schedule(
     entrySortMethod: 'least-coverage', // || 'alphabetically' || 'most-coverage' || 'largest-file-size' ||'smallest-file-size' || 'uncovered-lines'
 
     // Add a maximum number of entries to display
-    numberOfEntries: 15,fdsa
+    numberOfEntries: 15,
 
     // The location of the istanbul coverage file.
     // coveragePath: './.nyc_output/out.json', // The merged JSON coverage data
