@@ -10,7 +10,7 @@ on:
         required: true
 
 env:
-  REACT_APP_WEB_URL: ${{ secrets.REACT_APP_WEB_URL }}
+  REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
 
 permissions:
   contents: write
