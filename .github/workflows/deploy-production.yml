@@ -1,4 +1,4 @@
-name: Deploy to Netlify
+name: Deploy to Production Netlify
 
 on:
   push:
@@ -14,8 +14,9 @@ permissions:
 
 jobs:
   deploy:
-    name: Build and Deploy to Netlify
+    name: Build and Deploy to Production Netlify
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.10.0
@@ -35,7 +36,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './build'
-          deploy-message: "Deploy from GitHub Actions: ${{ github.event.inputs.deploy-msg }}"
+          deploy-message: 'Deploy from GitHub Actions: ${{ github.event.inputs.deploy-msg }}'
           production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
