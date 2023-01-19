@@ -9,6 +9,9 @@ on:
         description: 'Deploy Message (visible in Netlify)'
         required: true
 
+env:
+  REACT_APP_WEB_URL: ${{ secrets.REACT_APP_WEB_URL }}
+
 permissions:
   contents: write
 
