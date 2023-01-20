@@ -3,7 +3,8 @@
 This project was bootstrapped with [Nimble React template](https://github.com/nimblehq/react-templates).
 
 # Prerequisites
-nodejs latest
+
+NodeJS: 16.14.2 LTS
 
 ## Available Scripts
 
