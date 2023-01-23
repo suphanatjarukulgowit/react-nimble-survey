@@ -1,34 +1,24 @@
 .form-field {
   position: relative;
   margin-bottom: 10%;
-<<<<<<< HEAD
 
-=======
-  
-  
->>>>>>> 0603c2b ([#5] Fix lint)
   .input-label {
-    // font-size: 15px;
-    display: flex;
-<<<<<<< HEAD
-    align-items: center;
-    letter-spacing: -0.24px;
-    color: #ffffff;
-=======
->>>>>>> 0603c2b ([#5] Fix lint)
-    flex: none;
-    flex-grow: 0;
-    align-items: center;
-    align-self: stretch;
-    order: 0;
     width: 20rem;
     height: 1.25rem;
-    margin-bottom: 0.5rem;
-
-    color: #fff;
     font-family: 'Neuzeit S LT Std';
+    font-style: normal;
+    font-weight: 800;
+    // font-size: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+    color: #ffffff;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin-bottom: 0.5rem;
     font-family: 'Neuzeit S LT Std Nomal', sans-serif;
-<<<<<<< HEAD
   }
 
   .input {
@@ -38,23 +28,6 @@
     height: 3.5rem;
     color: #ffffff;
     border: 0 solid #ced4da;
-=======
-    font-style: normal;
-    font-weight: 800;
-    letter-spacing: -0.24px;
-  }
-  
-  .input {
-    width: 100%;
-    height: 3.5rem;
-
-    border: 0 solid #ced4da;
-    border-radius: 12px;
-
-    background: rgba(255, 255, 255, 0.18);
-
-    color: #fff;
->>>>>>> 0603c2b ([#5] Fix lint)
     font-family: 'Neuzeit S LT Std Bold', sans-serif;
   }
 }

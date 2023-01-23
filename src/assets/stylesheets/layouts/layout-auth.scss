@@ -13,7 +13,7 @@
     background: {
       image: url('/assets/images/background.png');
       size: cover;
-<<<<<<< HEAD
+
       position: center;
     }
   }
@@ -21,42 +21,19 @@
   .app-header__title {
     color: #ffffff;
     opacity: 0.6;
-=======
-
-      position: center;
-    }
-  }
-
-  .app-header-title {
->>>>>>> 0603c2b ([#5] Fix lint)
     padding-top: 2rem;
-
-    opacity: 0.6;
-
-    color: #fff;
     font-family: 'Neuzeit S LT Std Nomal', sans-serif;
   }
 
   .app-content {
-    position: absolute;
-    z-index: 1;
-    top: calc(50% - 390px / 2 - 64px);
-    left: calc(50% - 320px / 2);
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-<<<<<<< HEAD
+
     position: absolute;
     left: calc(50% - 320px / 2);
-=======
-
->>>>>>> 0603c2b ([#5] Fix lint)
+    top: calc(50% - 390px / 2);
     background-color: inherit;
-
     text-align: center;
-<<<<<<< HEAD
-    z-index: 1;
-    top: calc(50% - 390px / 2 - 64px);
-=======
->>>>>>> 0603c2b ([#5] Fix lint)
   }
 }
