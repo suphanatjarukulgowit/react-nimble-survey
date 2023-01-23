@@ -18,24 +18,22 @@
     }
   }
 
-  .app-header-title {
-    padding-top: 2rem;
-
+  .app-header__title {
+    color: #ffffff;
     opacity: 0.6;
-
-    color: #fff;
+    padding-top: 2rem;
     font-family: 'Neuzeit S LT Std Nomal', sans-serif;
   }
 
   .app-content {
-    position: absolute;
-    z-index: 1;
-    top: calc(50% - 390px / 2 - 64px);
-    left: calc(50% - 320px / 2);
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: inherit;
 
+    position: absolute;
+    left: calc(50% - 320px / 2);
+    top: calc(50% - 390px / 2);
+    background-color: inherit;
     text-align: center;
   }
 }
