@@ -1,0 +1,34 @@
+.input-container {
+    position: relative;
+    margin-bottom: 10%;
+  
+  
+  .input-label {
+    width: 20rem;
+    height: 1.25rem;
+    font-family: 'Neuzeit S LT Std';
+    font-style: normal;
+    font-weight: 800;
+    // font-size: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin-bottom: 0.5rem;
+    font-family: 'Neuzeit S LT Std Nomal', sans-serif;
+}
+  
+.input {
+  background: rgba(255, 255, 255, 0.18);
+  width:100%;
+  border-radius: 12px;
+  height:3.5rem;
+  color: #FFFFFF;
+  border: 0 solid #ced4da;
+  font-family: 'Neuzeit S LT Std Bold', sans-serif;
+}
+}
