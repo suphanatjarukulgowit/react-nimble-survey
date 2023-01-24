@@ -1,15 +1,15 @@
 @font-face {
-    font-family: 'Neuzeit S LT Std Normal';
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Neuzeit S LT Std Normal';
+  font-style: normal;
+  font-display: swap;
+
+  src: url('/assets/fonts/Neuzeit-S-LT-Std.ttf') format('truetype');
+}
   
-    src: url('/assets/fonts/Neuzeit-S-LT-Std.ttf') format('truetype');
-  }
+@font-face {
+  font-family: 'Neuzeit S LT Std Bold';
+  font-style: normal;
+  font-display: swap;
   
-  @font-face {
-    font-family: 'Neuzeit S LT Std Bold';
-    font-style: normal;
-    font-display: swap;
-  
-    src: url('/assets/fonts/Neuzeit-S-LT-Std-Bold.ttf') format('truetype');
-  }
+  src: url('/assets/fonts/Neuzeit-S-LT-Std-Bold.ttf') format('truetype');
+}
