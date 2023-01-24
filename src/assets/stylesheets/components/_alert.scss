@@ -1,44 +1,56 @@
 .alert {
-    width: 100%;
-    background: rgba(37, 37, 37, 0.6);
-    backdrop-filter: blur(27.1828px);
-    border-radius: 12px;
-    color: #FFFFFF;
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  animation: slide-in 0.2s ease-in;
+
+  border-radius: 12px;
+
+  background: rgba(37, 37, 37, 0.6);
+
+  color: #fff;
+  backdrop-filter: blur(27.1828px);
+  @keyframes slide-in {
+    0% {
+      transform: skewX(10deg) translateX(-25px);
+    }
+
+    100% {
+      transform: skewX(0deg);
+    }
+  }
+
+  .alert-icon {
+    position: absolute;
+    margin-top: 1.18rem;
+    margin-left: 1.18rem;
+  }
+}
+
+.alert-content {
+  ul {
+    padding-left: 4.68rem;
+
+    opacity: 0.6;
+
+    color: #fff;
+    font-family: 'Neuzeit S LT Std Nomal', sans-serif;
+    text-align: left;
+
+    li {
+      margin-bottom: -5px;
+    }
+  }
+
+  .alert-header-title {
     display: flex;
-    margin-bottom: 2rem;
-    animation: slide-in .2s ease-in;
-    @keyframes slide-in {
-        0%{
-            transform: skewX(10deg) translateX(-25px);
-        }
-        100%{
-            transform: skewX(0deg)
-        }
-    }
-    .alert-icon{
-        position: absolute;
-        margin-left: 1.18rem;
-        margin-top: 1.18rem;
-    }
-    .alert-content{
-        ul {
-            color: #FFFFFF;
-            opacity: 0.6;
-            font-family: 'Neuzeit S LT Std Nomal', sans-serif;
-            text-align: left;
-            padding-left: 4.68rem; 
-            li {
-                margin-bottom: -5px;
-            }
-        }
-        .alert-header-title{
-            padding-left: 3.75rem; 
-            display: flex;
-            letter-spacing: -0.24px;
-            color: #FFFFFF;
-            font-weight: bold;
-            font-family: 'Neuzeit S LT Std Bold', sans-serif;
-            padding-top: 1rem;
-        }
-    }
+    padding-top: 1rem;
+    padding-left: 3.75rem;
+
+    color: #fff;
+    font-family: 'Neuzeit S LT Std Bold', sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.24px;
+  }
 }
