@@ -13,7 +13,6 @@
     background: {
       image: url('/assets/images/background.png');
       size: cover;
-
       position: center;
     }
   }
@@ -38,5 +37,7 @@
     background-color: inherit;
 
     text-align: center;
+    z-index: 1;
+    top: calc(50% - 390px / 2 - 64px);
   }
 }
