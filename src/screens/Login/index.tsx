@@ -15,7 +15,7 @@ const LoginScreen = (): JSX.Element => {
   const [formInput, setformInput] = useState({ email: '', password: '' });
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [formLoading, setFormLoading] = useState(false);
-  const validateInput = (input: any) => {
+  const validateInput = (input: { email: string; password: string }) => {
     const errors = [];
     if (!input.email) {
       errors.push(t('error.email_blank'));
@@ -32,7 +32,11 @@ const LoginScreen = (): JSX.Element => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormLoading(true);
-    validateInput(formInput);
+    try {
+      validateInput(formInput);
+    } catch (error) {
+      console.log('error: ', error);
+    }
     setFormLoading(false);
   };
 
