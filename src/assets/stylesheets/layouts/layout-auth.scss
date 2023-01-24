@@ -13,7 +13,6 @@
     background: {
       image: url('/assets/images/background.png');
       size: cover;
-
       position: center;
     }
   }
@@ -26,14 +25,13 @@
   }
 
   .app-content {
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     position: absolute;
     left: calc(50% - 320px / 2);
-    top: calc(50% - 390px / 2);
     background-color: inherit;
     text-align: center;
+    z-index: 1;
+    top: calc(50% - 390px / 2 - 64px);
   }
 }
