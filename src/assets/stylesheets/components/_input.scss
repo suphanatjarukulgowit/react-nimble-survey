@@ -1,34 +1,38 @@
 .input-container {
-    position: relative;
-    margin-bottom: 10%;
+  position: relative;
+  margin-bottom: 10%;
   
   
   .input-label {
-    width: 20rem;
-    height: 1.25rem;
-    font-family: 'Neuzeit S LT Std';
-    font-style: normal;
-    font-weight: 800;
     // font-size: 15px;
     display: flex;
-    align-items: center;
-    letter-spacing: -0.24px;
-    color: #FFFFFF;
     flex: none;
-    order: 0;
-    align-self: stretch;
     flex-grow: 0;
+    align-items: center;
+    align-self: stretch;
+    order: 0;
+    width: 20rem;
+    height: 1.25rem;
     margin-bottom: 0.5rem;
+
+    color: #fff;
+    font-family: 'Neuzeit S LT Std';
     font-family: 'Neuzeit S LT Std Nomal', sans-serif;
-}
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: -0.24px;
+  }
   
-.input {
-  background: rgba(255, 255, 255, 0.18);
-  width:100%;
-  border-radius: 12px;
-  height:3.5rem;
-  color: #FFFFFF;
-  border: 0 solid #ced4da;
-  font-family: 'Neuzeit S LT Std Bold', sans-serif;
-}
+  .input {
+    width: 100%;
+    height: 3.5rem;
+
+    border: 0 solid #ced4da;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    color: #fff;
+    font-family: 'Neuzeit S LT Std Bold', sans-serif;
+  }
 }
