@@ -1,0 +1,1191 @@
+{
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/components/AlertWarning/index.tsx": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/components/AlertWarning/index.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 8,
+          "column": 21
+        },
+        "end": {
+          "line": 22,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 21,
+          "column": 4
+        }
+      },
+      "2": {
+        "start": {
+          "line": 17,
+          "column": 10
+        },
+        "end": {
+          "line": 17,
+          "column": 40
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 8,
+            "column": 21
+          },
+          "end": {
+            "line": 8,
+            "column": 22
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 81
+          },
+          "end": {
+            "line": 22,
+            "column": 1
+          }
+        },
+        "line": 8
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 16,
+            "column": 26
+          },
+          "end": {
+            "line": 16,
+            "column": 27
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 17,
+            "column": 10
+          },
+          "end": {
+            "line": 17,
+            "column": 40
+          }
+        },
+        "line": 17
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 1,
+      "1": 0,
+      "2": 0
+    },
+    "f": {
+      "0": 0,
+      "1": 0
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "58ec13570d85b5efc5e459e1e234566a3bfb7eea"
+  },
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/components/Button/index.tsx": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/components/Button/index.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 9,
+          "column": 15
+        },
+        "end": {
+          "line": 15,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 10,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 4
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 9,
+            "column": 15
+          },
+          "end": {
+            "line": 9,
+            "column": 16
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 76
+          },
+          "end": {
+            "line": 15,
+            "column": 1
+          }
+        },
+        "line": 9
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 1,
+      "1": 0
+    },
+    "f": {
+      "0": 0
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "6fede1f27dcdb6df683cc1e2ea1151556a3c8d8f"
+  },
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/components/Icon/WarningIcon/index.tsx": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/components/Icon/WarningIcon/index.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 3,
+          "column": 24
+        },
+        "end": {
+          "line": 12,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 4,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 4
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 3,
+            "column": 24
+          },
+          "end": {
+            "line": 3,
+            "column": 25
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 30
+          },
+          "end": {
+            "line": 12,
+            "column": 1
+          }
+        },
+        "line": 3
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 1,
+      "1": 0
+    },
+    "f": {
+      "0": 0
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "a722a8dc6e32a5cb4f67898eae82f02691cd61db"
+  },
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/components/Input/index.tsx": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/components/Input/index.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 8,
+          "column": 14
+        },
+        "end": {
+          "line": 15,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 4
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 8,
+            "column": 14
+          },
+          "end": {
+            "line": 8,
+            "column": 15
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 70
+          },
+          "end": {
+            "line": 15,
+            "column": 1
+          }
+        },
+        "line": 8
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 1,
+      "1": 0
+    },
+    "f": {
+      "0": 0
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "c34b49c4141a7c93bd6789a20ffc30216ca77488"
+  },
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/components/Layout/Auth/index.tsx": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/components/Layout/Auth/index.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 11,
+          "column": 19
+        },
+        "end": {
+          "line": 24,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 23,
+          "column": 4
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 11,
+            "column": 19
+          },
+          "end": {
+            "line": 11,
+            "column": 20
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 69
+          },
+          "end": {
+            "line": 24,
+            "column": 1
+          }
+        },
+        "line": 11
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 1,
+      "1": 0
+    },
+    "f": {
+      "0": 0
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "de58481480823815e6a4653f875672438c8d026c"
+  },
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/screens/Login/index.tsx": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/screens/Login/index.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 13,
+          "column": 20
+        },
+        "end": {
+          "line": 60,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 14,
+          "column": 16
+        },
+        "end": {
+          "line": 14,
+          "column": 32
+        }
+      },
+      "2": {
+        "start": {
+          "line": 15,
+          "column": 36
+        },
+        "end": {
+          "line": 15,
+          "column": 73
+        }
+      },
+      "3": {
+        "start": {
+          "line": 16,
+          "column": 42
+        },
+        "end": {
+          "line": 16,
+          "column": 64
+        }
+      },
+      "4": {
+        "start": {
+          "line": 17,
+          "column": 40
+        },
+        "end": {
+          "line": 17,
+          "column": 55
+        }
+      },
+      "5": {
+        "start": {
+          "line": 19,
+          "column": 24
+        },
+        "end": {
+          "line": 31,
+          "column": 3
+        }
+      },
+      "6": {
+        "start": {
+          "line": 20,
+          "column": 19
+        },
+        "end": {
+          "line": 20,
+          "column": 21
+        }
+      },
+      "7": {
+        "start": {
+          "line": 21,
+          "column": 4
+        },
+        "end": {
+          "line": 23,
+          "column": 5
+        }
+      },
+      "8": {
+        "start": {
+          "line": 22,
+          "column": 6
+        },
+        "end": {
+          "line": 22,
+          "column": 42
+        }
+      },
+      "9": {
+        "start": {
+          "line": 24,
+          "column": 4
+        },
+        "end": {
+          "line": 26,
+          "column": 5
+        }
+      },
+      "10": {
+        "start": {
+          "line": 25,
+          "column": 6
+        },
+        "end": {
+          "line": 25,
+          "column": 45
+        }
+      },
+      "11": {
+        "start": {
+          "line": 27,
+          "column": 4
+        },
+        "end": {
+          "line": 29,
+          "column": 5
+        }
+      },
+      "12": {
+        "start": {
+          "line": 28,
+          "column": 6
+        },
+        "end": {
+          "line": 28,
+          "column": 44
+        }
+      },
+      "13": {
+        "start": {
+          "line": 30,
+          "column": 4
+        },
+        "end": {
+          "line": 30,
+          "column": 28
+        }
+      },
+      "14": {
+        "start": {
+          "line": 33,
+          "column": 23
+        },
+        "end": {
+          "line": 42,
+          "column": 3
+        }
+      },
+      "15": {
+        "start": {
+          "line": 34,
+          "column": 4
+        },
+        "end": {
+          "line": 34,
+          "column": 23
+        }
+      },
+      "16": {
+        "start": {
+          "line": 35,
+          "column": 4
+        },
+        "end": {
+          "line": 35,
+          "column": 25
+        }
+      },
+      "17": {
+        "start": {
+          "line": 36,
+          "column": 4
+        },
+        "end": {
+          "line": 40,
+          "column": 5
+        }
+      },
+      "18": {
+        "start": {
+          "line": 37,
+          "column": 6
+        },
+        "end": {
+          "line": 37,
+          "column": 31
+        }
+      },
+      "19": {
+        "start": {
+          "line": 39,
+          "column": 6
+        },
+        "end": {
+          "line": 39,
+          "column": 36
+        }
+      },
+      "20": {
+        "start": {
+          "line": 41,
+          "column": 4
+        },
+        "end": {
+          "line": 41,
+          "column": 26
+        }
+      },
+      "21": {
+        "start": {
+          "line": 44,
+          "column": 23
+        },
+        "end": {
+          "line": 46,
+          "column": 3
+        }
+      },
+      "22": {
+        "start": {
+          "line": 45,
+          "column": 4
+        },
+        "end": {
+          "line": 45,
+          "column": 76
+        }
+      },
+      "23": {
+        "start": {
+          "line": 48,
+          "column": 2
+        },
+        "end": {
+          "line": 59,
+          "column": 4
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 13,
+            "column": 20
+          },
+          "end": {
+            "line": 13,
+            "column": 21
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 39
+          },
+          "end": {
+            "line": 60,
+            "column": 1
+          }
+        },
+        "line": 13
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 19,
+            "column": 24
+          },
+          "end": {
+            "line": 19,
+            "column": 25
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 72
+          },
+          "end": {
+            "line": 31,
+            "column": 3
+          }
+        },
+        "line": 19
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": {
+            "line": 33,
+            "column": 23
+          },
+          "end": {
+            "line": 33,
+            "column": 24
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 33,
+            "column": 64
+          },
+          "end": {
+            "line": 42,
+            "column": 3
+          }
+        },
+        "line": 33
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": {
+            "line": 44,
+            "column": 23
+          },
+          "end": {
+            "line": 44,
+            "column": 24
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 44,
+            "column": 71
+          },
+          "end": {
+            "line": 46,
+            "column": 3
+          }
+        },
+        "line": 44
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": {
+            "line": 21,
+            "column": 4
+          },
+          "end": {
+            "line": 23,
+            "column": 5
+          }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": {
+              "line": 21,
+              "column": 4
+            },
+            "end": {
+              "line": 23,
+              "column": 5
+            }
+          },
+          {
+            "start": {
+              "line": 21,
+              "column": 4
+            },
+            "end": {
+              "line": 23,
+              "column": 5
+            }
+          }
+        ],
+        "line": 21
+      },
+      "1": {
+        "loc": {
+          "start": {
+            "line": 24,
+            "column": 4
+          },
+          "end": {
+            "line": 26,
+            "column": 5
+          }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": {
+              "line": 24,
+              "column": 4
+            },
+            "end": {
+              "line": 26,
+              "column": 5
+            }
+          },
+          {
+            "start": {
+              "line": 24,
+              "column": 4
+            },
+            "end": {
+              "line": 26,
+              "column": 5
+            }
+          }
+        ],
+        "line": 24
+      },
+      "2": {
+        "loc": {
+          "start": {
+            "line": 27,
+            "column": 4
+          },
+          "end": {
+            "line": 29,
+            "column": 5
+          }
+        },
+        "type": "if",
+        "locations": [
+          {
+            "start": {
+              "line": 27,
+              "column": 4
+            },
+            "end": {
+              "line": 29,
+              "column": 5
+            }
+          },
+          {
+            "start": {
+              "line": 27,
+              "column": 4
+            },
+            "end": {
+              "line": 29,
+              "column": 5
+            }
+          }
+        ],
+        "line": 27
+      },
+      "3": {
+        "loc": {
+          "start": {
+            "line": 51,
+            "column": 9
+          },
+          "end": {
+            "line": 51,
+            "column": 127
+          }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 51,
+              "column": 9
+            },
+            "end": {
+              "line": 51,
+              "column": 21
+            }
+          },
+          {
+            "start": {
+              "line": 51,
+              "column": 25
+            },
+            "end": {
+              "line": 51,
+              "column": 47
+            }
+          },
+          {
+            "start": {
+              "line": 51,
+              "column": 51
+            },
+            "end": {
+              "line": 51,
+              "column": 127
+            }
+          }
+        ],
+        "line": 51
+      }
+    },
+    "s": {
+      "0": 1,
+      "1": 1,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 0,
+      "21": 0,
+      "22": 0,
+      "23": 0
+    },
+    "f": {
+      "0": 1,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "b": {
+      "0": [
+        0,
+        0
+      ],
+      "1": [
+        0,
+        0
+      ],
+      "2": [
+        0,
+        0
+      ],
+      "3": [
+        0,
+        0,
+        0
+      ]
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "6dd71a2cce88df58c1e54a85071bf1020e1bc7a6"
+  },
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/routes/index.tsx": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/routes/index.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 6,
+          "column": 30
+        },
+        "end": {
+          "line": 11,
+          "column": 1
+        }
+      }
+    },
+    "fnMap": {},
+    "branchMap": {},
+    "s": {
+      "0": 1
+    },
+    "f": {},
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "7158d2432645fceb81c0cd7b1811b01b362c7952"
+  },
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/App.tsx": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/App.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 8,
+          "column": 12
+        },
+        "end": {
+          "line": 12,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 9,
+          "column": 20
+        },
+        "end": {
+          "line": 9,
+          "column": 37
+        }
+      },
+      "2": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 11,
+          "column": 26
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 8,
+            "column": 12
+          },
+          "end": {
+            "line": 8,
+            "column": 13
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 31
+          },
+          "end": {
+            "line": 12,
+            "column": 1
+          }
+        },
+        "line": 8
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 1,
+      "1": 2,
+      "2": 2
+    },
+    "f": {
+      "0": 2
+    },
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "d5e15da0afba6c6a2c12fbd8747099f6e43c83d2"
+  },
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/i18n.ts": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/i18n.ts",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 7,
+          "column": 34
+        },
+        "end": {
+          "line": 7,
+          "column": 40
+        }
+      },
+      "1": {
+        "start": {
+          "line": 9,
+          "column": 34
+        },
+        "end": {
+          "line": 9,
+          "column": 38
+        }
+      },
+      "2": {
+        "start": {
+          "line": 11,
+          "column": 22
+        },
+        "end": {
+          "line": 33,
+          "column": 1
+        }
+      },
+      "3": {
+        "start": {
+          "line": 12,
+          "column": 2
+        },
+        "end": {
+          "line": 32,
+          "column": 7
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 11,
+            "column": 22
+          },
+          "end": {
+            "line": 11,
+            "column": 23
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 34
+          },
+          "end": {
+            "line": 33,
+            "column": 1
+          }
+        },
+        "line": 11
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": {
+            "line": 25,
+            "column": 19
+          },
+          "end": {
+            "line": 25,
+            "column": 86
+          }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 25,
+              "column": 19
+            },
+            "end": {
+              "line": 25,
+              "column": 57
+            }
+          },
+          {
+            "start": {
+              "line": 25,
+              "column": 61
+            },
+            "end": {
+              "line": 25,
+              "column": 86
+            }
+          }
+        ],
+        "line": 25
+      }
+    },
+    "s": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "f": {
+      "0": 1
+    },
+    "b": {
+      "0": [
+        1,
+        1
+      ]
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "870397d92c495e7994151ebb351aa7b8e0664983"
+  },
+  "/Users/suphanat/sourcetree/react-nimble-survey/src/index.tsx": {
+    "path": "/Users/suphanat/sourcetree/react-nimble-survey/src/index.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 10,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 16
+        }
+      },
+      "1": {
+        "start": {
+          "line": 12,
+          "column": 18
+        },
+        "end": {
+          "line": 12,
+          "column": 64
+        }
+      },
+      "2": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
+          "column": 34
+        }
+      },
+      "3": {
+        "start": {
+          "line": 14,
+          "column": 0
+        },
+        "end": {
+          "line": 22,
+          "column": 2
+        }
+      },
+      "4": {
+        "start": {
+          "line": 27,
+          "column": 0
+        },
+        "end": {
+          "line": 27,
+          "column": 18
+        }
+      }
+    },
+    "fnMap": {},
+    "branchMap": {},
+    "s": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 1
+    },
+    "f": {},
+    "b": {},
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "ce71295feb3327a687836b515dc863a5bd612119"
+  }
+}

@@ -3,6 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { createRoot } from 'react-dom/client';
 
+import { AuthProvider } from 'contexts/AuthProvider';
+
 import App from './App';
 import configureI18n from './i18n';
 import reportWebVitals from './reportWebVitals';
@@ -15,7 +17,9 @@ root.render(
   <React.StrictMode>
     <Suspense fallback="loading">
       <BrowserRouter>
-        <App />
+        <AuthProvider>
+          <App />
+        </AuthProvider>
       </BrowserRouter>
     </Suspense>
   </React.StrictMode>
