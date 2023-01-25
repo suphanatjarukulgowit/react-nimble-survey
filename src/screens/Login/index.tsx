@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
+import axios from 'axios';
 import { isEmpty } from 'lodash';
 import validator from 'validator';
 
@@ -28,6 +29,7 @@ const LoginScreen = (): JSX.Element => {
       AuthAdapter.login(formInput.email, formInput.password)
         .then((response) => {
           setAuth(response?.data?.attributes);
+          axios.defaults.headers.common['Authorzation'] = `Bearer ${response?.data?.attributes.accessToken}`;
           navigate('/home');
         })
         .catch((error) => {
