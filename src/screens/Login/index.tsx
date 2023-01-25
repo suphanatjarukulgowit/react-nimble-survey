@@ -1,20 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import { isEmpty } from 'lodash';
 import validator from 'validator';
 
+import AuthAdapter from 'adapters/Auth';
 import Alert from 'components/Alert';
 import Button from 'components/Button';
 import WarningIcon from 'components/Icon/WarningIcon';
 import Input from 'components/Input';
 import AuthLayout from 'components/Layout/Auth';
+import useAuth from 'hooks/useAuth';
+import ApiError from 'lib/errors/ApiErrors';
 
 const LoginScreen = (): JSX.Element => {
+  const { setAuth } = useAuth();
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [formInput, setformInput] = useState({ email: '', password: '' });
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [formLoading, setFormLoading] = useState(false);
+  const [formValid, setFormValid] = useState(false);
+
+  useEffect(() => {
+    if (formValid) {
+      AuthAdapter.login(formInput.email, formInput.password)
+        .then((response) => {
+          setAuth(response?.data?.attributes);
+          navigate('/home');
+        })
+        .catch((error) => {
+          if (error instanceof ApiError) {
+            console.log('Api error', error);
+          } else {
+            console.log('else error : ', error);
+          }
+        });
+    }
+  }, [formValid, formInput, setAuth, navigate]);
+
   const validateInput = (input: { email: string; password: string }) => {
     const errors = [];
     if (!input.email) {
@@ -27,15 +52,13 @@ const LoginScreen = (): JSX.Element => {
       errors.push(t('error.email_invalid'));
     }
     setErrorMessage(errors);
+    setFormValid(isEmpty(errors));
   };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormLoading(true);
-    try {
-      validateInput(formInput);
-    } catch (error) {
-      console.log('error: ', error);
-    }
+    validateInput(formInput);
     setFormLoading(false);
   };
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
