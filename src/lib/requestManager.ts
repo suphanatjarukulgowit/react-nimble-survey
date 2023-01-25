@@ -14,6 +14,19 @@ export const defaultOptions: AxiosRequestConfig = {
   transformResponse: [...(axios.defaults.transformResponse as AxiosTransformer[]), (data) => camelizeKeys(data)],
 };
 
+const attachHeader = (requestOptions: AxiosRequestConfig) => {
+  const authValue = localStorage.getItem('auth');
+  if (authValue) {
+    const jsonAuth = JSON.parse(authValue);
+    requestOptions.headers = {
+      ...requestOptions.headers,
+      authorization: `Bearer ${jsonAuth.accessToken}`,
+    };
+  }
+
+  return requestOptions;
+};
+
 /**
  * The main API access function that comes preconfigured with useful defaults.
  *
@@ -36,6 +49,7 @@ const requestManager = (
     ...requestOptions,
   };
 
+  requestOptions = attachHeader(requestOptions);
   return axios
     .request(requestParams)
     .then((response: AxiosResponse) => {
