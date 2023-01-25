@@ -1,7 +1,17 @@
-import axios, { Method as HTTPMethod, ResponseType, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { Method as HTTPMethod, AxiosRequestConfig, AxiosResponse, AxiosTransformer } from 'axios';
+import { camelizeKeys } from 'humps';
+import _ from 'lodash';
 
-export const defaultOptions: { responseType: ResponseType } = {
+import ApiError from './errors/ApiErrors';
+
+export const defaultOptions: AxiosRequestConfig = {
+  baseURL: process.env.REACT_APP_API_BASE_URL,
   responseType: 'json',
+  transformRequest: [
+    (data) => _.mapKeys(data, (v, k) => _.snakeCase(k)),
+    ...(axios.defaults.transformRequest as AxiosTransformer[]),
+  ],
+  transformResponse: [...(axios.defaults.transformResponse as AxiosTransformer[]), (data) => camelizeKeys(data)],
 };
 
 /**
@@ -26,9 +36,18 @@ const requestManager = (
     ...requestOptions,
   };
 
-  return axios.request(requestParams).then((response: AxiosResponse) => {
-    return response.data;
-  });
+  return axios
+    .request(requestParams)
+    .then((response: AxiosResponse) => {
+      return response.data;
+    })
+    .catch((error) => {
+      if (axios.isAxiosError(error) && error.response) {
+        throw new ApiError(error.response);
+      } else {
+        throw error;
+      }
+    });
 };
 
 export default requestManager;
