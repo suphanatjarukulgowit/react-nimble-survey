@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { LocalStorageKey, setLocalStorageValue, getLocalStorageValue, removeLocalStorageValue } from 'lib/localStorage';
 import { Auths } from 'types/auth';
 
 type Nullable<T> = T | null;
@@ -8,17 +9,15 @@ const useLocalStorageAuth = (): [Nullable<Auths>, (authData: Nullable<Auths>) =>
   const [auth, setAuth] = useState<Nullable<Auths>>(null);
 
   useEffect(() => {
-    const authData = localStorage.getItem('auth');
-    if (authData) {
-      setAuth(JSON.parse(authData));
-    }
+    const authData = getLocalStorageValue(LocalStorageKey.auth);
+    setAuth(authData);
   }, []);
 
   useEffect(() => {
     if (auth) {
-      localStorage.setItem('auth', JSON.stringify(auth));
+      setLocalStorageValue(LocalStorageKey.auth, auth);
     } else {
-      localStorage.removeItem('auth');
+      removeLocalStorageValue(LocalStorageKey.auth);
     }
   }, [auth]);
 

@@ -4,7 +4,6 @@ import { screen, render, fireEvent, waitFor } from '@testing-library/react';
 
 import '@testing-library/jest-dom/extend-expect';
 import AuthAdapter from 'adapters/Auth';
-import ApiError from 'lib/errors/ApiErrors';
 
 import LoginScreen from '.';
 

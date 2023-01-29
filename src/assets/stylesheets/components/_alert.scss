@@ -59,4 +59,41 @@
       transform: skewX(0deg);
     }
   }
+<<<<<<< HEAD
+=======
+
+  .alert-icon {
+    position: absolute;
+    margin-top: 1.18rem;
+    margin-left: 1.18rem;
+  }
+}
+
+.alert-content {
+  ul {
+    padding-left: 4.68rem;
+
+    opacity: 0.6;
+
+    color: #fff;
+    font-family: 'Neuzeit S LT Std Nomal', sans-serif;
+    text-align: left;
+
+    li {
+      margin-right: 0.75rem;
+      margin-bottom: -5px;
+    }
+  }
+
+  .alert-header-title {
+    display: flex;
+    padding-top: 1rem;
+    padding-left: 3.75rem;
+
+    color: #fff;
+    font-family: 'Neuzeit S LT Std Bold', sans-serif;
+    font-weight: bold;
+    letter-spacing: -0.24px;
+  }
+>>>>>>> bd6b87b ([#6] Fix bug when user login and try to refresh the page then redirect to login page and add error message when email or password is incorrect)
 }
