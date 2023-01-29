@@ -2,7 +2,10 @@ import axios, { Method as HTTPMethod, AxiosRequestConfig, AxiosResponse, AxiosTr
 import { camelizeKeys } from 'humps';
 import _ from 'lodash';
 
+import AuthAdapter from 'adapters/Auth';
+
 import ApiError from './errors/ApiErrors';
+import { getLocalStorageValue, LocalStorageKey, setLocalStorageValue, removeLocalStorageValue } from './localStorage';
 
 export const defaultOptions: AxiosRequestConfig = {
   baseURL: process.env.REACT_APP_API_BASE_URL,
@@ -14,18 +17,29 @@ export const defaultOptions: AxiosRequestConfig = {
   transformResponse: [...(axios.defaults.transformResponse as AxiosTransformer[]), (data) => camelizeKeys(data)],
 };
 
-const attachHeader = (requestOptions: AxiosRequestConfig) => {
-  const authValue = localStorage.getItem('auth');
-  if (authValue) {
-    const jsonAuth = JSON.parse(authValue);
-    requestOptions.headers = {
-      ...requestOptions.headers,
-      authorization: `Bearer ${jsonAuth.accessToken}`,
-    };
+axios.interceptors.response.use(
+  (resp) => resp,
+  async (error) => {
+    if (error.response.status === 401) {
+      const authData = getLocalStorageValue(LocalStorageKey.auth);
+      if (authData) {
+        AuthAdapter.refresh(authData.refreshToken)
+          .then((response) => {
+            setLocalStorageValue(LocalStorageKey.auth, response?.data?.attributes);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${response?.data?.attributes.accessToken}`;
+            return axios(error.config);
+          })
+          .catch(() => {
+            removeLocalStorageValue(LocalStorageKey.auth);
+            window.location.href = '/';
+          });
+      }
+    } else {
+      return Promise.reject(error);
+    }
+    return error;
   }
-
-  return requestOptions;
-};
+);
 
 /**
  * The main API access function that comes preconfigured with useful defaults.
@@ -49,11 +63,12 @@ const requestManager = (
     ...requestOptions,
   };
 
-  requestOptions = attachHeader(requestOptions);
   return axios
     .request(requestParams)
     .then((response: AxiosResponse) => {
-      return response.data;
+      if (response.status >= 200 && response.status < 300) {
+        return response.data;
+      }
     })
     .catch((error) => {
       if (axios.isAxiosError(error) && error.response) {
