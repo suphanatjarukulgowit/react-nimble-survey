@@ -1,25 +1,25 @@
 const loginScreenTestIds = {
-    loginHeader: 'login-header',
-    loginForm: 'login-form',
-    loginEmail: 'login-form__input-email',
-    loginPassWord: 'login-form__input-password',
-    loginSubmit: 'login-form__button-submit',
-  };
+  loginHeader: 'login-header',
+  loginForm: 'login-form',
+  loginEmail: 'login-form__input-email',
+  loginPassWord: 'login-form__input-password',
+  loginSubmit: 'login-form__button-submit',
+};
 describe('Login page', () => {
-    it('render the login page with the right element', () => {
-        cy.visit('/');
-        cy.get('.app-header-title').should('have.text', 'Sign in to Nimble');
-        cy.findByTestId(loginScreenTestIds.loginEmail).should('exist');
-        cy.findByTestId(loginScreenTestIds.loginPassWord).should('exist');
-        cy.findByTestId(loginScreenTestIds.loginForm).should('exist');
-      });
-    describe('given valid credentials', () => {
-        it('redirect to survey homepage', () => {
-            cy.visit('/');
-            cy.findByTestId(loginScreenTestIds.loginEmail).type('suphanat@nimblehq.co');
-            cy.findByTestId(loginScreenTestIds.loginPassWord).type('12345678');
-            cy.findByTestId(loginScreenTestIds.loginForm).submit();
-            cy.location('pathname').should('equal', '/home')
-        });
+  it('render the login page with the right element', () => {
+    cy.visit('/');
+    cy.get('.app-header-title').should('have.text', 'Sign in to Nimble');
+    cy.findByTestId(loginScreenTestIds.loginEmail).should('exist');
+    cy.findByTestId(loginScreenTestIds.loginPassWord).should('exist');
+    cy.findByTestId(loginScreenTestIds.loginForm).should('exist');
+  });
+  describe('given valid credentials', () => {
+    it('redirect to survey homepage', () => {
+      cy.visit('/');
+      cy.findByTestId(loginScreenTestIds.loginEmail).type('suphanat@nimblehq.co');
+      cy.findByTestId(loginScreenTestIds.loginPassWord).type('12345678');
+      cy.findByTestId(loginScreenTestIds.loginForm).submit();
+      cy.location('pathname').should('equal', '/home');
     });
-})
+  });
+});

@@ -14,15 +14,13 @@ configureI18n();
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 root.render(
-  <React.StrictMode>
-    <Suspense fallback="loading">
-      <BrowserRouter>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </BrowserRouter>
-    </Suspense>
-  </React.StrictMode>
+  <Suspense fallback="loading">
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </Suspense>
 );
 
 // If you want to start measuring performance in your app, pass a function
