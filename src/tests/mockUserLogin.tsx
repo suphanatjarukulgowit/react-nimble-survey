@@ -1,4 +1,3 @@
-import useAuth from 'hooks/useAuth';
 import { Auths, TokenType } from 'types/auth';
 
 export const mockTokens: Auths = {

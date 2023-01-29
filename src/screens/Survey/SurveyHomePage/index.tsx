@@ -19,7 +19,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
         console.log(error);
       });
   };
-  useEffect(fetchUserProfile, []);
+  useEffect(fetchUserProfile, [fetchUserProfile]);
   const testLogOut = () => {
     if (auth) {
       AuthAdapter.logOut(auth.accessToken)

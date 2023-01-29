@@ -53,8 +53,9 @@ const LoginScreen = (): JSX.Element => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setformInput({ ...formInput, [event.target.name]: event.target.value });
   };
-  const alreadyLogin = () => {
+  const checkAuth = () => {
     if (auth) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${auth.accessToken}`;
       navigate('/home');
     }
   };
@@ -64,18 +65,19 @@ const LoginScreen = (): JSX.Element => {
         .then((response) => {
           setAuth(response?.data?.attributes);
           axios.defaults.headers.common['Authorization'] = `Bearer ${response?.data?.attributes.accessToken}`;
-          navigate('/home');
         })
         .catch((error) => {
           if (error instanceof ApiError) {
+            console.log('api error');
             setErrorMessage(error.toString());
           } else {
+            console.log('common error');
             setErrorMessage([t('error.system_error')]);
           }
         });
     }
   };
-  useEffect(alreadyLogin, [navigate, auth]);
+  useEffect(checkAuth, [auth]);
   useEffect(triggerLogin, [formValid]);
   return (
     <AuthLayout headerMessage={t('auth.heading')} data-test-id={loginScreenTestIds.loginHeader}>

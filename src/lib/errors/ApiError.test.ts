@@ -43,7 +43,7 @@ describe('ApiError', () => {
 
         const apiError = new ApiError(axiosResponse);
 
-        expect(apiError.toString().join(",")).toBe('Your email or password is incorrect. Please try again.');
+        expect(apiError.toString().join(',')).toBe('Your email or password is incorrect. Please try again.');
       });
     });
 
@@ -67,7 +67,7 @@ describe('ApiError', () => {
 
         const apiError = new ApiError(axiosResponse);
 
-        expect(apiError.toString().join(",")).toBe('Your email cannot be blank,Your password cannot be blank');
+        expect(apiError.toString().join(',')).toBe('Your email cannot be blank,Your password cannot be blank');
       });
     });
   });
