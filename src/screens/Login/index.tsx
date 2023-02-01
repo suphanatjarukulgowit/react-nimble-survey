@@ -81,8 +81,8 @@ const LoginScreen = (): JSX.Element => {
         });
     }
   };
-  useEffect(checkAuth, [auth]);
-  useEffect(triggerLogin, [formValid]);
+  useEffect(checkAuth, [auth, navigate]);
+  useEffect(triggerLogin, [formValid, formInput, setAuth, navigate, t]);
   return (
     <AuthLayout headerMessage={t('auth.heading')} data-test-id={loginScreenTestIds.loginHeader}>
       <div className="form-group">
