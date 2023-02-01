@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 
 import RequireAuth from 'components/RequireAuth';
-import useAuth from 'hooks/useAuth';
 import { mockTokens } from 'tests/mockUserLogin';
 import { renderWithMemoryRouter } from 'tests/renderWithRouter';
 
@@ -43,13 +42,9 @@ const renderRoutes = (initialPath: string) => {
 
 const RequireAuthComponentMock = (): JSX.Element => {
   const [auth, setAuth] = useState({});
-  // mockTokensLoggedIn()
   useEffect(() => {
     setAuth(mockTokens);
   }, []);
-  // <RequireAuth>
-  //   <div>{HOME_ROUTE.content}</div>
-  // </RequireAuth>;
   return auth ? <div>{HOME_ROUTE.content}</div> : <div></div>;
 };
 

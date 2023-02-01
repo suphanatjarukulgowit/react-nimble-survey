@@ -12,7 +12,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType>({
   auth: null,
-  setAuth: (_authData: any) => {
+  setAuth: (_authData: Nullable<Auths>) => {
     // this is just to prevent lint error
   },
 });
