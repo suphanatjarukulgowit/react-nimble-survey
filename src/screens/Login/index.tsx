@@ -65,13 +65,12 @@ const LoginScreen = (): JSX.Element => {
         .then((response) => {
           setAuth(response?.data?.attributes);
           axios.defaults.headers.common['Authorization'] = `Bearer ${response?.data?.attributes.accessToken}`;
+          navigate('/home');
         })
         .catch((error) => {
           if (error instanceof ApiError) {
-            console.log('api error');
             setErrorMessage(error.toString());
           } else {
-            console.log('common error');
             setErrorMessage([t('error.system_error')]);
           }
         });
