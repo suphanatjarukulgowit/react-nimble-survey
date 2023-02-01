@@ -66,9 +66,7 @@ const requestManager = (
   return axios
     .request(requestParams)
     .then((response: AxiosResponse) => {
-      if (response.status >= 200 && response.status < 300) {
-        return response.data;
-      }
+      return response.data;
     })
     .catch((error) => {
       if (axios.isAxiosError(error) && error.response) {
