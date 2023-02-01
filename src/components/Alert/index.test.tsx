@@ -14,7 +14,7 @@ const testAlerData = {
 };
 
 describe('Alert', () => {
-  beforeEach(() => {
+  it('render the alert container', () => {
     render(
       <Alert
         Icon={WarningIcon}
@@ -23,20 +23,42 @@ describe('Alert', () => {
         errorMessage={testAlerData.errorMessage}
       ></Alert>
     );
-  });
-  it('render the alert container', () => {
     const container = screen.getByTestId(testAlerData.dataTestId);
     expect(container).toBeVisible();
   });
   it('render the alert icon', () => {
+    render(
+      <Alert
+        Icon={WarningIcon}
+        alertHeader={testAlerData.alertHeader}
+        dataTestId={testAlerData.dataTestId}
+        errorMessage={testAlerData.errorMessage}
+      ></Alert>
+    );
     const icon = screen.getByTestId(testAlerData.icon);
     expect(icon).toBeVisible();
   });
   it('render the header', () => {
+    render(
+      <Alert
+        Icon={WarningIcon}
+        alertHeader={testAlerData.alertHeader}
+        dataTestId={testAlerData.dataTestId}
+        errorMessage={testAlerData.errorMessage}
+      ></Alert>
+    );
     const header = screen.getByText(testAlerData.alertHeader);
     expect(header).toBeVisible();
   });
   it('render the message', () => {
+    render(
+      <Alert
+        Icon={WarningIcon}
+        alertHeader={testAlerData.alertHeader}
+        dataTestId={testAlerData.dataTestId}
+        errorMessage={testAlerData.errorMessage}
+      ></Alert>
+    );
     const message = screen.getByText(testAlerData.errorMessage[0]);
     expect(message).toBeVisible();
   });
