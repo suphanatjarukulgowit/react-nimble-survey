@@ -24,24 +24,21 @@ jest.mock('react-router-dom', () => ({
 }));
 
 const setup = () => {
-  const s = screen;
-  const emailInput = s.getByTestId(loginScreenTestIds.loginEmail);
-  const passwordInput = s.getByTestId(loginScreenTestIds.loginPassWord);
-  const submitButton = s.getByTestId(loginScreenTestIds.loginSubmit);
+  const emailInput = screen.getByTestId(loginScreenTestIds.loginEmail);
+  const passwordInput = screen.getByTestId(loginScreenTestIds.loginPassWord);
+  const submitButton = screen.getByTestId(loginScreenTestIds.loginSubmit);
   return {
     emailInput,
     passwordInput,
     submitButton,
-    ...s,
+    ...screen,
   };
 };
 
 describe('LoginScreen', () => {
-  beforeEach(() => {
-    render(<LoginScreen />);
-  });
   describe('given invalid credentials', () => {
     test('display an error message if email is blank', () => {
+      render(<LoginScreen />);
       const { emailInput, passwordInput, submitButton, getByText } = setup();
       fireEvent.change(emailInput, { target: { value: '' } });
       fireEvent.change(passwordInput, { target: { value: 'xxxxxxx' } });
@@ -51,6 +48,7 @@ describe('LoginScreen', () => {
     });
 
     test('display an error message if password is blank', () => {
+      render(<LoginScreen />);
       const { emailInput, passwordInput, submitButton, getByText } = setup();
       fireEvent.change(emailInput, { target: { value: 'xxxxxxx' } });
       fireEvent.change(passwordInput, { target: { value: '' } });
@@ -60,6 +58,7 @@ describe('LoginScreen', () => {
     });
 
     test('display an error message if email is invalid', () => {
+      render(<LoginScreen />);
       const { emailInput, passwordInput, submitButton, getByText } = setup();
       fireEvent.change(emailInput, { target: { value: 'xxxxxxx' } });
       fireEvent.change(passwordInput, { target: { value: '12345678' } });
@@ -70,6 +69,7 @@ describe('LoginScreen', () => {
   });
   describe('given valid credentials', () => {
     test('redirect user to survey home page', async () => {
+      render(<LoginScreen />);
       const mockedLogin = AuthAdapter.login as jest.Mock;
       mockedLogin.mockResolvedValue(null);
 
