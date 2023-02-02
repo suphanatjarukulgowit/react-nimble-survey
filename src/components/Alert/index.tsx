@@ -1,18 +1,20 @@
 import React, { ComponentType } from 'react';
 
-interface AlertProps {
+export type AlertProps = {
   Icon: ComponentType;
+  dataTestId?: string;
+  alertHeader?: string;
   errorMessage: string[];
-}
+};
 
-const Alert = ({ Icon, errorMessage }: AlertProps): JSX.Element => {
+const Alert = ({ Icon, dataTestId, alertHeader, errorMessage }: AlertProps): JSX.Element => {
   return (
-    <div className="alert">
+    <div data-test-id={dataTestId} className="alert">
       <div className="alert-content">
-        <div className="alert-icon">
+        <div className="alert-icon" data-test-id="alert-icon">
           <Icon />
         </div>
-        <div className="alert-header-title">Error</div>
+        <div className="alert-header-title">{alertHeader}</div>
         <ul>
           {errorMessage.map((message, index) => (
             <li key={index}>{message}</li>

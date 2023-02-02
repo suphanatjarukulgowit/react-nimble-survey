@@ -10,6 +10,7 @@
     "heading": "Sign in to Nimble"
   },
   "error": {
+    "system_error" : "There's something wrong please try again later",
     "password_blank" : "Password can't be blank",
     "email_blank" : "Email can't be blank",
     "email_invalid" : "Email is invalid"

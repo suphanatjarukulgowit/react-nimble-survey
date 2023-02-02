@@ -2,13 +2,20 @@ import { AxiosResponse } from 'axios';
 
 class ApiError extends Error {
   public status: number;
-  public error: any;
+  headers: { [key: string]: string };
+  errors: [{ code: string; detail: string }];
 
-  constructor(response: AxiosResponse) {
-    super(response.statusText);
-    this.status = response.status;
-    this.error = response.data.error;
+  constructor({ status, headers, data }: AxiosResponse) {
+    super();
+    this.name = 'Error';
+    this.status = status;
+    this.headers = headers;
+    this.errors = data.errors;
   }
+
+  toString = (): string[] => {
+    return this.errors.map(({ detail }) => detail);
+  };
 }
 
 export default ApiError;

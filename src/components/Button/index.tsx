@@ -2,13 +2,14 @@ import React from 'react';
 
 interface ButtonProps {
   name: string;
+  dataTestId?: string;
   disabled?: boolean;
   className?: string;
 }
 
-const Button = ({ name, disabled, className }: ButtonProps): JSX.Element => {
+const Button = ({ name, dataTestId, disabled, className }: ButtonProps): JSX.Element => {
   return (
-    <button disabled={disabled} className={className}>
+    <button disabled={disabled} className={className} data-test-id={dataTestId}>
       {name}
     </button>
   );
