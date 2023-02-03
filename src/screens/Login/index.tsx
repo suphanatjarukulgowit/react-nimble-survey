@@ -15,33 +15,21 @@ import AuthLayout from 'components/Layout/Auth';
 import useAuth from 'hooks/useAuth';
 import ApiError from 'lib/errors/ApiErrors';
 
+const loginScreenTestIds = {
+  loginHeader: 'login-header',
+  loginEmail: 'login-form__input-email',
+  loginPassWord: 'login-form__input-password',
+  loginSubmit: 'login-form__button-submit',
+  loginAlertError: 'login-alert-error',
+};
 const LoginScreen = (): JSX.Element => {
-  const { setAuth } = useAuth();
+  const { auth, setAuth } = useAuth();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [formInput, setformInput] = useState({ email: '', password: '' });
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [formLoading, setFormLoading] = useState(false);
   const [formValid, setFormValid] = useState(false);
-
-  useEffect(() => {
-    if (formValid) {
-      AuthAdapter.login(formInput.email, formInput.password)
-        .then((response) => {
-          setAuth(response?.data?.attributes);
-          axios.defaults.headers.common['Authorzation'] = `Bearer ${response?.data?.attributes.accessToken}`;
-          navigate('/home');
-        })
-        .catch((error) => {
-          if (error instanceof ApiError) {
-            console.log('Api error', error);
-          } else {
-            console.log('else error : ', error);
-          }
-        });
-    }
-  }, [formValid, formInput, setAuth, navigate]);
-
   const validateInput = (input: { email: string; password: string }) => {
     const errors = [];
     if (!input.email) {
@@ -56,7 +44,6 @@ const LoginScreen = (): JSX.Element => {
     setErrorMessage(errors);
     setFormValid(isEmpty(errors));
   };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormLoading(true);
@@ -66,15 +53,62 @@ const LoginScreen = (): JSX.Element => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setformInput({ ...formInput, [event.target.name]: event.target.value });
   };
-
+  const alreadyLogin = () => {
+    if (auth) {
+      navigate('/home');
+    }
+  };
+  const triggerLogin = () => {
+    if (formValid) {
+      AuthAdapter.login(formInput.email, formInput.password)
+        .then((response) => {
+          setAuth(response?.data?.attributes);
+          axios.defaults.headers.common['Authorization'] = `Bearer ${response?.data?.attributes.accessToken}`;
+          navigate('/home');
+        })
+        .catch((error) => {
+          if (error instanceof ApiError) {
+            setErrorMessage(error.toString());
+          } else {
+            setErrorMessage([t('error.system_error')]);
+          }
+        });
+    }
+  };
+  useEffect(alreadyLogin, [navigate, auth]);
+  useEffect(triggerLogin, [formValid]);
   return (
-    <AuthLayout headerMessage={t('auth.heading')}>
+    <AuthLayout headerMessage={t('auth.heading')} data-test-id={loginScreenTestIds.loginHeader}>
       <div className="form-group">
-        {errorMessage && !isEmpty(errorMessage) && <Alert Icon={WarningIcon} errorMessage={errorMessage}></Alert>}
+        {errorMessage && !isEmpty(errorMessage) && (
+          <Alert
+            Icon={WarningIcon}
+            alertHeader="Error"
+            errorMessage={errorMessage}
+            dataTestId={loginScreenTestIds.loginAlertError}
+          ></Alert>
+        )}
         <form onSubmit={handleSubmit}>
-          <Input label={t('auth.sign_in')} onChange={handleChange} type="text" name="email"></Input>
-          <Input label={t('auth.password')} onChange={handleChange} type="password" name="password"></Input>
-          <Button disabled={formLoading} name={t('auth.sign_in')} className="sign-in-btn"></Button>
+          <Input
+            label={t('auth.sign_in')}
+            onChange={handleChange}
+            type="text"
+            name="email"
+            data-test-id={loginScreenTestIds.loginEmail}
+          ></Input>
+          <Input
+            label={t('auth.password')}
+            onChange={handleChange}
+            type="password"
+            name="password"
+            data-test-id={loginScreenTestIds.loginPassWord}
+          ></Input>
+          <Button
+            disabled={formLoading}
+            name={t('auth.sign_in')}
+            className="sign-in-btn"
+            dataTestId={loginScreenTestIds.loginSubmit}
+          ></Button>
         </form>
       </div>
     </AuthLayout>
