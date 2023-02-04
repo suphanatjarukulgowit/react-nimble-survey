@@ -104,12 +104,9 @@ const LoginScreen = (): JSX.Element => {
             name="password"
             data-test-id={loginScreenTestIds.loginPassWord}
           ></Input>
-          <Button
-            disabled={formLoading}
-            name={t('auth.sign_in')}
-            className="sign-in-btn"
-            dataTestId={loginScreenTestIds.loginSubmit}
-          ></Button>
+          <Button disabled={formLoading} className="sign-in-btn" dataTestId={loginScreenTestIds.loginSubmit}>
+            {t('auth.sign_in')}
+          </Button>
         </form>
       </div>
     </AuthLayout>

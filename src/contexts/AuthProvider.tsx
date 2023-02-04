@@ -1,18 +1,26 @@
 import React, { createContext } from 'react';
 
-import useLocalStorageAuth from 'hooks/useLocalStorageAuth';
+import useLocalStorage from 'hooks/useLocalStorageAuth';
+import { LocalStorageKey } from 'lib/localStorage';
 import { Auths } from 'types/auth';
+import { UserProfile } from 'types/userProfile';
 
 type Nullable<T> = T | null;
 
 interface AuthContextType {
   auth: Nullable<Auths>;
   setAuth: (authData: Nullable<Auths>) => void;
+  userProfile: Nullable<UserProfile>;
+  setUserProfile: (userData: Nullable<UserProfile>) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
   auth: null,
-  setAuth: (_authData: Nullable<Auths>) => {
+  setAuth: () => {
+    // this is just to prevent lint error
+  },
+  userProfile: null,
+  setUserProfile: () => {
     // this is just to prevent lint error
   },
 });
@@ -22,7 +30,8 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [auth, setAuth] = useLocalStorageAuth();
-  return <AuthContext.Provider value={{ auth, setAuth }}>{children}</AuthContext.Provider>;
+  const [auth, setAuth] = useLocalStorage(LocalStorageKey.auth);
+  const [userProfile, setUserProfile] = useLocalStorage(LocalStorageKey.userProfile);
+  return <AuthContext.Provider value={{ auth, setAuth, userProfile, setUserProfile }}>{children}</AuthContext.Provider>;
 };
 export default AuthContext;

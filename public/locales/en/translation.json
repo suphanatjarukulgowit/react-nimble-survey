@@ -5,6 +5,7 @@
   },
   "auth": {
     "sign_in": "Sign in",
+    "sign_out": "Logout",
     "password": "Password",
     "email": "Email",
     "heading": "Sign in to Nimble"
