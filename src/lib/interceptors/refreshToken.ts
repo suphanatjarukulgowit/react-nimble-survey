@@ -18,7 +18,7 @@ axios.interceptors.response.use(
         AuthAdapter.refresh(jsonAuth.refreshToken)
           .then((response) => {
             setAuth(response?.data?.attributes);
-            axios.defaults.headers.common['Authorzation'] = `Bearer ${response?.data?.attributes.accessToken}`;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${response?.data?.attributes.accessToken}`;
             return axios(error.config);
           })
           .catch((error) => {
