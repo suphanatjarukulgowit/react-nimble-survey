@@ -1,15 +1,15 @@
 import React from 'react';
 
-interface ButtonProps {
-  name: string;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  dataTestId?: string;
   disabled?: boolean;
   className?: string;
 }
 
-const Button = ({ name, disabled, className, ...props }: ButtonProps): JSX.Element => {
+const Button = ({ dataTestId, disabled, className, children, ...props }: ButtonProps): JSX.Element => {
   return (
-    <button disabled={disabled} className={className} {...props}>
-      {name}
+    <button disabled={disabled} className={className} data-test-id={dataTestId} {...props}>
+      {children}
     </button>
   );
 };
