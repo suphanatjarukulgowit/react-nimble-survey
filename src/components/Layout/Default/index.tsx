@@ -13,6 +13,12 @@ export type DefaultLayoutProps = {
   children?: React.ReactNode;
 };
 
+const defaultLayoutDataTestIds = {
+  layoutDefault: 'layoutDefault',
+  appLogo: 'appLogo',
+  userProfile: 'userProfile',
+};
+
 const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   // const { t } = useTranslation();
   const { auth, userProfile, setAuth, setUserProfile } = useAuth();
@@ -33,13 +39,15 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <HelmetProvider>
       <Helmet>
-        <html lang="en" className="layout-default"></html>
+        <html lang="en" data-test-id={defaultLayoutDataTestIds.layoutDefault} className="layout-default"></html>
       </Helmet>
       <header>
         <Link to="/home">
-          <Logo></Logo>
+          <Logo dataTestId={defaultLayoutDataTestIds.appLogo}></Logo>
         </Link>
-        {userProfile && <UserProfileData userProfile={userProfile} onLogout={logout} />}
+        {userProfile && (
+          <UserProfileData data-test-id={defaultLayoutDataTestIds.userProfile} userProfile={userProfile} onLogout={logout} />
+        )}
       </header>
       <main>{children}</main>
     </HelmetProvider>

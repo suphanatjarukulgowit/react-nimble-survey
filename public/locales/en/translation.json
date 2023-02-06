@@ -15,5 +15,8 @@
     "password_blank" : "Password can't be blank",
     "email_blank" : "Email can't be blank",
     "email_invalid" : "Email is invalid"
+  },
+  "survey":{
+    "today" : "Today"
   }
 }

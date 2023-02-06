@@ -1,10 +1,14 @@
 import React from 'react';
 
+type LogoProps = {
+  dataTestId: string;
+};
+
 import logo from 'assets/images/logo.svg';
-const Logo = () => {
+const Logo = ({ dataTestId }: LogoProps) => {
   return (
     <div>
-      <img src={logo} className="app-logo" alt="logo" />
+      <img src={logo} data-test-id={dataTestId} className="app-logo" alt="logo" />
     </div>
   );
 };
