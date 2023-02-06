@@ -4,7 +4,7 @@ const userProfileDatatestIds = {
   userAvatar: 'userAvatar',
   logOutButton: 'loggoutButton',
   appVersion: 'appVersion',
-  userProfileContainer: 'userProfileContainer'
+  userProfileContainer: 'userProfileContainer',
 };
 const defaultLayoutDataTestIds = {
   layoutDefault: 'layoutDefault',
@@ -16,7 +16,6 @@ describe('Survey Home Page', () => {
     cy.login();
     cy.findByTestId(defaultLayoutDataTestIds.layoutDefault).should('exist');
     cy.findByTestId(defaultLayoutDataTestIds.appLogo).should('exist');
-
   });
   it('render the user profile after click user avatar', () => {
     cy.login();
@@ -28,7 +27,9 @@ describe('Survey Home Page', () => {
   it('hide suer profile after click user avatar', () => {
     cy.login();
     cy.get('[data-test-id="userAvatar"] > .user-button > .user-avatar').click();
-    cy.findByTestId(userProfileDatatestIds.userProfileContainer).should('have.class', 'user-menu__collapse user-menu__collapse--open')
+    cy.findByTestId(userProfileDatatestIds.userProfileContainer).should(
+      'have.class',
+      'user-menu__collapse user-menu__collapse--open'
+    );
   });
 });
-  
