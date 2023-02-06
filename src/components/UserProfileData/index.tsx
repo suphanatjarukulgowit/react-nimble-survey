@@ -11,6 +11,15 @@ interface UserProfileProps {
   onLogout: () => void;
 }
 
+const userProfileDatatestIds = {
+  userName: 'userName',
+  userLine: 'userLine',
+  userAvatar: 'userAvatar',
+  logOutButton: 'loggoutButton',
+  appVersion: 'appVersion',
+  userProfileContainer: 'userProfileContainer',
+};
+
 const UserProfileData = ({ userProfile, onLogout }: UserProfileProps) => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -38,15 +47,21 @@ const UserProfileData = ({ userProfile, onLogout }: UserProfileProps) => {
 
   return (
     <>
-      <AvatarToggler />
-      <div className={collapseClasses} ref={userMenuCollapseRef}>
+      <div data-test-id={userProfileDatatestIds.userAvatar}>
         <AvatarToggler />
-        <div className="user-name">{userProfile?.name}</div>
-        <hr className="user-line" />
-        <Button className="logout-button" onClick={onLogout}>
+      </div>
+      <div data-test-id={userProfileDatatestIds.userProfileContainer} className={collapseClasses} ref={userMenuCollapseRef}>
+        <AvatarToggler />
+        <div data-test-id={userProfileDatatestIds.userName} className="user-name">
+          {userProfile?.name}
+        </div>
+        <hr data-test-id={userProfileDatatestIds.userLine} className="user-line" />
+        <Button data-test-id={userProfileDatatestIds.logOutButton} className="logout-button" onClick={onLogout}>
           {t('auth.sign_out')}
         </Button>
-        <span className="app-version">{process.env.REACT_APP_VERSION}</span>
+        <span data-test-id={userProfileDatatestIds.appVersion} className="app-version">
+          {process.env.REACT_APP_VERSION}
+        </span>
       </div>
     </>
   );

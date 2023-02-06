@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
-import { me } from 'adapters/User';import DefaultLayout from 'components/Layout/Default';
+import { me } from 'adapters/User';
+import DefaultLayout from 'components/Layout/Default';
 import useAuth from 'hooks/useAuth';
 
 import SurveyList from '../../../components/SurveyList';

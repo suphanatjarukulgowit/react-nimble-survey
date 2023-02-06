@@ -17,11 +17,11 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType>({
   auth: null,
   setAuth: () => {
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   },
   userProfile: null,
   setUserProfile: () => {
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   },
 });
 
