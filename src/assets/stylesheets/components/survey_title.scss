@@ -1,0 +1,26 @@
+.survey-title {
+  flex-direction: column;
+  align-items: left;
+  margin-top: 32px;
+  color: #ffffff;
+  h1 {
+    font-family: 'Neuzeit S LT Std Bold', sans-serif;
+    font-style: bold;
+    font-size: 22px;
+    font-weight: 800;
+  }
+  .survey-description {
+    padding-right: 0.5rem;
+    opacity: 0.6;
+    font-family: 'Neuzeit S LT Std Normal', sans-serif;
+    font-style: normal;
+    font-size: 17px;
+  }
+}
+.survey-link {
+  position: absolute;
+  left: 70.56%;
+  right: 25.56%;
+  top: 67.38%;
+  bottom: 25.62%;
+}
