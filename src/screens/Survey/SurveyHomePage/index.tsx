@@ -42,7 +42,11 @@ const SurveyHomepageScreen = (): JSX.Element => {
   const onSlideChange = async (swiper: Swiper) => {
     setSurveyBackground(surveys[swiper.activeIndex].attributes.coverImageUrl);
   };
-  useEffect(fetchUserProfile, []);
+  useEffect(
+    fetchUserProfile,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
   useEffect(() => {
     fetchSurveyList();
   }, [fetchSurveyList]);
