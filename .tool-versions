@@ -1,2 +1,2 @@
-nodejs >=18.0.0
+nodejs 18.13.0 LTS
 nvm >=0.39.0
