@@ -1,5 +1,5 @@
 export type Survey = {
-    attributes: Attributes;
+  attributes: Attributes;
 };
 type Attributes = {
   id: string;
@@ -7,4 +7,4 @@ type Attributes = {
   description: string;
   coverImageUrl: string;
   createdAt: string;
-}
+};
