@@ -4,13 +4,13 @@ import { Mousewheel, Pagination, Swiper as SwiperInterface } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/swiper.min.css';
-import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper-bundle.css';
 
 import TodayDate from 'components/TodayDate';
 import { Survey } from 'types/survey';
 
 import SurveyItem from './SurveyItem';
-
+import styles from './SurveyList.module.css';
 export interface SurveyListProps extends React.HTMLAttributes<HTMLDivElement> {
   onSlideChange: (swiper: SwiperInterface) => void;
   surveys: Survey[];
@@ -26,12 +26,12 @@ const SurveyList = ({ surveys, onSlideChange }: SurveyListProps) => {
         <Swiper
           slidesPerView={1}
           modules={[Mousewheel, Pagination]}
-          navigation
-          speed={850}
+          speed={750}
           pagination={{
             clickable: true,
-            // el: '.swiper-pagination',
-            // bulletClass: `swiper-pagination-bullet swiper-pagination-test`,
+            type: 'bullets',
+            el: '.swiper-pagination',
+            bulletClass: `swiper-pagination-bullet ${styles.swiperPaginationBullet}`,
           }}
           className="swiper"
           onSlideChange={onSlideChange}
@@ -42,6 +42,9 @@ const SurveyList = ({ surveys, onSlideChange }: SurveyListProps) => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <div className={styles.swiperPaginationContainer}>
+          <div className="swiper-pagination"></div>
+        </div>
       </div>
     </>
   );

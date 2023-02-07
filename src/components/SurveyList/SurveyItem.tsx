@@ -5,7 +5,6 @@ import action from 'assets/images/action.svg';
 import { getHiResImageUrl } from 'helpers/image';
 import { Survey } from 'types/survey';
 
-// import styles from './SurveyList.module.css';
 interface SurveyItemProps {
   survey: Survey;
 }
@@ -13,13 +12,13 @@ interface SurveyItemProps {
 const SurveyItem = ({ survey }: SurveyItemProps) => {
   return (
     <div className="cursor-pointer">
-      <img src={getHiResImageUrl(survey.attributes.coverImageUrl)} className="" alt={survey.attributes.title} />
+      <img src={getHiResImageUrl(survey.attributes.coverImageUrl)} className="survey-cover-image" alt={survey.attributes.title} />
       <div>
         <div className="survey-title">
           <h1>{survey.attributes.title}</h1>
           <div className="survey-description">{survey.attributes.description}</div>
         </div>
-        <div className="">
+        <div className="survey-button">
           <Link to="#">
             <img src={action} alt="take survey button" />
           </Link>

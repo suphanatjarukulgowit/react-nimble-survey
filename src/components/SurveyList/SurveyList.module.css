@@ -1,0 +1,9 @@
+.swiperPaginationBullet {
+	text-align: center;
+	background: white;
+}
+.swiperPaginationContainer {
+	position: absolute;
+    width: 100%;
+    bottom:0;
+}
