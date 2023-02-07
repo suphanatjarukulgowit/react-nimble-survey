@@ -17,7 +17,6 @@ const useLocalStorage = <T extends LocalStorageKey>(
   useEffect(() => {
     const data = getLocalStorageValue(key);
     setValue(data || defaultValue);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -26,7 +25,6 @@ const useLocalStorage = <T extends LocalStorageKey>(
     } else {
       removeLocalStorageValue(key);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   return [value, setValue];
