@@ -25,29 +25,36 @@
   top: 18.5%;
 }
 
-.survey-list-loader {
+.survey-list-loader-container {
   position: absolute;
   left: 25.56%;
+  right: 25.56%;
   top: 25.38%;
+  bottom: 36.88%;
+  height: 70%;
+
+  .survey-list-loader {
+    position: absolute;
+    width: 100% !important;
+  }
+  .survey-link-loader {
+    position: absolute;
+    top: 49.5%;
+    right: 0px;
+    border-radius: 50%;
+  }
 }
 
 .survey-title-loader {
   position: absolute;
   left: 25.56%;
-  top: 67.38%;
+  top: 60%;
 }
 
 .survey-description-loader {
   position: absolute;
   left: 25.56%;
-  top: 72.5%;
-}
-
-.survey-link-loader {
-  position: absolute;
-  right: 27.5%;
-  top: 67.38%;
-  border-radius: 50%;
+  top: 65.12%;
 }
 
 .user-avatar-loader {
