@@ -4,7 +4,7 @@ This project was bootstrapped with [Nimble React template](https://github.com/ni
 
 # Prerequisites
 
-NodeJS: 18.13.0 LTS
+NodeJS: 18.14.0
 
 ## Available Scripts
 
