@@ -16,13 +16,17 @@ export interface SurveyListProps extends React.HTMLAttributes<HTMLDivElement> {
   surveys: Survey[];
 }
 
+const surveyListDataTestIds = {
+  surveyListContainer: 'surveyListContainer',
+};
+
 const SurveyList = ({ surveys, onSlideChange }: SurveyListProps) => {
   return (
     <>
       <div className="today-container">
         <TodayDate />
       </div>
-      <div className="survey-list-container">
+      <div data-test-id={surveyListDataTestIds.surveyListContainer} className="survey-list-container">
         <Swiper
           slidesPerView={1}
           modules={[Mousewheel, Pagination]}

@@ -11,6 +11,15 @@ const defaultLayoutDataTestIds = {
   appLogo: 'appLogo',
 };
 
+const todayDateTestIds = {
+  date: 'today-date__date',
+  title: 'today-date__title',
+};
+
+const surveyListDataTestIds = {
+  surveyListContainer: 'surveyListContainer',
+};
+
 describe('Survey Home Page', () => {
   it('render the survey home page with the right element', () => {
     cy.login();
@@ -24,12 +33,25 @@ describe('Survey Home Page', () => {
     cy.findByTestId(userProfileDatatestIds.logOutButton).should('exist');
     cy.findByTestId(userProfileDatatestIds.appVersion).should('exist');
   });
-  it('hide suer profile after click user avatar', () => {
+  it('hide user profile after click user avatar', () => {
     cy.login();
     cy.get('[data-test-id="userAvatar"] > .user-button > .user-avatar').click();
     cy.findByTestId(userProfileDatatestIds.userProfileContainer).should(
       'have.class',
       'user-menu__collapse user-menu__collapse--open'
     );
+  });
+  it('render date of current date', () => {
+    cy.login();
+    cy.findByTestId(todayDateTestIds.date).should('exist');
+    cy.findByTestId(todayDateTestIds.title).should('exist');
+  });
+  it('render survey list', () => {
+    cy.login();
+    cy.findByTestId(surveyListDataTestIds.surveyListContainer).should('exist');
+    cy.get('.swiper-slide-active > .cursor-pointer > .survey-cover-image').should('exist');
+    cy.get('.swiper-slide-active > .cursor-pointer > :nth-child(2) > .survey-title').should('exist');
+    cy.get('.swiper-slide-active > .cursor-pointer > :nth-child(2) > .survey-button > a > img').should('exist');
+    cy.get('.swiper-pagination').should('exist');
   });
 });

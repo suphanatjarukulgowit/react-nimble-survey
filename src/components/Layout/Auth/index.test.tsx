@@ -13,7 +13,7 @@ const inputTestData = {
 const childrenContent = 'Children content';
 const children = <p>{childrenContent}</p>;
 
-describe('Input', () => {
+describe('AuthLayout', () => {
   it('renders the children correctly', () => {
     render(
       <AuthLayout headerMessage={inputTestData.header} data-test-id={inputTestData.dataTestId}>

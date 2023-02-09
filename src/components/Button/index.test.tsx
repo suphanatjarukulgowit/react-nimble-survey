@@ -8,7 +8,7 @@ const buttonTestId = 'login-form__button-submit';
 
 describe('Button', () => {
   it('renders the button', () => {
-    render(<Button disabled={false} name={'Sign in'} className="sign-in-btn" data-test-id={buttonTestId} />);
+    render(<Button disabled={false} className="sign-in-btn" data-test-id={buttonTestId}>Sign in</Button>);
 
     const button = screen.getByTestId(buttonTestId);
 
@@ -16,7 +16,7 @@ describe('Button', () => {
   });
 
   it('renders the message correctly', () => {
-    render(<Button disabled={false} name={'Sign in'} className="sign-in-btn" data-test-id={buttonTestId} />);
+    render(<Button disabled={false} className="sign-in-btn" data-test-id={buttonTestId}>Sign in</Button>);
 
     const button = screen.getByTestId(buttonTestId);
 
