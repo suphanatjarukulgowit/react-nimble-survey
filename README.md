@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Nimble React template](https://github.com/nimblehq/react-templates).
 
+# Prerequisites
+
+NodeJS: 18.14.0
+
 ## Available Scripts
 
 In the project directory, you can run:
