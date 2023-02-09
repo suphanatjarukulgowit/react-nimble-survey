@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-// import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 
 import AuthAdapter from 'adapters/Auth';
@@ -20,7 +19,6 @@ const defaultLayoutDataTestIds = {
 };
 
 const DefaultLayout = ({ children }: DefaultLayoutProps) => {
-  // const { t } = useTranslation();
   const { auth, userProfile, setAuth, setUserProfile } = useAuth();
   const navigate = useNavigate();
   const logout = async () => {
@@ -42,8 +40,8 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         <html lang="en" data-test-id={defaultLayoutDataTestIds.layoutDefault} className="layout-default"></html>
       </Helmet>
       <header>
-        <Link to="/home">
-          <Logo dataTestId={defaultLayoutDataTestIds.appLogo}></Logo>
+        <Link to="/home" data-test-id={defaultLayoutDataTestIds.appLogo}>
+          <Logo></Logo>
         </Link>
         {userProfile && (
           <UserProfileData data-test-id={defaultLayoutDataTestIds.userProfile} userProfile={userProfile} onLogout={logout} />

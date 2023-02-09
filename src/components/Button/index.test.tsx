@@ -13,7 +13,11 @@ describe('Button', () => {
     expect(button).toBeVisible();
   });
   it('render the message correctly', () => {
-    render(<Button disabled={false} name={'Sign in'} className="sign-in-btn" dataTestId={buttonTestId}></Button>);
+    render(
+      <Button disabled={false} className="sign-in-btn" dataTestId={buttonTestId}>
+        Sign in
+      </Button>
+    );
     const button = screen.getByTestId(buttonTestId);
     expect(button).toBeVisible();
     expect(button).toHaveTextContent('Sign in');

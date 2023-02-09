@@ -18,6 +18,7 @@ const userProfileDatatestIds = {
   logOutButton: 'loggoutButton',
   appVersion: 'appVersion',
   userProfileContainer: 'userProfileContainer',
+  userMenu: 'userMenu',
 };
 
 const UserProfileData = ({ userProfile, onLogout }: UserProfileProps) => {
@@ -47,21 +48,23 @@ const UserProfileData = ({ userProfile, onLogout }: UserProfileProps) => {
 
   return (
     <>
-      <div data-test-id={userProfileDatatestIds.userAvatar}>
-        <AvatarToggler />
-      </div>
-      <div data-test-id={userProfileDatatestIds.userProfileContainer} className={collapseClasses} ref={userMenuCollapseRef}>
-        <AvatarToggler />
-        <div data-test-id={userProfileDatatestIds.userName} className="user-name">
-          {userProfile?.name}
+      <div data-test-id={userProfileDatatestIds.userMenu}>
+        <div data-test-id={userProfileDatatestIds.userAvatar}>
+          <AvatarToggler />
         </div>
-        <hr data-test-id={userProfileDatatestIds.userLine} className="user-line" />
-        <Button data-test-id={userProfileDatatestIds.logOutButton} className="logout-button" onClick={onLogout}>
-          {t('auth.sign_out')}
-        </Button>
-        <span data-test-id={userProfileDatatestIds.appVersion} className="app-version">
-          {process.env.REACT_APP_VERSION}
-        </span>
+        <div data-test-id={userProfileDatatestIds.userProfileContainer} className={collapseClasses} ref={userMenuCollapseRef}>
+          <AvatarToggler />
+          <div data-test-id={userProfileDatatestIds.userName} className="user-name">
+            {userProfile?.name}
+          </div>
+          <hr data-test-id={userProfileDatatestIds.userLine} className="user-line" />
+          <Button data-test-id={userProfileDatatestIds.logOutButton} className="logout-button" onClick={onLogout}>
+            {t('auth.sign_out')}
+          </Button>
+          <span data-test-id={userProfileDatatestIds.appVersion} className="app-version">
+            {process.env.REACT_APP_VERSION}
+          </span>
+        </div>
       </div>
     </>
   );

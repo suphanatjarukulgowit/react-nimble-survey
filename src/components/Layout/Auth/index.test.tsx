@@ -13,7 +13,7 @@ const inputTestData = {
 const childernContent = 'Childern content';
 const children = <p>{childernContent}</p>;
 
-describe('Input', () => {
+describe('AuthLayout', () => {
   it('render the children correctly', () => {
     render(
       <AuthLayout headerMessage={inputTestData.header} data-test-id={inputTestData.dataTestId}>
@@ -23,7 +23,7 @@ describe('Input', () => {
     const content = screen.getByText(childernContent);
     expect(content).toBeVisible();
   });
-  it('render the logo on the paeg', () => {
+  it('render the logo on the page', () => {
     render(
       <AuthLayout headerMessage={inputTestData.header} data-test-id={inputTestData.dataTestId}>
         {children}
