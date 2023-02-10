@@ -24,7 +24,6 @@ const openUserMenu = async () => {
 
   await userEvent.click(userAvatar);
 };
-
 const closeUserMenu = async () => {
   const userAvatar = screen.getByTestId(userProfileDatatestIds.userAvatarClose);
 
