@@ -11,6 +11,12 @@ import SurveyList from 'components/SurveyList';
 import useAuth from 'hooks/useAuth';
 import { Survey } from 'types/survey';
 
+const SurveyHomepageScreenDataTestIds = {
+  defaultLayout: 'defaultLayout',
+  thankYouPage: 'thankYouPage',
+  surveyList: 'surveyList',
+};
+
 const SurveyHomepageScreen = (): JSX.Element => {
   const { setUserProfile } = useAuth();
   const [surveyBackground, setSurveyBackground] = useState('');
@@ -34,7 +40,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
     const surveysResponse: Survey[] = _.get(data, 'data');
 
     setSurveys(surveysResponse);
-    if (surveysResponse.length !== 0) {
+    if (surveysResponse) {
       setSurveyBackground(surveysResponse[0].attributes.coverImageUrl);
     }
     setSuryveyLoading(false);
@@ -53,16 +59,20 @@ const SurveyHomepageScreen = (): JSX.Element => {
 
   return (
     <div>
-      <DefaultLayout>
+      <DefaultLayout data-test-id={SurveyHomepageScreenDataTestIds.defaultLayout}>
         {surveyLoading ? (
           <div>display skeleton loading</div>
         ) : surveys && surveys.length !== 0 ? (
           <>
             <BackgroundImage imageUrl={surveyBackground} />
-            <SurveyList onSlideChange={onSlideChange} surveys={surveys} />
+            <SurveyList
+              data-test-id={SurveyHomepageScreenDataTestIds.surveyList}
+              onSlideChange={onSlideChange}
+              surveys={surveys}
+            />
           </>
         ) : (
-          <div>thank you page</div>
+          <div data-test-id={SurveyHomepageScreenDataTestIds.thankYouPage}>thank you page</div>
         )}
       </DefaultLayout>
     </div>
