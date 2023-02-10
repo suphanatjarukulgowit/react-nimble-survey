@@ -1,6 +1,6 @@
 import { Survey } from 'types/survey';
 
-const mockSurveyList1: Survey = {
+export const mockSurveyList1: Survey = {
   attributes: {
     id: '1',
     title: '',
@@ -9,7 +9,7 @@ const mockSurveyList1: Survey = {
     createdAt: '',
   },
 };
-const mockSurveyList2: Survey = {
+export const mockSurveyList2: Survey = {
   attributes: {
     id: '2',
     title: '',

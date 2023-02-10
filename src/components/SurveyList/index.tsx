@@ -18,12 +18,13 @@ export interface SurveyListProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const surveyListDataTestIds = {
   surveyListContainer: 'surveyListContainer',
+  todayContainer: 'todayContainer',
 };
 
 const SurveyList = ({ surveys, onSlideChange }: SurveyListProps) => {
   return (
     <>
-      <div className="today-container">
+      <div data-test-id={surveyListDataTestIds.todayContainer} className="today-container">
         <TodayDate />
       </div>
       <div data-test-id={surveyListDataTestIds.surveyListContainer} className="survey-list-container">
