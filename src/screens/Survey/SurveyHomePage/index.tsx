@@ -8,6 +8,7 @@ import UserAdapter from 'adapters/User';
 import BackgroundImage from 'components/BackGroundImage';
 import DefaultLayout from 'components/Layout/Default';
 import SurveyList from 'components/SurveyList';
+import SurveyLoading from 'components/SurveyLoding';
 import useAuth from 'hooks/useAuth';
 import { Survey } from 'types/survey';
 
@@ -59,9 +60,11 @@ const SurveyHomepageScreen = (): JSX.Element => {
 
   return (
     <div>
-      <DefaultLayout data-test-id={SurveyHomepageScreenDataTestIds.defaultLayout}>
+      <DefaultLayout isSurveyLoading={surveyLoading} data-test-id={SurveyHomepageScreenDataTestIds.defaultLayout}>
         {surveyLoading ? (
-          <div>display skeleton loading</div>
+          <div>
+            <SurveyLoading></SurveyLoading>
+          </div>
         ) : surveys && surveys.length !== 0 ? (
           <>
             <BackgroundImage imageUrl={surveyBackground} />

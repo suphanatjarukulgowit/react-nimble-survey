@@ -1,0 +1,58 @@
+.skeleton-loader {
+  background: rgb(64, 64, 64);
+  background: linear-gradient(90deg, rgba(64, 64, 64, 1) 40%, rgba(95, 95, 95, 1) 50%, rgba(64, 64, 64, 1) 60%);
+  background-size: 500% 100%;
+  border-radius: 12px;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+.date-loader {
+  position: absolute;
+  left: 25.56%;
+  top: 13.5%;
+}
+.date-today-loader {
+  position: absolute;
+  left: 25.56%;
+  top: 18.5%;
+}
+
+.survey-list-loader {
+  position: absolute;
+  left: 25.56%;
+  top: 25.38%;
+}
+
+.survey-title-loader {
+  position: absolute;
+  left: 25.56%;
+  top: 67.38%;
+}
+
+.survey-description-loader {
+  position: absolute;
+  left: 25.56%;
+  top: 72.5%;
+}
+
+.survey-link-loader {
+  position: absolute;
+  right: 27.5%;
+  top: 67.38%;
+  border-radius: 50%;
+}
+
+.user-avatar-loader {
+  position: absolute;
+  right: 2.22%;
+  top: 4%;
+  border-radius: 50%;
+}

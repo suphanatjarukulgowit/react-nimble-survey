@@ -9,6 +9,7 @@ import useAuth from 'hooks/useAuth';
 
 export type DefaultLayoutProps = {
   onHelmetStateChange?: () => void;
+  isSurveyLoading: boolean;
   children?: React.ReactNode;
 };
 
@@ -18,7 +19,7 @@ const defaultLayoutDataTestIds = {
   userProfile: 'userProfile',
 };
 
-const DefaultLayout = ({ children }: DefaultLayoutProps) => {
+const DefaultLayout = ({ children, isSurveyLoading }: DefaultLayoutProps) => {
   const { auth, userProfile, setAuth, setUserProfile } = useAuth();
   const navigate = useNavigate();
   const logout = async () => {
@@ -43,9 +44,13 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         <Link to="/home" data-test-id={defaultLayoutDataTestIds.appLogo}>
           <Logo></Logo>
         </Link>
-        {userProfile && (
-          <UserProfileData data-test-id={defaultLayoutDataTestIds.userProfile} userProfile={userProfile} onLogout={logout} />
-        )}
+        {!isSurveyLoading ? (
+          <>
+            {userProfile && (
+              <UserProfileData data-test-id={defaultLayoutDataTestIds.userProfile} userProfile={userProfile} onLogout={logout} />
+            )}
+          </>
+        ) : null}
       </header>
       <main>{children}</main>
     </HelmetProvider>
