@@ -33,7 +33,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('DefaultLayout', () => {
   it('renders the app logo link', () => {
-    renderWithRouter(<DefaultLayout />);
+    renderWithRouter(<DefaultLayout isSurveyLoading={false} />);
 
     const appLogoLink = screen.getByTestId(defaultLayoutDataTestIds.appLogo);
 
@@ -44,7 +44,7 @@ describe('DefaultLayout', () => {
     mockUserLoggedIn();
 
     it('renders the user menu', () => {
-      renderWithRouter(<DefaultLayout />, { withContextProvider: true });
+      renderWithRouter(<DefaultLayout isSurveyLoading={false} />, { withContextProvider: true });
 
       const userMenu = screen.getByTestId(userProfileDatatestIds.userMenu);
 
@@ -53,7 +53,7 @@ describe('DefaultLayout', () => {
 
     describe('given the user clicks on the logout menu', () => {
       it('logs the user out', async () => {
-        renderWithRouter(<DefaultLayout />, { withContextProvider: true });
+        renderWithRouter(<DefaultLayout isSurveyLoading={false} />, { withContextProvider: true });
 
         const userMenu = screen.getByTestId(userProfileDatatestIds.userMenu);
         const logoutMenu = within(userMenu).getByText('auth.sign_out');
