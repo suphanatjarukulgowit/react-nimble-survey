@@ -57,9 +57,8 @@ describe('DefaultLayout', () => {
 
         await waitFor(() => {
           expect(localStorage.getItem(LocalStorageKey.auth)).toBe(null);
+          expect(localStorage.getItem(LocalStorageKey.userProfile)).toBe(null);
         });
-
-        expect(localStorage.getItem(LocalStorageKey.userProfile)).toBe(null);
       });
     });
   });

@@ -14,7 +14,8 @@ interface UserProfileProps {
 const userProfileDatatestIds = {
   userName: 'userName',
   userLine: 'userLine',
-  userAvatar: 'userAvatar',
+  userAvatarClose: 'userAvatarClose',
+  userAvatarOpen: 'userAvatarOpen',
   logOutButton: 'loggoutButton',
   appVersion: 'appVersion',
   userProfileContainer: 'userProfileContainer',
@@ -49,11 +50,11 @@ const UserProfileData = ({ userProfile, onLogout }: UserProfileProps) => {
   return (
     <>
       <div data-test-id={userProfileDatatestIds.userMenu}>
-        <div data-test-id={userProfileDatatestIds.userAvatar}>
-          <AvatarToggler />
+        <div>
+          <AvatarToggler data-test-id={userProfileDatatestIds.userAvatarOpen} />
         </div>
         <div data-test-id={userProfileDatatestIds.userProfileContainer} className={collapseClasses} ref={userMenuCollapseRef}>
-          <AvatarToggler />
+          <AvatarToggler data-test-id={userProfileDatatestIds.userAvatarClose} />
           <div data-test-id={userProfileDatatestIds.userName} className="user-name">
             {userProfile?.name}
           </div>
