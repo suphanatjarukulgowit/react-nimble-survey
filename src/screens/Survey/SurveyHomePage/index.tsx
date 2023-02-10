@@ -11,6 +11,12 @@ import SurveyList from 'components/SurveyList';
 import useAuth from 'hooks/useAuth';
 import { Survey } from 'types/survey';
 
+const SurveyHomepageScreenDataTestIds = {
+  defaultLayout: 'defaultLayout',
+  thankYouPage: 'thankYouPage',
+  surveyList: 'surveyList',
+};
+
 const SurveyHomepageScreen = (): JSX.Element => {
   const { setUserProfile } = useAuth();
   const [surveyBackground, setSurveyBackground] = useState('');
@@ -51,23 +57,26 @@ const SurveyHomepageScreen = (): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
-
   useEffect(() => {
     fetchSurveyList();
   }, [fetchSurveyList]);
 
   return (
-    <div data-test-id="SurveyHomepageScreen">
+    <div>
       <DefaultLayout>
         {surveyLoading ? (
           <div>display skeleton loading</div>
         ) : surveys && surveys.length !== 0 ? (
           <>
             <BackgroundImage imageUrl={surveyBackground} />
-            <SurveyList onSlideChange={onSlideChange} surveys={surveys} />
+            <SurveyList
+              data-test-id={SurveyHomepageScreenDataTestIds.surveyList}
+              onSlideChange={onSlideChange}
+              surveys={surveys}
+            />
           </>
         ) : (
-          <div>thank you page</div>
+          <div data-test-id={SurveyHomepageScreenDataTestIds.thankYouPage}>thank you page</div>
         )}
       </DefaultLayout>
     </div>
