@@ -6,12 +6,10 @@ interface SkeletonLoaderProps {
   className?: string;
 }
 
+const skeletonLoaderDataTestId = 'skeletonLoader';
+
 const SkeletonLoader = ({ width, height, className }: SkeletonLoaderProps) => {
-  return (
-    <>
-      <div className={`skeleton-loader ${className}`} style={{ width, height }} />
-    </>
-  );
+  return <div data-test-id={skeletonLoaderDataTestId} className={`skeleton-loader ${className}`} style={{ width, height }} />;
 };
 
 export default SkeletonLoader;

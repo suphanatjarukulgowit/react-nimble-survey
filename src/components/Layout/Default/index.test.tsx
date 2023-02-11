@@ -36,19 +36,19 @@ describe('DefaultLayout', () => {
     renderWithRouter(<DefaultLayout isSurveyLoading={false} />);
 
     const appLogoLink = screen.getByTestId(defaultLayoutDataTestIds.appLogo);
-
     expect(appLogoLink).toBeVisible();
     expect(appLogoLink).toHaveAttribute('href', '/home');
   });
   describe('given the user has logged in', () => {
     mockUserLoggedIn();
-
-    it('renders the user menu', () => {
+    it('renders the user menu', async () => {
       renderWithRouter(<DefaultLayout isSurveyLoading={false} />, { withContextProvider: true });
 
       const userMenu = screen.getByTestId(userProfileDatatestIds.userMenu);
 
-      expect(userMenu).toBeVisible();
+      await waitFor(() => {
+        expect(userMenu).toBeVisible();
+      });
     });
 
     describe('given the user clicks on the logout menu', () => {

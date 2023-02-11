@@ -16,6 +16,7 @@ const SurveyHomepageScreenDataTestIds = {
   defaultLayout: 'defaultLayout',
   thankYouPage: 'thankYouPage',
   surveyList: 'surveyList',
+  loadingPage: 'loadingPage',
 };
 
 const SurveyHomepageScreen = (): JSX.Element => {
@@ -27,9 +28,8 @@ const SurveyHomepageScreen = (): JSX.Element => {
       .then((response) => {
         setUserProfile(response?.data?.attributes);
       })
-      .catch((error) => {
+      .catch(() => {
         // popup error and redirect to login
-        console.log(error);
       });
   };
 
@@ -41,8 +41,8 @@ const SurveyHomepageScreen = (): JSX.Element => {
 
     const data = await list();
     const surveysResponse: Survey[] = _.get(data, 'data');
-
     setSurveys(surveysResponse);
+
     if (surveysResponse) {
       setSurveyBackground(surveysResponse[0].attributes.coverImageUrl);
     }
@@ -66,7 +66,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
     <div>
       <DefaultLayout isSurveyLoading={surveyLoading} data-test-id={SurveyHomepageScreenDataTestIds.defaultLayout}>
         {surveyLoading ? (
-          <div>
+          <div data-test-id={SurveyHomepageScreenDataTestIds.loadingPage}>
             <SurveyLoading></SurveyLoading>
           </div>
         ) : surveys && surveys.length !== 0 ? (
