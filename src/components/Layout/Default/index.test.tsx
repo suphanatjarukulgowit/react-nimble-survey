@@ -26,28 +26,27 @@ const userProfileDatatestIds = {
 };
 
 describe('DefaultLayout', () => {
-  it('renders the app logo link', () => {
-    renderWithRouter(<DefaultLayout />);
-
+  it('renders the app logo link', async () => {
+    renderWithRouter(<DefaultLayout isSurveyLoading={false} />);
     const appLogoLink = screen.getByTestId(defaultLayoutDataTestIds.appLogo);
-
     expect(appLogoLink).toBeVisible();
     expect(appLogoLink).toHaveAttribute('href', '/home');
   });
   describe('given the user has logged in', () => {
     mockUserLoggedIn();
-
-    it('renders the user menu', () => {
-      renderWithRouter(<DefaultLayout />, { withContextProvider: true });
+    it('renders the user menu', async () => {
+      renderWithRouter(<DefaultLayout isSurveyLoading={false} />, { withContextProvider: true });
 
       const userMenu = screen.getByTestId(userProfileDatatestIds.userMenu);
 
-      expect(userMenu).toBeVisible();
+      await waitFor(() => {
+        expect(userMenu).toBeVisible();
+      });
     });
 
     describe('given the user clicks on the logout menu', () => {
       it('logs the user out', async () => {
-        renderWithRouter(<DefaultLayout />, { withContextProvider: true });
+        renderWithRouter(<DefaultLayout isSurveyLoading={false} />, { withContextProvider: true });
 
         const userMenu = screen.getByTestId(userProfileDatatestIds.userMenu);
         const logoutMenu = within(userMenu).getByText('auth.sign_out');

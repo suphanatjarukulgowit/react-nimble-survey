@@ -26,9 +26,8 @@ const SurveyHomepageScreen = (): JSX.Element => {
       .then((response) => {
         setUserProfile(response?.data?.attributes);
       })
-      .catch((error) => {
+      .catch(() => {
         // popup error and redirect to login
-        console.log(error);
       });
   };
   const [surveyLoading, setSuryveyLoading] = useState(false);
