@@ -7,7 +7,7 @@ const skeletonLoaderDataTestId = 'skeletonLoader';
 import SkeletonLoader from '.';
 describe('SurveyList', () => {
   it('renders width and height correctly', async () => {
-    render(<SkeletonLoader width={25} height={25} />);
+    render(<SkeletonLoader dataTestId="skeletonLoader" width={25} height={25} />);
     const s = screen.getByTestId(skeletonLoaderDataTestId);
     expect(s).toBeVisible();
     expect(s).toHaveStyle('width:25px;');

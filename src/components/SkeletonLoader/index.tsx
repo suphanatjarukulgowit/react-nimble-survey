@@ -4,12 +4,11 @@ interface SkeletonLoaderProps {
   width: number | string;
   height: number;
   className?: string;
+  dataTestId: string;
 }
 
-const skeletonLoaderDataTestId = 'skeletonLoader';
-
-const SkeletonLoader = ({ width, height, className }: SkeletonLoaderProps) => {
-  return <div data-test-id={skeletonLoaderDataTestId} className={`skeleton-loader ${className}`} style={{ width, height }} />;
+const SkeletonLoader = ({ width, height, className, dataTestId }: SkeletonLoaderProps) => {
+  return <div data-test-id={dataTestId} className={`skeleton-loader ${className}`} style={{ width, height }} />;
 };
 
 export default SkeletonLoader;
