@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import _ from 'lodash';
 import { Swiper } from 'swiper';
@@ -7,6 +8,7 @@ import SurveyAdapter from 'adapters/Survey';
 import UserAdapter from 'adapters/User';
 import BackgroundImage from 'components/BackGroundImage';
 import DefaultLayout from 'components/Layout/Default';
+import SurveyBlankState from 'components/SurveyBlankState';
 import SurveyList from 'components/SurveyList';
 import SurveyLoading from 'components/SurveyLoding';
 import useAuth from 'hooks/useAuth';
@@ -14,13 +16,13 @@ import { Survey } from 'types/survey';
 
 const SurveyHomepageScreenDataTestIds = {
   defaultLayout: 'defaultLayout',
-  thankYouPage: 'thankYouPage',
   surveyList: 'surveyList',
 };
 
 const SurveyHomepageScreen = (): JSX.Element => {
   const { setUserProfile } = useAuth();
   const [surveyBackground, setSurveyBackground] = useState('');
+  const { t } = useTranslation();
   const fetchUserProfile = () => {
     UserAdapter.me()
       .then((response) => {
@@ -74,7 +76,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
             />
           </>
         ) : (
-          <div data-test-id={SurveyHomepageScreenDataTestIds.thankYouPage}>thank you page</div>
+          <SurveyBlankState emoji="😎" description={t('survey.Blank_state_desctiption')}></SurveyBlankState>
         )}
       </DefaultLayout>
     </div>
