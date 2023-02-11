@@ -17,6 +17,7 @@
     "email_invalid" : "Email is invalid"
   },
   "survey":{
-    "today" : "Today"
+    "today" : "Today",
+    "Blank_state_desctiption" : "You’ve completed all the surveys.\nTake a moment."
   }
 }
