@@ -43,7 +43,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
     if (surveysResponse) {
       setSurveyBackground(surveysResponse[0].attributes.coverImageUrl);
     }
-    setSuryveyLoading(false);
+    setSuryveyLoading(true);
   }, []);
   const onSlideChange = async (swiper: Swiper) => {
     setSurveyBackground(surveys[swiper.activeIndex].attributes.coverImageUrl);
