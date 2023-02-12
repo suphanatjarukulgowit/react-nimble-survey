@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { createRoot } from 'react-dom/client';
 
-import { AuthProvider } from 'contexts/AuthProvider';
+import { StoreProvider } from 'contexts/StoreProvider';
 
 import App from './App';
 import configureI18n from './i18n';
@@ -16,9 +16,9 @@ const root = createRoot(container);
 root.render(
   <Suspense fallback="loading">
     <BrowserRouter>
-      <AuthProvider>
+      <StoreProvider>
         <App />
-      </AuthProvider>
+      </StoreProvider>
     </BrowserRouter>
   </Suspense>
 );

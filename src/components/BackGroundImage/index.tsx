@@ -5,13 +5,13 @@ export const backgroundImageTestIds = {
 };
 
 export interface BackgroundImageProps extends React.HTMLAttributes<HTMLDivElement> {
-  imageUrl: string;
+  imageUrl: string | null;
 }
 
 const BackgroundImage = ({ imageUrl, ...props }: BackgroundImageProps) => {
   return (
     <div className="background-image" data-test-id={backgroundImageTestIds.backgroundImage} {...props}>
-      <img src={imageUrl} alt="background" />
+      {imageUrl ? <img src={imageUrl} alt="background" /> : <img src="" alt="background" />}
     </div>
   );
 };

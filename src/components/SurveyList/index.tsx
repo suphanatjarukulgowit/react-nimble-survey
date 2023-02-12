@@ -42,7 +42,7 @@ const SurveyList = ({ surveys, onSlideChange }: SurveyListProps) => {
           onSlideChange={onSlideChange}
         >
           {surveys.map((survey) => (
-            <SwiperSlide className="swiper-slide" key={survey.attributes.id}>
+            <SwiperSlide className="swiper-slide" key={survey.id}>
               <SurveyItem survey={survey} />
             </SwiperSlide>
           ))}

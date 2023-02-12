@@ -12,14 +12,20 @@ interface SurveyItemProps {
 const SurveyItem = ({ survey }: SurveyItemProps) => {
   return (
     <div className="cursor-pointer">
-      <img src={getHiResImageUrl(survey.attributes.coverImageUrl)} className="survey-cover-image" alt={survey.attributes.title} />
+      <Link to={`/survey/${survey.id}`}>
+        <img
+          src={getHiResImageUrl(survey.attributes.coverImageUrl)}
+          className="survey-cover-image"
+          alt={survey.attributes.title}
+        />
+      </Link>
       <div>
         <div className="survey-title">
           <h1>{survey.attributes.title}</h1>
           <div className="survey-description">{survey.attributes.description}</div>
         </div>
         <div className="survey-button">
-          <Link to="#">
+          <Link to={`/survey/${survey.id}`}>
             <img src={action} alt="take survey button" />
           </Link>
         </div>

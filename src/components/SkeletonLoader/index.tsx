@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface SkeletonLoaderProps {
-  width: number | string;
-  height: number;
+  width?: number | string;
+  height?: number;
   className?: string;
   dataTestId: string;
 }

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import _ from 'lodash';
@@ -11,7 +11,7 @@ import DefaultLayout from 'components/Layout/Default';
 import SurveyBlankState from 'components/SurveyBlankState';
 import SurveyList from 'components/SurveyList';
 import SurveyLoading from 'components/SurveyLoding';
-import useAuth from 'hooks/useAuth';
+import StoreContext from 'contexts/StoreProvider';
 import { Survey } from 'types/survey';
 
 const SurveyHomepageScreenDataTestIds = {
@@ -20,7 +20,7 @@ const SurveyHomepageScreenDataTestIds = {
 };
 
 const SurveyHomepageScreen = (): JSX.Element => {
-  const { setUserProfile } = useAuth();
+  const { setUserProfile } = useContext(StoreContext);
   const [surveyBackground, setSurveyBackground] = useState('');
   const { t } = useTranslation();
   const fetchUserProfile = () => {
@@ -76,7 +76,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
             />
           </>
         ) : (
-          <SurveyBlankState emoji="😎" description={t('survey.Blank_state_desctiption')}></SurveyBlankState>
+          <SurveyBlankState emoji="😎" description={t('survey.blank_state_desctiption')}></SurveyBlankState>
         )}
       </DefaultLayout>
     </div>

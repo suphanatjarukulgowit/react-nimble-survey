@@ -1,8 +1,8 @@
 import { Survey } from 'types/survey';
 
 export const mockSurveyList1: Survey = {
+  id: '1',
   attributes: {
-    id: '1',
     title: '',
     description: '',
     coverImageUrl: 'coverImage1',
@@ -10,8 +10,8 @@ export const mockSurveyList1: Survey = {
   },
 };
 export const mockSurveyList2: Survey = {
+  id: '2',
   attributes: {
-    id: '2',
     title: '',
     description: '',
     coverImageUrl: 'coverImage2',

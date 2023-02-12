@@ -3,7 +3,7 @@ import { BrowserRouter, BrowserRouterProps, MemoryRouter, MemoryRouterProps } fr
 
 import { render, RenderResult } from '@testing-library/react';
 
-import { AuthProvider } from 'contexts/AuthProvider';
+import { StoreProvider } from 'contexts/StoreProvider';
 
 type customRenderWithRouterProps = {
   withContextProvider?: boolean;
@@ -13,7 +13,7 @@ type renderWithRouterProps = customRenderWithRouterProps & BrowserRouterProps;
 type renderWithMemoryRouterProps = customRenderWithRouterProps & MemoryRouterProps;
 
 const renderChildren = (children: React.ReactElement, { withContextProvider = false }) => {
-  return withContextProvider ? <AuthProvider>{children}</AuthProvider> : children;
+  return withContextProvider ? <StoreProvider>{children}</StoreProvider> : children;
 };
 
 const renderWithRouter = (

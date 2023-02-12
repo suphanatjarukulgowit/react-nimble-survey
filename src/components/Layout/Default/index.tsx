@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 
 import AuthAdapter from 'adapters/Auth';
 import Logo from 'components/Logo';
 import UserProfileData from 'components/UserProfileData';
-import useAuth from 'hooks/useAuth';
+import StoreContext from 'contexts/StoreProvider';
 
 export type DefaultLayoutProps = {
   onHelmetStateChange?: () => void;
@@ -20,7 +20,7 @@ const defaultLayoutDataTestIds = {
 };
 
 const DefaultLayout = ({ children, isSurveyLoading }: DefaultLayoutProps) => {
-  const { auth, userProfile, setAuth, setUserProfile } = useAuth();
+  const { auth, userProfile, setAuth, setUserProfile } = useContext(StoreContext);
   const navigate = useNavigate();
   const logout = async () => {
     if (auth) {

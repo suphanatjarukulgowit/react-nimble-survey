@@ -4,6 +4,8 @@ import { RouteObject } from 'react-router-dom';
 import RequireAuth from 'components/RequireAuth';
 import LoginScreen from 'screens/Login';
 import SurveyHomepageScreen from 'screens/Survey/SurveyHomePage';
+import SurveyQuestionPage from 'screens/Survey/SurveyQuestionPage';
+import StartSurvey from 'screens/Survey/SurveyStart';
 
 const nomalRoutes: RouteObject[] = [
   {
@@ -25,8 +27,23 @@ const protectedRoutes: RouteObject[] = [
       </RequireAuth>
     ),
   },
+  {
+    path: '/survey/:surveyId',
+    element: (
+      <RequireAuth>
+        <StartSurvey />
+      </RequireAuth>
+    ),
+  },
+  {
+    path: '/survey/:surveyId/question',
+    element: (
+      <RequireAuth>
+        <SurveyQuestionPage />
+      </RequireAuth>
+    ),
+  },
 ];
-
 const routes = [...nomalRoutes, ...protectedRoutes];
 
 export default routes;

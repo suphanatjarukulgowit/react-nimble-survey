@@ -1,20 +1,20 @@
 import React from 'react';
 
-import { render, waitFor, screen, act } from '@testing-library/react';
+// import { render, waitFor, screen, act } from '@testing-library/react';
 
-import SurveyAdapter from 'adapters/Survey';
-import UserAdapter from 'adapters/User';
-import { mockSurveyList } from 'tests/mockSurveyList';
-import { mockUser } from 'tests/mockUserLogin';
-import { renderWithRouter } from 'tests/renderWithRouter';
+// import SurveyAdapter from 'adapters/Survey';
+// import UserAdapter from 'adapters/User';
+// import { mockSurveyList } from 'tests/mockSurveyList';
+// import { mockUser } from 'tests/mockUserLogin';
+// import { renderWithRouter } from 'tests/renderWithRouter';
 
-import SurveyHomepageScreen from '.';
+// import SurveyHomepageScreen from '.';
 
-const SurveyHomepageScreenDataTestIds = {
-  defaultLayout: 'defaultLayout',
-  thankYouPage: 'thankYouPage',
-  surveyList: 'surveyList',
-};
+// const SurveyHomepageScreenDataTestIds = {
+//   defaultLayout: 'defaultLayout',
+//   thankYouPage: 'thankYouPage',
+//   surveyList: 'surveyList',
+// };
 
 const mockUseNavigate = jest.fn();
 

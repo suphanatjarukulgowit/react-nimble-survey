@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ import Button from 'components/Button';
 import WarningIcon from 'components/Icon/WarningIcon';
 import Input from 'components/Input';
 import AuthLayout from 'components/Layout/Auth';
-import useAuth from 'hooks/useAuth';
+import StoreContext from 'contexts/StoreProvider';
 import ApiError from 'lib/errors/ApiErrors';
 
 const loginScreenTestIds = {
@@ -23,7 +23,7 @@ const loginScreenTestIds = {
   loginAlertError: 'login-alert-error',
 };
 const LoginScreen = (): JSX.Element => {
-  const { auth, setAuth } = useAuth();
+  const { auth, setAuth } = useContext(StoreContext);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [formInput, setformInput] = useState({ email: '', password: '' });

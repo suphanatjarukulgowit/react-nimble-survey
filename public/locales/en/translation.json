@@ -18,6 +18,7 @@
   },
   "survey":{
     "today" : "Today",
-    "Blank_state_desctiption" : "You’ve completed all the surveys.\nTake a moment."
+    "blank_state_desctiption" : "You’ve completed all the surveys.\nTake a moment.",
+    "start_survey" : "Start Survey"
   }
 }
