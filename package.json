@@ -26,6 +26,7 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
     "sass": "^1.49.11",
+    "simplebar-react": "^3.2.1",
     "snake-case": "^3.0.4",
     "swiper": "^9.0.3",
     "validator": "^13.7.0",
