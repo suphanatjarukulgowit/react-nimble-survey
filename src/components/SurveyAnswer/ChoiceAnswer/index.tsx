@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PickType } from 'types/survey';
 
-import MultiChoiceAnswer from './MultiChoiceAnswer copy';
+import MultiChoiceAnswer from './MultiChoiceAnswer';
 import SingleChoiceAnswer from './SingleChoiceAnswer';
 import { SurveyAnswerProps } from '..';
 

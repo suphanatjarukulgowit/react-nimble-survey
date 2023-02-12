@@ -1,3 +1,4 @@
+import React from 'react';
 import 'simplebar-react/dist/simplebar.min.css';
 
 const MultiChoiceAnswer = () => {
