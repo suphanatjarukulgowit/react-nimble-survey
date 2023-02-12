@@ -37,36 +37,6 @@
       height: 200px;
       top: 10rem;
       width: 100%;
-      .select {
-        &__single-value {
-          color: #ffffff;
-        }
-        &__control {
-          background-color: rgba(255, 255, 255, 0.18);
-          border-radius: 12px;
-          color: #ffffff;
-        }
-
-        &__value-container {
-          padding: 8px 10px;
-        }
-
-        &__indicator-separator {
-          display: none;
-        }
-
-        &__dropdown-indicator {
-          color: #333;
-        }
-
-        &__option {
-          padding: 10px;
-          color: #333;
-          &:hover {
-            background-color: #f2f2f2;
-          }
-        }
-      }
     }
   }
   .survey-question-next {
