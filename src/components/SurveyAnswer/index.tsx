@@ -2,7 +2,7 @@ import React from 'react';
 
 import { QuestionType, SurveyQuestion as SurveyQuestionInterface, SurveyResponse } from 'types/survey';
 
-import SelectAnswer from './ChoiceAnswer';
+import SelectAnswer from './SelectAnswer';
 
 export interface SurveyAnswerProps {
   question: SurveyQuestionInterface;
