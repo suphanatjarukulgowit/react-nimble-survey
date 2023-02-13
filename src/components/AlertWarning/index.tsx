@@ -1,11 +1,11 @@
 import React, { ComponentType } from 'react';
 
-interface AlertProps {
+interface AlertWarningProps {
   Icon: ComponentType;
   errorMessage: string[];
 }
 
-const Alert = ({ Icon, errorMessage }: AlertProps): JSX.Element => {
+const AlertWarning = ({ Icon, errorMessage }: AlertWarningProps): JSX.Element => {
   return (
     <div className="alert">
       <div className="alert-content">
@@ -23,4 +23,4 @@ const Alert = ({ Icon, errorMessage }: AlertProps): JSX.Element => {
   );
 };
 
-export default Alert;
+export default AlertWarning;
