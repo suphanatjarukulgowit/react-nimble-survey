@@ -9,7 +9,7 @@ const Alert = ({ Icon, errorMessage }: AlertProps): JSX.Element => {
   return (
     <div className="alert">
       <div className="alert-content">
-        <div className="alert-icon">
+        <div className="alert__icon">
           <Icon />
         </div>
         <div className="alert-header-title">Error</div>

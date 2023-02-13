@@ -1,16 +1,13 @@
 // Variables
-@forward 'src/assets/stylesheets/variables';
+@import './variables';
 
 // Dependencies
-@use 'src/assets/stylesheets/vendor/bootstrap';
+@import './vendor/bootstrap';
 
 // Functions
-@forward 'src/assets/stylesheets/functions/sizing';
-
+@import './functions';
 // Mixins
-
 // Base
-
 // Layouts
 @import './layouts';
 
