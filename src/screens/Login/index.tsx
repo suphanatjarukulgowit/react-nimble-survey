@@ -47,7 +47,7 @@ const LoginScreen = (): JSX.Element => {
       <div className="form-group">
         {errorMessage && !isEmpty(errorMessage) && <Alert Icon={WarningIcon} errorMessage={errorMessage}></Alert>}
         <form onSubmit={handleSubmit}>
-          <Input label={t('auth.sign_in')} onChange={handleChange} type="text" name="email"></Input>
+          <Input label={t('auth.email')} onChange={handleChange} type="email" name="email"></Input>
           <Input label={t('auth.password')} onChange={handleChange} type="password" name="password"></Input>
           <Button disabled={formLoading} name={t('auth.sign_in')} className="sign-in-btn"></Button>
         </form>
