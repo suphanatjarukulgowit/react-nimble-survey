@@ -1,25 +1,37 @@
 .miltiple-choice-answer {
   max-height: 250px;
-  padding-right: 4px;
-  .multiplePickAnswer {
+  .multiple-pick-answer {
     color: #cbd5e0;
     width: 100%;
     display: flex;
-    padding: 1rem;
+    padding: 17.82px;
     cursor: pointer;
-    opacity: 0.6;
+    opacity: 0.5;
     border: none;
     background-color: transparent;
+    img {
+      display: none;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-    &.activeAnswer {
+    &.active_answer {
       .checkbox {
         background-color: white;
+        img {
+          display: block;
+        }
       }
     }
 
     &:hover {
       font-weight: 600;
       opacity: 1;
+      border-top-style: solid;
+      border-bottom-style: solid;
+      border-color: #e2e8f0;
     }
 
     .checkbox {
@@ -30,18 +42,6 @@
       border-radius: 50%;
       position: absolute;
       right: 5%;
-    }
-
-    .checkboxIcon {
-      display: none;
-
-      &.activeAnswer {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-      }
     }
   }
 }

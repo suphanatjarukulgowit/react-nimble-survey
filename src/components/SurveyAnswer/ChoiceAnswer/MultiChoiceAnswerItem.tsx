@@ -13,7 +13,7 @@ const MultiChoiceAnswerItem = ({ answer, onAnswerItemSelect }: MultiChoiceAnswer
 
   const answerStateClass = () => {
     if (isSelectedAnswer) {
-      return 'activeAnswer';
+      return 'active_answer';
     }
   };
 
@@ -23,18 +23,10 @@ const MultiChoiceAnswerItem = ({ answer, onAnswerItemSelect }: MultiChoiceAnswer
   };
 
   return (
-    <button className={`${'multiplePickAnswer'} ${answerStateClass()}`} onClick={onAnswerItemClick}>
+    <button className={`${'multiple-pick-answer'} ${answerStateClass()}`} onClick={onAnswerItemClick}>
       {answer.text}
       <div className={'checkbox'}>
-        <div className={'checkboxIcon'}>
-          {/* <Image
-            width={13}
-            height={13}
-            src="/icon/check.svg"
-            alt="active answer icon"
-          /> */}
-          <img src={check} alt="check box" />
-        </div>
+        <img src={check} alt="check box" />
       </div>
     </button>
   );
