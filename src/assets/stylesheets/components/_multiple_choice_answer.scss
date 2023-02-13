@@ -1,0 +1,47 @@
+.miltiple-choice-answer {
+  max-height: 250px;
+  padding-right: 4px;
+  .multiplePickAnswer {
+    color: #cbd5e0;
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    cursor: pointer;
+    opacity: 0.6;
+    border: none;
+    background-color: transparent;
+
+    &.activeAnswer {
+      .checkbox {
+        background-color: white;
+      }
+    }
+
+    &:hover {
+      font-weight: 600;
+      opacity: 1;
+    }
+
+    .checkbox {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-style: solid;
+      border-color: white;
+      border-radius: 50%;
+      position: absolute;
+      right: 5%;
+    }
+
+    .checkboxIcon {
+      display: none;
+
+      &.activeAnswer {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
