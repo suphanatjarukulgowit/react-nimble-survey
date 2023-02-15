@@ -15,6 +15,7 @@ const LoginScreen = (): JSX.Element => {
   const [formInput, setformInput] = useState({ email: '', password: '' });
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [formLoading, setFormLoading] = useState(false);
+
   const validateInput = (input: { email: string; password: string }) => {
     const errors = [];
     if (!input.email) {
