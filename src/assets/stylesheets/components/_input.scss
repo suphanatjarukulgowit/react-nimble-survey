@@ -36,8 +36,7 @@
     margin-bottom: 0.5rem;
 
     color: #fff;
-    font-family: $font-family-sans-serif-normal;
-    font-weight: 800;
+    font-family: $font-family-sans-serif-bold;
     letter-spacing: rem(-0.24px);
   }
   .input {
@@ -53,6 +52,6 @@
     background-color: rgba(255, 255, 255, 0.18);
 
     color: #fff;
-    font-family: $font-family-sans-serif-bold;
+    font-family: $font-family-sans-serif-normal;
   }
 }

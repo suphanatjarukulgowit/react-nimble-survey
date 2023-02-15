@@ -28,15 +28,23 @@
   }
 
   .app-content {
-    position: absolute;
     z-index: 1;
-    left: rem(560px);
+    width: rem(330px);
     flex-direction: column;
     align-items: flex-start;
     padding-top: rem(145px);
-
+    margin: 0 auto;
     background-color: inherit;
-
     text-align: center;
+
+    // @media screen and (max-width: 768px) {
+    //   width: rem(330px);
+    //   padding-top: rem(100px);
+    // }
+
+    // @media screen and (max-width: 480px) {
+    //   width: 90%;
+    //   padding-top: rem(80px);
+    // }
   }
 }
