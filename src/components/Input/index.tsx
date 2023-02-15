@@ -7,9 +7,9 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const Input = ({ label, type, ...props }: InputProps): JSX.Element => {
   return (
-    <div className="input-container">
-      <label className="input-label">{label}</label>
-      <input className="input" type={type} {...props} />
+    <div className="form-field">
+      <label className="form-field__label">{label}</label>
+      <input className="form-field__input" type={type} {...props} />
     </div>
   );
 };
