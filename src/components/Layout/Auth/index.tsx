@@ -16,7 +16,7 @@ const AuthLayout = ({ children, headerMessage }: AuthLayoutProps) => {
       </Helmet>
       <div className="app-content">
         <img src={logo} alt="Nimble Logo" />
-        <p className="app-header-title ">{headerMessage}</p>
+        <p className="app-header-title">{headerMessage}</p>
         {children}
       </div>
     </HelmetProvider>

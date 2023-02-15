@@ -15,6 +15,7 @@ const LoginScreen = (): JSX.Element => {
   const [formInput, setformInput] = useState({ email: '', password: '' });
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [formLoading, setFormLoading] = useState(false);
+
   const validateInput = (input: { email: string; password: string }) => {
     const errors = [];
     if (!input.email) {
@@ -28,6 +29,7 @@ const LoginScreen = (): JSX.Element => {
     }
     setErrorMessage(errors);
   };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormLoading(true);
@@ -38,6 +40,7 @@ const LoginScreen = (): JSX.Element => {
     }
     setFormLoading(false);
   };
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setformInput({ ...formInput, [event.target.name]: event.target.value });
   };
