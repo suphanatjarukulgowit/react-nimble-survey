@@ -12,13 +12,17 @@
 
   color: #fff;
   backdrop-filter: blur(1.698rem);
+  padding: 0;
+
   ul {
     padding-left: 4.68rem;
     padding-top: rem(44px);
     position: relative;
     opacity: 0.6;
-    font-family: $font-family-sans-serif-normal;
     text-align: left;
+    font-weight: 400;
+    font-size: rem(13px);
+    line-height: rem(18px);
     li {
       margin-bottom: -0.2rem;
     }
@@ -30,14 +34,16 @@
     padding-top: rem(16px);
     padding-bottom: rem(8px);
     padding-left: rem(61.91px);
-    font-family: $font-family-sans-serif-bold;
     letter-spacing: -0.015px;
+    font-weight: 800;
+    font-size: rem(15px);
+    line-height: rem(20px);
   }
 
   &__icon {
     position: absolute;
-    padding-top: rem(19px);
-    padding-left: rem(19px);
+    top: rem(19px);
+    left: rem(19px);
   }
 
   @keyframes slide-in {
