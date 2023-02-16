@@ -8,7 +8,6 @@ interface AlertWarningProps {
 const AlertWarning = ({ Icon, errorMessage }: AlertWarningProps): JSX.Element => {
   return (
     <div className="alert">
-      {/* <div className="alert-content"> */}
       <div className="alert__icon">
         <Icon />
       </div>
@@ -18,7 +17,6 @@ const AlertWarning = ({ Icon, errorMessage }: AlertWarningProps): JSX.Element =>
           <li key={index}>{message}</li>
         ))}
       </ul>
-      {/* </div> */}
     </div>
   );
 };

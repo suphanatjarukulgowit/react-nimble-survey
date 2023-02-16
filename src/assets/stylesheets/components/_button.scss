@@ -1,11 +1,10 @@
 .sign-in-btn {
   width: 100%;
-  height: 56px;
+  height: rem(56px);
 
   border-radius: 10px;
 
   background-color: #fff;
 
-  font-family: $font-family-sans-serif-bold;
   font-weight: bold;
 }
