@@ -20,11 +20,11 @@
 
   .app-header-title {
     padding-top: rem(24px);
-
     opacity: 0.6;
-
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
     color: #fff;
-    font-family: $font-family-sans-serif-normal;
   }
 
   .app-content {
@@ -36,15 +36,5 @@
     margin: 0 auto;
     background-color: inherit;
     text-align: center;
-
-    // @media screen and (max-width: 768px) {
-    //   width: rem(330px);
-    //   padding-top: rem(100px);
-    // }
-
-    // @media screen and (max-width: 480px) {
-    //   width: 90%;
-    //   padding-top: rem(80px);
-    // }
   }
 }
