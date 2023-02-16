@@ -19,11 +19,11 @@
 
   .app-header-title {
     padding-top: rem(24px);
-
     opacity: 0.6;
-
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
     color: #fff;
-    font-family: $font-family-sans-serif-normal;
   }
 
   .app-content {

@@ -11,22 +11,22 @@
     width: 20rem;
     height: 1.25rem;
     margin-bottom: 0.5rem;
-
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 20px;
     color: #fff;
-    font-family: $font-family-sans-serif-bold;
     letter-spacing: rem(-0.24px);
   }
   .input {
     width: 100%;
     height: 3.5rem;
     padding: rem(19px 12px 15px);
-
     border: 0 solid #ced4da;
     border-radius: rem(12px);
-
     background-color: rgba(255, 255, 255, 0.18);
-
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 22px;
     color: #fff;
-    font-family: $font-family-sans-serif-normal;
   }
 }
