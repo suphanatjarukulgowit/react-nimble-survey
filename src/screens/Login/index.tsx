@@ -18,26 +18,32 @@ const LoginScreen = (): JSX.Element => {
 
   const validateInput = (input: { email: string; password: string }) => {
     const errors = [];
+
     if (!input.email) {
       errors.push(t('error.email_blank'));
     }
+
     if (!input.password) {
       errors.push(t('error.password_blank'));
     }
+
     if (!validator.isEmail(input.email)) {
       errors.push(t('error.email_invalid'));
     }
+
     setErrorMessage(errors);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormLoading(true);
+
     try {
       validateInput(formInput);
     } catch (error) {
       console.log('error: ', error);
     }
+
     setFormLoading(false);
   };
 

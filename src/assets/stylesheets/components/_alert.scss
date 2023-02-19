@@ -3,6 +3,7 @@
   width: 100%;
   margin-top: rem(24px);
   margin-bottom: rem(32px);
+  padding: 0;
 
   animation: slide-in 0.2s ease-in;
 
@@ -12,17 +13,19 @@
 
   color: #fff;
   backdrop-filter: blur(1.698rem);
-  padding: 0;
 
   ul {
-    padding-left: 4.68rem;
-    padding-top: rem(44px);
     position: relative;
+    padding-top: rem(44px);
+    padding-left: 4.68rem;
+
     opacity: 0.6;
-    text-align: left;
-    font-weight: 400;
+
     font-size: rem(13px);
+    font-weight: 400;
     line-height: rem(18px);
+    text-align: left;
+
     li {
       margin-bottom: -0.2rem;
     }
@@ -34,9 +37,10 @@
     padding-top: rem(16px);
     padding-bottom: rem(8px);
     padding-left: rem(61.91px);
-    letter-spacing: -0.015px;
-    font-weight: 800;
+
     font-size: rem(15px);
+    font-weight: 800;
+    letter-spacing: -0.015px;
     line-height: rem(20px);
   }
 
@@ -50,6 +54,7 @@
     0% {
       transform: skewX(10deg) translateX(-1.56rem);
     }
+
     100% {
       transform: skewX(0deg);
     }
