@@ -35,6 +35,7 @@ enum NonQuestionType {
 enum QuestionType {
   dropdown = 'dropdown',
   CHOICE = 'choice',
+  NPS = 'nps',
 }
 
 enum RatingType {

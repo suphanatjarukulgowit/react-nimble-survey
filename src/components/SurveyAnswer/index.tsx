@@ -3,6 +3,7 @@ import React from 'react';
 import { QuestionType, SurveyQuestion as SurveyQuestionInterface, SurveyResponse } from 'types/survey';
 
 import ChoiceAnswer from './ChoiceAnswer';
+import NpsChoiceAnswer from './NpsChoiceAnswer';
 import SelectAnswer from './SelectAnswer';
 
 export interface SurveyAnswerProps {
@@ -14,6 +15,7 @@ export interface SurveyAnswerProps {
 const AnswerItems: Record<QuestionType, React.FunctionComponent<SurveyAnswerProps>> = {
   dropdown: SelectAnswer,
   choice: ChoiceAnswer,
+  nps: NpsChoiceAnswer,
 };
 
 const SurveyAnswer = (props: SurveyAnswerProps) => {
