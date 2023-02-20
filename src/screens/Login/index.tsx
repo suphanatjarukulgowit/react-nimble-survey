@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { isEmpty } from 'lodash';
 import validator from 'validator';
 
-import Alert from 'components/Alert';
+import AlertWarning from 'components/AlertWarning';
 import Button from 'components/Button';
 import WarningIcon from 'components/Icon/WarningIcon';
 import Input from 'components/Input';
@@ -54,7 +54,7 @@ const LoginScreen = (): JSX.Element => {
   return (
     <AuthLayout headerMessage={t('auth.heading')}>
       <div className="form-group">
-        {errorMessage && !isEmpty(errorMessage) && <Alert Icon={WarningIcon} errorMessage={errorMessage}></Alert>}
+        {errorMessage && !isEmpty(errorMessage) && <AlertWarning Icon={WarningIcon} errorMessage={errorMessage}></AlertWarning>}
         <form onSubmit={handleSubmit}>
           <Input label={t('auth.email')} onChange={handleChange} type="email" name="email"></Input>
           <Input label={t('auth.password')} onChange={handleChange} type="password" name="password"></Input>
