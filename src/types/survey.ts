@@ -37,6 +37,7 @@ enum QuestionType {
   CHOICE = 'choice',
   NPS = 'nps',
   RATING = 'rating',
+  TEXTFIELD = 'textfield',
 }
 
 enum RatingType {

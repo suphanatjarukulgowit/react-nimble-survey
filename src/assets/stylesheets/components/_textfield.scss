@@ -1,0 +1,30 @@
+.text-field-answer {
+  padding-left: 0.5rem;
+  padding-right: 2rem;
+  overflow-y: auto;
+  .text-field-answer-item {
+    margin-bottom: 16px;
+
+    .text-field-answer-text {
+      color: #ccc;
+      font-family: 'Neuzeit S LT Std Bold', sans-serif;
+      font-style: bold;
+      font-size: 17px;
+    }
+
+    .text-field-answer-input {
+      width: 100%;
+      height: 56px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(50px);
+      mix-blend-mode: normal;
+      color: white;
+      font-size: 1.5rem;
+      font-family: 'Neuzeit S LT Std Normal', sans-serif;
+      font-style: normal;
+      font-size: 15px;
+      padding: 10px;
+    }
+  }
+}
