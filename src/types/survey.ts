@@ -36,6 +36,7 @@ enum QuestionType {
   dropdown = 'dropdown',
   CHOICE = 'choice',
   NPS = 'nps',
+  RATING = 'rating',
 }
 
 enum RatingType {
