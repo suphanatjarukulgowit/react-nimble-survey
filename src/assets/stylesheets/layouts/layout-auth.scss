@@ -1,0 +1,44 @@
+.layout-auth {
+  &,
+  body,
+  .root-container {
+    height: 100%;
+  }
+
+  .root-container {
+    display: flex;
+  }
+
+  body {
+    background: {
+      image: url('/assets/images/background.png');
+      size: cover;
+
+      position: center;
+    }
+  }
+
+  .app-header-title {
+    padding-top: rem(24px);
+
+    opacity: 0.6;
+
+    color: #fff;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+
+  .app-content {
+    z-index: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    width: rem(330px);
+    margin: 0 auto;
+    padding-top: rem(145px);
+
+    background-color: inherit;
+
+    text-align: center;
+  }
+}
