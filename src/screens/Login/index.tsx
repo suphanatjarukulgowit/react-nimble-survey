@@ -94,7 +94,7 @@ const LoginScreen = (): JSX.Element => {
         )}
         <form onSubmit={handleSubmit}>
           <Input
-            label={t('auth.sign_in')}
+            label={t('auth.email')}
             onChange={handleChange}
             type="email"
             name="email"
