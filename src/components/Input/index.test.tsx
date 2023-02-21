@@ -19,6 +19,6 @@ describe('Input', () => {
     render(<Input label={InputTestData.label} type="text" name="email" data-test-id={InputTestData.dataTestId}></Input>);
     const input = screen.getByRole('textbox');
     expect(input).toBeVisible();
-    expect(input).toHaveAttribute('class', 'input');
+    expect(input).toHaveAttribute('class', 'form-field__input');
   });
 });
