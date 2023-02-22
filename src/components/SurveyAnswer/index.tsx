@@ -6,6 +6,7 @@ import ChoiceAnswer from './ChoiceAnswer';
 import NpsChoiceAnswer from './NpsChoiceAnswer';
 import RatingAnswer from './RatingAnswer';
 import SelectAnswer from './SelectAnswer';
+import SliderAnswer from './SliderAnswer';
 import TextfieldAnswer from './TextfieldAnswer';
 
 export interface SurveyAnswerProps {
@@ -20,6 +21,7 @@ const AnswerItems: Record<QuestionType, React.FunctionComponent<SurveyAnswerProp
   nps: NpsChoiceAnswer,
   rating: RatingAnswer,
   textfield: TextfieldAnswer,
+  slider: SliderAnswer,
 };
 
 const SurveyAnswer = (props: SurveyAnswerProps) => {

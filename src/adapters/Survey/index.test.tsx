@@ -12,7 +12,7 @@ describe('AuthAdapter', () => {
       const expectedMethod = 'GET';
       const expectedEndpoint = '/api/v1/surveys';
 
-      SurveyAdapter.list();
+      SurveyAdapter.list(5);
 
       expect(requestManager).toHaveBeenCalledTimes(1);
       expect(requestManager).toHaveBeenCalledWith(expectedMethod, expectedEndpoint);

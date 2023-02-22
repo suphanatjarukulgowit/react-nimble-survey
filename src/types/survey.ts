@@ -38,6 +38,7 @@ enum QuestionType {
   NPS = 'nps',
   RATING = 'rating',
   TEXTFIELD = 'textfield',
+  SLIDER = 'slider',
 }
 
 enum RatingType {

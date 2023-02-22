@@ -32,13 +32,14 @@ const SurveyHomepageScreen = (): JSX.Element => {
         // popup error and redirect to login
       });
   };
+  const [pageSize, setPageSize] = useState(5);
+  const maxPageSize = 20;
   const [surveyLoading, setSuryveyLoading] = useState(false);
-
   const [surveys, setSurveys] = useState<Survey[]>([]);
   const fetchSurveyList = useCallback(async () => {
     setSuryveyLoading(true);
 
-    const data = await SurveyAdapter.list();
+    const data = await SurveyAdapter.list(pageSize);
     const surveysResponse: Survey[] = _.get(data, 'data');
 
     setSurveys(surveysResponse);
@@ -46,9 +47,13 @@ const SurveyHomepageScreen = (): JSX.Element => {
       setSurveyBackground(surveysResponse[0].attributes.coverImageUrl);
     }
     setSuryveyLoading(false);
-  }, []);
+  }, [pageSize]);
   const onSlideChange = async (swiper: Swiper) => {
     setSurveyBackground(surveys[swiper.activeIndex].attributes.coverImageUrl);
+    if (swiper.isEnd && pageSize <= maxPageSize) {
+      const newPageSize = pageSize + 5;
+      setPageSize(newPageSize);
+    }
   };
   useEffect(
     fetchUserProfile,
@@ -57,7 +62,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
   );
   useEffect(() => {
     fetchSurveyList();
-  }, [fetchSurveyList]);
+  }, [fetchSurveyList, pageSize]);
 
   return (
     <div>

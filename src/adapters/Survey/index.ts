@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from 'axios';
 import { deserialize } from 'deserialize-json-api';
 
 import requestManager from 'lib/requestManager';
@@ -70,8 +71,11 @@ const parseSurveyDetail = (surveyDetailResponse: any): SurveyDetail => {
 };
 
 const SurveyAdapter = {
-  list: () => {
-    return requestManager('GET', '/api/v1/surveys');
+  list: (pageSize: number) => {
+    const pageSizeParam: AxiosRequestConfig = {
+      params: { 'page[size]': pageSize },
+    };
+    return requestManager('GET', '/api/v1/surveys', pageSizeParam);
   },
   details: async (surveyId: string) => {
     const response = await requestManager('GET', `/api/v1/surveys/${surveyId}`);
