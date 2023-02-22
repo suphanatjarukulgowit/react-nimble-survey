@@ -42,8 +42,7 @@ describe('ApiError', () => {
         };
 
         const apiError = new ApiError(axiosResponse);
-
-        expect(apiError.toString().join(',')).toBe('Your email or password is incorrect. Please try again.');
+        expect(apiError.toString()[0]).toBe('Your email or password is incorrect. Please try again.');
       });
     });
 

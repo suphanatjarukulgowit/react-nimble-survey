@@ -6,7 +6,7 @@ jest.mock('lib/requestManager', () => jest.fn());
 
 describe('AuthAdapter', () => {
   describe('login()', () => {
-    it('fires post request to login api with the correct data', () => {
+    it('fires a post request to the login API with the correct data', () => {
       const email = 'suphanat@nimblehq.co';
       const password = '12345678';
 
@@ -26,8 +26,9 @@ describe('AuthAdapter', () => {
       expect(requestManager).toHaveBeenCalledWith(expectedMethod, expectedEndpoint, { data: expectedData });
     });
   });
+
   describe('refresh()', () => {
-    it('fires post request to refresh token api with the correct data', () => {
+    it('fires a post request to the refresh token API with the correct data', () => {
       const expectedMethod = 'POST';
       const expectedEndpoint = '/api/v1/oauth/token';
       const expectedData = {
@@ -43,8 +44,9 @@ describe('AuthAdapter', () => {
       expect(requestManager).toHaveBeenCalledWith(expectedMethod, expectedEndpoint, { data: expectedData });
     });
   });
+
   describe('logout()', () => {
-    it('fires post request to revoke api with the correct data', () => {
+    it('fires a post request to the revoke API with the correct data', () => {
       const expectedMethod = 'POST';
       const expectedEndpoint = '/api/v1/oauth/revoke';
       const expectedData = {

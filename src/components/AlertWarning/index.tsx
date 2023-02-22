@@ -9,10 +9,10 @@ interface AlertWarningProps {
 const AlertWarning = ({ Icon, dataTestId, errorMessage }: AlertWarningProps): JSX.Element => {
   return (
     <div data-test-id={dataTestId} className="alert">
-      <div className="alert__icon">
+      <div className="alert__icon" data-test-id="alert-icon">
         <Icon />
       </div>
-      <div className="alert-header-title">Error</div>
+      <span className="alert__title">Error</span>
       <ul>
         {errorMessage.map((message, index) => (
           <li key={index}>{message}</li>

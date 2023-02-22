@@ -2,62 +2,62 @@ import React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
+// import WarningIcon from 'components/Icon/WarningIcon';
 import WarningIcon from 'components/Icon/WarningIcon';
 
-import Alert from '.';
+// import Alert from '../Alert';
+import AlertWarning from '.';
 
 const testAlerData = {
   dataTestId: 'testAlert',
   errorMessage: ['test error'],
-  alertHeader: 'Error',
   icon: 'alert-icon',
 };
 
 describe('Alert', () => {
-  it('render the alert container', () => {
+  it('renders the alert container', () => {
     render(
-      <Alert
+      <AlertWarning
         Icon={WarningIcon}
-        alertHeader={testAlerData.alertHeader}
         dataTestId={testAlerData.dataTestId}
         errorMessage={testAlerData.errorMessage}
-      ></Alert>
+      ></AlertWarning>
     );
     const container = screen.getByTestId(testAlerData.dataTestId);
     expect(container).toBeVisible();
   });
-  it('render the alert icon', () => {
+
+  it('renders the alert icon', () => {
     render(
-      <Alert
+      <AlertWarning
         Icon={WarningIcon}
-        alertHeader={testAlerData.alertHeader}
         dataTestId={testAlerData.dataTestId}
         errorMessage={testAlerData.errorMessage}
-      ></Alert>
+      ></AlertWarning>
     );
     const icon = screen.getByTestId(testAlerData.icon);
     expect(icon).toBeVisible();
   });
-  it('render the header', () => {
+
+  it('renders the header', () => {
     render(
-      <Alert
+      <AlertWarning
         Icon={WarningIcon}
-        alertHeader={testAlerData.alertHeader}
         dataTestId={testAlerData.dataTestId}
         errorMessage={testAlerData.errorMessage}
-      ></Alert>
+      ></AlertWarning>
     );
-    const header = screen.getByText(testAlerData.alertHeader);
+    const header = screen.getByText('Error');
     expect(header).toBeVisible();
   });
-  it('render the message', () => {
+
+  it('renders the message', () => {
     render(
-      <Alert
+      <AlertWarning
         Icon={WarningIcon}
-        alertHeader={testAlerData.alertHeader}
         dataTestId={testAlerData.dataTestId}
         errorMessage={testAlerData.errorMessage}
-      ></Alert>
+      ></AlertWarning>
     );
     const message = screen.getByText(testAlerData.errorMessage[0]);
     expect(message).toBeVisible();

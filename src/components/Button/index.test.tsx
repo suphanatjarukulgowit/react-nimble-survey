@@ -7,12 +7,13 @@ import Button from '.';
 const buttonTestId = 'login-form__button-submit';
 
 describe('Button', () => {
-  it('render the button', () => {
+  it('renders the button', () => {
     render(<Button disabled={false} name={'Sign in'} className="sign-in-btn" dataTestId={buttonTestId}></Button>);
     const button = screen.getByTestId(buttonTestId);
     expect(button).toBeVisible();
   });
-  it('render the message correctly', () => {
+
+  it('renders the message correctly', () => {
     render(<Button disabled={false} name={'Sign in'} className="sign-in-btn" dataTestId={buttonTestId}></Button>);
     const button = screen.getByTestId(buttonTestId);
     expect(button).toBeVisible();

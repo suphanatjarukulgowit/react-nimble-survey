@@ -5,14 +5,15 @@ const loginScreenTestIds = {
   loginSubmit: 'login-form__button-submit',
 };
 describe('Login page', () => {
-  it('render the login page with the right element', () => {
+  it('renders the login page with the right element', () => {
     cy.visit('/');
     cy.get('.app-header-title').should('have.text', 'Sign in to Nimble');
     cy.findByTestId(loginScreenTestIds.loginEmail).should('exist');
     cy.findByTestId(loginScreenTestIds.loginPassWord).should('exist');
   });
+
   describe('given valid credentials', () => {
-    it('redirect to survey homepage', () => {
+    it('redirects to survey homepage', () => {
       cy.visit('/');
       cy.findByTestId(loginScreenTestIds.loginEmail).type('suphanat@nimblehq.co');
       cy.findByTestId(loginScreenTestIds.loginPassWord).type('12345678');

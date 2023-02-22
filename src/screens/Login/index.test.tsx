@@ -37,7 +37,7 @@ const setup = () => {
 
 describe('LoginScreen', () => {
   describe('given invalid credentials', () => {
-    test('display an error message if email is blank', () => {
+    test('displays an error message if email is blank', () => {
       render(<LoginScreen />);
       const { emailInput, passwordInput, submitButton, getByText } = setup();
       fireEvent.change(emailInput, { target: { value: '' } });
@@ -47,7 +47,7 @@ describe('LoginScreen', () => {
       expect(AuthAdapter.login).not.toHaveBeenCalled();
     });
 
-    test('display an error message if password is blank', () => {
+    test('displays an error message if password is blank', () => {
       render(<LoginScreen />);
       const { emailInput, passwordInput, submitButton, getByText } = setup();
       fireEvent.change(emailInput, { target: { value: 'xxxxxxx' } });
@@ -57,7 +57,7 @@ describe('LoginScreen', () => {
       expect(AuthAdapter.login).not.toHaveBeenCalled();
     });
 
-    test('display an error message if email is invalid', () => {
+    test('displays an error message if email is invalid', () => {
       render(<LoginScreen />);
       const { emailInput, passwordInput, submitButton, getByText } = setup();
       fireEvent.change(emailInput, { target: { value: 'xxxxxxx' } });
@@ -67,8 +67,9 @@ describe('LoginScreen', () => {
       expect(AuthAdapter.login).not.toHaveBeenCalled();
     });
   });
+
   describe('given valid credentials', () => {
-    test('redirect user to survey home page', async () => {
+    test('redirects user to survey home page', async () => {
       render(<LoginScreen />);
       const mockedLogin = AuthAdapter.login as jest.Mock;
       mockedLogin.mockResolvedValue(null);
