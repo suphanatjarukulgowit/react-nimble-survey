@@ -3,7 +3,7 @@ import React from 'react';
 import { screen, render, fireEvent, waitFor } from '@testing-library/react';
 
 import '@testing-library/jest-dom/extend-expect';
-import AuthAdapter from 'adapters/Auth';
+import { logIn } from 'adapters/Auth';
 
 import LoginScreen from '.';
 
@@ -44,7 +44,7 @@ describe('LoginScreen', () => {
       fireEvent.change(passwordInput, { target: { value: 'xxxxxxx' } });
       fireEvent.click(submitButton);
       expect(getByText('error.email_blank')).toBeInTheDocument();
-      expect(AuthAdapter.login).not.toHaveBeenCalled();
+      expect(logIn).not.toHaveBeenCalled();
     });
 
     test('displays an error message if password is blank', () => {
@@ -54,7 +54,7 @@ describe('LoginScreen', () => {
       fireEvent.change(passwordInput, { target: { value: '' } });
       fireEvent.click(submitButton);
       expect(getByText('error.password_blank')).toBeInTheDocument();
-      expect(AuthAdapter.login).not.toHaveBeenCalled();
+      expect(logIn).not.toHaveBeenCalled();
     });
 
     test('displays an error message if email is invalid', () => {
@@ -64,14 +64,14 @@ describe('LoginScreen', () => {
       fireEvent.change(passwordInput, { target: { value: '12345678' } });
       fireEvent.click(submitButton);
       expect(getByText('error.email_invalid')).toBeInTheDocument();
-      expect(AuthAdapter.login).not.toHaveBeenCalled();
+      expect(logIn).not.toHaveBeenCalled();
     });
   });
 
   describe('given valid credentials', () => {
     test('redirects user to survey home page', async () => {
       render(<LoginScreen />);
-      const mockedLogin = AuthAdapter.login as jest.Mock;
+      const mockedLogin = logIn as jest.Mock;
       mockedLogin.mockResolvedValue(null);
 
       const { emailInput, passwordInput, submitButton } = setup();

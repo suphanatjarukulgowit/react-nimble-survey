@@ -6,7 +6,7 @@ import axios from 'axios';
 import { isEmpty } from 'lodash';
 import validator from 'validator';
 
-import AuthAdapter from 'adapters/Auth';
+import { logIn } from 'adapters/Auth';
 import AlertWarning from 'components/AlertWarning';
 import Button from 'components/Button';
 import WarningIcon from 'components/Icon/WarningIcon';
@@ -65,7 +65,7 @@ const LoginScreen = (): JSX.Element => {
   };
   const triggerLogin = () => {
     if (formValid) {
-      AuthAdapter.login(formInput.email, formInput.password)
+      logIn(formInput.email, formInput.password)
         .then((response) => {
           setAuth(response?.data?.attributes);
           axios.defaults.headers.common['Authorization'] = `Bearer ${response?.data?.attributes.accessToken}`;

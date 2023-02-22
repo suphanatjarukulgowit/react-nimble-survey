@@ -1,6 +1,6 @@
 import requestManager from 'lib/requestManager';
 
-import AuthAdapter from './';
+import { logIn, refreshToken, logOut } from './';
 
 jest.mock('lib/requestManager', () => jest.fn());
 
@@ -20,7 +20,7 @@ describe('AuthAdapter', () => {
         clientSecret: process.env.REACT_APP_API_CLIENT_SECRET,
       };
 
-      AuthAdapter.login(email, password);
+      logIn(email, password);
 
       expect(requestManager).toHaveBeenCalledTimes(1);
       expect(requestManager).toHaveBeenCalledWith(expectedMethod, expectedEndpoint, { data: expectedData });
@@ -38,7 +38,7 @@ describe('AuthAdapter', () => {
         clientSecret: process.env.REACT_APP_API_CLIENT_SECRET,
       };
 
-      AuthAdapter.refresh(expectedData.refreshToken);
+      refreshToken(expectedData.refreshToken);
 
       expect(requestManager).toHaveBeenCalledTimes(1);
       expect(requestManager).toHaveBeenCalledWith(expectedMethod, expectedEndpoint, { data: expectedData });
@@ -55,7 +55,7 @@ describe('AuthAdapter', () => {
         clientSecret: process.env.REACT_APP_API_CLIENT_SECRET,
       };
 
-      AuthAdapter.logOut(expectedData.token);
+      logOut(expectedData.token);
 
       expect(requestManager).toHaveBeenCalledTimes(1);
       expect(requestManager).toHaveBeenCalledWith(expectedMethod, expectedEndpoint, { data: expectedData });

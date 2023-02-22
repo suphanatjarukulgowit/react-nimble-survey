@@ -2,7 +2,7 @@ import axios, { Method as HTTPMethod, AxiosRequestConfig, AxiosResponse, AxiosTr
 import { camelizeKeys } from 'humps';
 import _ from 'lodash';
 
-import AuthAdapter from 'adapters/Auth';
+import { refreshToken } from 'adapters/Auth';
 
 import ApiError from './errors/ApiErrors';
 import { getLocalStorageValue, LocalStorageKey, setLocalStorageValue, removeLocalStorageValue } from './localStorage';
@@ -23,7 +23,7 @@ axios.interceptors.response.use(
     if (error.response.status === 401) {
       const authData = getLocalStorageValue(LocalStorageKey.auth);
       if (authData) {
-        AuthAdapter.refresh(authData.refreshToken)
+        refreshToken(authData.refreshToken)
           .then((response) => {
             setLocalStorageValue(LocalStorageKey.auth, response?.data?.attributes);
             axios.defaults.headers.common['Authorization'] = `Bearer ${response?.data?.attributes.accessToken}`;

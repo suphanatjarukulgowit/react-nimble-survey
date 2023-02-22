@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import AuthAdapter from 'adapters/Auth';
-import UserAdapter from 'adapters/User';
+import { logOut } from 'adapters/Auth';
+import { me } from 'adapters/User';
 import useAuth from 'hooks/useAuth';
 import ApiError from 'lib/errors/ApiErrors';
 
@@ -10,7 +10,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
   const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
   const fetchUserProfile = () => {
-    UserAdapter.me()
+    me()
       .then((response) => {
         console.log(response);
       })
@@ -22,7 +22,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
   useEffect(fetchUserProfile, [fetchUserProfile]);
   const testLogOut = () => {
     if (auth) {
-      AuthAdapter.logOut(auth.accessToken)
+      logOut(auth.accessToken)
         .then(() => {
           setAuth(null);
           navigate('/');
