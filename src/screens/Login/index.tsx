@@ -73,7 +73,7 @@ const LoginScreen = (): JSX.Element => {
         })
         .catch((error) => {
           if (error instanceof ApiError) {
-            setErrorMessage(error.toString());
+            setErrorMessage(error.toArrayString());
           } else {
             setErrorMessage([t('error.system_error')]);
           }

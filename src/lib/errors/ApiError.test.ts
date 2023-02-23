@@ -26,7 +26,7 @@ describe('ApiError', () => {
     expect(apiError.errors).toBe(mockAxiosResponse.data.errors);
   });
 
-  describe('.toString()', () => {
+  describe('.toArrayString()', () => {
     describe('given there is only one error', () => {
       it('returns an error message', () => {
         const axiosResponse = {
@@ -42,7 +42,7 @@ describe('ApiError', () => {
         };
 
         const apiError = new ApiError(axiosResponse);
-        expect(apiError.toString()[0]).toBe('Your email or password is incorrect. Please try again.');
+        expect(apiError.toArrayString()[0]).toBe('Your email or password is incorrect. Please try again.');
       });
     });
 
@@ -65,8 +65,8 @@ describe('ApiError', () => {
         };
 
         const apiError = new ApiError(axiosResponse);
-
-        expect(apiError.toString().join(',')).toBe('Your email cannot be blank,Your password cannot be blank');
+        
+        expect(apiError.toArrayString().join(',')).toBe('Your email cannot be blank,Your password cannot be blank');
       });
     });
   });

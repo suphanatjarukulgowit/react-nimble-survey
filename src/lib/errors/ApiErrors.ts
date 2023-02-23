@@ -13,7 +13,7 @@ class ApiError extends Error {
     this.errors = data.errors;
   }
 
-  toString = (): string[] => {
+  toArrayString = (): string[] => {
     return this.errors.map(({ detail }) => detail);
   };
 }
