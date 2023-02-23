@@ -65,7 +65,7 @@ describe('ApiError', () => {
         };
 
         const apiError = new ApiError(axiosResponse);
-        
+
         expect(apiError.toArrayString().join(',')).toBe('Your email cannot be blank,Your password cannot be blank');
       });
     });
