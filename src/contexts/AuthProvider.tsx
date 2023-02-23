@@ -13,7 +13,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType>({
   auth: null,
   setAuth: (_authData: Nullable<Auths>) => {
-    // this is just to prevent lint error
+    // eslint-disable-next-line
   },
 });
 
