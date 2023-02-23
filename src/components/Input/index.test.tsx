@@ -12,11 +12,12 @@ const InputTestData = {
 describe('Input', () => {
   it('renders the component', () => {
     render(<Input label={InputTestData.label} type="text" name="email" data-test-id={InputTestData.dataTestId}></Input>);
+
     const label = screen.getByText(InputTestData.label);
     const input = screen.getByRole('textbox');
+
     expect(label).toBeVisible();
     expect(input).toBeVisible();
-
     expect(input).toHaveAttribute('class', 'form-field__input');
   });
 });

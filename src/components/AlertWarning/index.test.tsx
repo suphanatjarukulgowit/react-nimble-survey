@@ -23,7 +23,9 @@ describe('Alert', () => {
         errorMessage={testAlerData.errorMessage}
       ></AlertWarning>
     );
+
     const container = screen.getByTestId(testAlerData.dataTestId);
+
     expect(container).toBeVisible();
   });
 

@@ -52,6 +52,7 @@ describe('AuthRoute', () => {
   describe('given there are tokens in the local storage', () => {
     it('redirects to the Home page', async () => {
       render(<RequireAuthComponentMock />);
+
       await waitFor(() => {
         expect(screen.queryByText(HOME_ROUTE.content)).toBeVisible();
       });

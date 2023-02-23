@@ -20,7 +20,9 @@ describe('Input', () => {
         {children}
       </AuthLayout>
     );
+
     const content = screen.getByText(childernContent);
+
     expect(content).toBeVisible();
   });
 
@@ -30,7 +32,9 @@ describe('Input', () => {
         {children}
       </AuthLayout>
     );
+
     const logo = screen.getByTestId(inputTestData.logoTestId);
+
     expect(logo).toBeVisible();
   });
 });
