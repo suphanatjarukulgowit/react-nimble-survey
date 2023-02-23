@@ -20,6 +20,7 @@
     "today" : "Today",
     "blank_state_desctiption" : "You’ve completed all the surveys.\nTake a moment.",
     "start_survey" : "Start Survey",
-    "submit" : "Submit"
+    "submit" : "Submit",
+    "outro" : "Thanks for taking \nthe survey."
   }
 }

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import { omit } from 'lodash';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
@@ -24,6 +25,7 @@ const NextButton = () => {
 const SurveyQuestionPage = (): JSX.Element => {
   const { background, currentSurvey } = useContext(StoreContext);
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [responses, setResponses] = useState<Record<number, SurveyResponse>>({});
   const [isSurveySubmit, setIsSurveySubmit] = useState(false);
   const isEmptyResponse = Object.keys(responses).length === 0;
@@ -42,7 +44,7 @@ const SurveyQuestionPage = (): JSX.Element => {
     const surveyResponses = Object.values(responses);
 
     SurveyAdapter.submitSurvey(currentSurvey!.id, surveyResponses)
-      .then(() => console.log('success'))
+      .then(() => navigate('/outro'))
       .catch(() => console.log('Something went wrong. Please try again later.'));
   };
   const lastQuestionOrder = currentSurvey?.questions.length || 0;

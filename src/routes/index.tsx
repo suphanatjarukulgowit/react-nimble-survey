@@ -4,6 +4,7 @@ import { RouteObject } from 'react-router-dom';
 import RequireAuth from 'components/RequireAuth';
 import LoginScreen from 'screens/Login';
 import SurveyHomepageScreen from 'screens/Survey/SurveyHomePage';
+import SurvetOutro from 'screens/Survey/SurveyOutro';
 import SurveyQuestionPage from 'screens/Survey/SurveyQuestionPage';
 import StartSurvey from 'screens/Survey/SurveyStart';
 
@@ -40,6 +41,14 @@ const protectedRoutes: RouteObject[] = [
     element: (
       <RequireAuth>
         <SurveyQuestionPage />
+      </RequireAuth>
+    ),
+  },
+  {
+    path: '/outro',
+    element: (
+      <RequireAuth>
+        <SurvetOutro />
       </RequireAuth>
     ),
   },
