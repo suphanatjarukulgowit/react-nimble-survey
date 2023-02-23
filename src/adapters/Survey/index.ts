@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 import { deserialize } from 'deserialize-json-api';
 
 import requestManager from 'lib/requestManager';
-import { RatingType, Survey, SurveyAnswer, SurveyDetail, SurveyQuestion } from 'types/survey';
+import { RatingType, Survey, SurveyAnswer, SurveyDetail, SurveyQuestion, SurveyResponse } from 'types/survey';
 
 // eslint-disable-next-line
 const parseSurvey = (surveyResponse: any): Survey => ({
@@ -81,6 +81,16 @@ const SurveyAdapter = {
     const response = await requestManager('GET', `/api/v1/surveys/${surveyId}`);
     const deserializedResponse = await deserialize(response);
     return parseSurveyDetail(deserializedResponse.data);
+  },
+  submitSurvey: async (surveyId: string, surveyResponses: SurveyResponse[]) => {
+    const data = {
+      surveyId: surveyId,
+      questions: surveyResponses.map(({ questionId, ...response }) => ({
+        id: questionId,
+        ...response,
+      })),
+    };
+    return requestManager('POST', '/api/v1/responses', { data });
   },
 };
 

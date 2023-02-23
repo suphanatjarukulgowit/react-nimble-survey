@@ -19,6 +19,7 @@
   "survey":{
     "today" : "Today",
     "blank_state_desctiption" : "You’ve completed all the surveys.\nTake a moment.",
-    "start_survey" : "Start Survey"
+    "start_survey" : "Start Survey",
+    "submit" : "Submit"
   }
 }
