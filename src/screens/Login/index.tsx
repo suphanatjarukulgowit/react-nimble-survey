@@ -111,7 +111,7 @@ const LoginScreen = (): JSX.Element => {
             disabled={formLoading}
             name={t('auth.sign_in')}
             className="sign-in-btn"
-            dataTestId={loginScreenTestIds.loginSubmit}
+            data-test-id={loginScreenTestIds.loginSubmit}
           ></Button>
         </form>
       </div>
