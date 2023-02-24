@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 
 import SurveyAdapter from 'adapters/Survey';
 import action from 'assets/images/action.svg';
+import quit from 'assets/images/quit.svg';
 import BackgroundImage from 'components/BackGroundImage';
 import Button from 'components/Button';
 import SurveyQuestion from 'components/SurveyQuestion';
@@ -29,6 +30,11 @@ const SurveyQuestionPage = (): JSX.Element => {
   const [responses, setResponses] = useState<Record<number, SurveyResponse>>({});
   const [isSurveySubmit, setIsSurveySubmit] = useState(false);
   const isEmptyResponse = Object.keys(responses).length === 0;
+
+  const onQuitSurvey = () => {
+    console.log('onQuitSurvey');
+  };
+
   const handleResponseChange = (question: SurveyQuestionInterface, response: SurveyResponse | null) => {
     if (response === null) {
       return setResponses(omit(responses, question.displayOrder));
@@ -38,6 +44,7 @@ const SurveyQuestionPage = (): JSX.Element => {
       [question.displayOrder]: response,
     });
   };
+
   const handleSurveySubmit = () => {
     setIsSurveySubmit(true);
 
@@ -51,6 +58,11 @@ const SurveyQuestionPage = (): JSX.Element => {
   return (
     <div className="survey-question">
       <BackgroundImage imageUrl={background} />
+      <div className="quit">
+        <button className="quit__button" onClick={() => onQuitSurvey()} aria-label="Next">
+          <img src={quit} alt="quit survey" />
+        </button>
+      </div>
       <div className="survey-question-swiper">
         <Swiper slidesPerView={1} speed={750} className="survey-question-swiper-slide">
           {currentSurvey?.questions.map((question) => (
