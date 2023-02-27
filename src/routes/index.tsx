@@ -19,7 +19,7 @@ const nomalRoutes: RouteObject[] = [
     element: <LoginScreen />,
   },
   {
-    path: '/forgetPassword',
+    path: '/forgotPassword',
     element: <ForgetPasswordScreen />,
   },
 ];

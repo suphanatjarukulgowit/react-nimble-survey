@@ -104,7 +104,7 @@ const LoginScreen = (): JSX.Element => {
             name="password"
             data-test-id={loginScreenTestIds.loginPassWord}
           >
-            <Link className="forgot-password" to={'/forgetPassword'}>
+            <Link className="forgot-password" to={'/forgotPassword'}>
               {t('forget_password.forget')}
             </Link>
           </Input>
