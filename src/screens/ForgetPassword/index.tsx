@@ -3,6 +3,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+import { isEmpty } from 'lodash';
+
+import UserAdapter from 'adapters/User';
 import back from 'assets/images/back.svg';
 import Alert from 'components/Alert';
 import Button from 'components/Button';
@@ -17,6 +20,7 @@ const forgetPasswordScreenTestIds = {
   submit: 'forget-password-submit',
   alertCheckEmail: 'forget-password-alert-check-email',
   alertError: 'forget-password-alert-error',
+  alertValidate: 'forget-password-alert-validate',
 };
 
 interface IFormInput {
@@ -28,6 +32,7 @@ const ForgetPasswordScreen = (): JSX.Element => {
   const [formLoading, setFormLoading] = useState(false);
   const [popupSentEmail, setPopupSentEmail] = useState(false);
   const [emailForm, setEmailForm] = useState({ email: '' });
+  const [errorApi, setErrorApi] = useState<string[]>([]);
   const {
     register,
     handleSubmit,
@@ -39,10 +44,17 @@ const ForgetPasswordScreen = (): JSX.Element => {
   };
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    console.log(data);
     setFormLoading(true);
-    setPopupSentEmail(true);
-    setFormLoading(false);
+    setErrorApi([]);
+    UserAdapter.resetPassword(data.email)
+      .then(() => {
+        setPopupSentEmail(true);
+        setFormLoading(false);
+      })
+      .catch(() => {
+        setFormLoading(false);
+        setErrorApi([t('error.system_error')]);
+      });
   };
 
   return (
@@ -53,6 +65,14 @@ const ForgetPasswordScreen = (): JSX.Element => {
         </Link>
       </div>
       <AuthLayout headerMessage={t('forget_password.header')} data-test-id={forgetPasswordScreenTestIds.header}>
+        {errorApi && !isEmpty(errorApi) && (
+          <Alert
+            Icon={WarningIcon}
+            alertHeader="Error"
+            message={errorApi}
+            dataTestId={forgetPasswordScreenTestIds.alertError}
+          ></Alert>
+        )}
         {errors?.email?.type === 'required' && (
           <Alert
             Icon={WarningIcon}
@@ -66,7 +86,7 @@ const ForgetPasswordScreen = (): JSX.Element => {
             Icon={BellIcon}
             alertHeader="Check your email."
             message={[t('forget_password.email_sent')]}
-            dataTestId={forgetPasswordScreenTestIds.alertError}
+            dataTestId={forgetPasswordScreenTestIds.alertValidate}
             displayBullet={false}
           ></Alert>
         ) : null}
