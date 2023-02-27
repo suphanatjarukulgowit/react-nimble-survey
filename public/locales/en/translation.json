@@ -21,6 +21,10 @@
     "blank_state_desctiption" : "You’ve completed all the surveys.\nTake a moment.",
     "start_survey" : "Start Survey",
     "submit" : "Submit",
-    "outro" : "Thanks for taking \nthe survey."
+    "outro" : "Thanks for taking \nthe survey.",
+    "warning" : "Warning!",
+    "quit_surey" : "Are you sure you want to quit the survey?",
+    "cancel" : "Cancel",
+    "yes" : "Yes"
   }
 }

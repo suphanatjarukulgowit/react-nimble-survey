@@ -10,9 +10,15 @@ import action from 'assets/images/action.svg';
 import quit from 'assets/images/quit.svg';
 import BackgroundImage from 'components/BackGroundImage';
 import Button from 'components/Button';
+import Modal from 'components/Modal';
 import SurveyQuestion from 'components/SurveyQuestion';
 import StoreContext from 'contexts/StoreProvider';
 import { SurveyQuestion as SurveyQuestionInterface, SurveyResponse } from 'types/survey';
+
+interface LeaveConfirmationModalProps {
+  onConfirmClick: () => void;
+  onCancelClick: () => void;
+}
 
 const NextButton = () => {
   const swiper = useSwiper();
@@ -30,9 +36,18 @@ const SurveyQuestionPage = (): JSX.Element => {
   const [responses, setResponses] = useState<Record<number, SurveyResponse>>({});
   const [isSurveySubmit, setIsSurveySubmit] = useState(false);
   const isEmptyResponse = Object.keys(responses).length === 0;
-
+  const lastQuestionOrder = currentSurvey?.questions.length || 0;
+  const [showQuitModal, setShowQuitModal] = useState(false);
   const onQuitSurvey = () => {
-    console.log('onQuitSurvey');
+    setShowQuitModal(true);
+  };
+
+  const handleQuitModalClose = () => {
+    setShowQuitModal(false);
+  };
+
+  const handleQuitSurvey = () => {
+    navigate('/');
   };
 
   const handleResponseChange = (question: SurveyQuestionInterface, response: SurveyResponse | null) => {
@@ -54,10 +69,30 @@ const SurveyQuestionPage = (): JSX.Element => {
       .then(() => navigate('/outro'))
       .catch(() => console.log('Something went wrong. Please try again later.'));
   };
-  const lastQuestionOrder = currentSurvey?.questions.length || 0;
+
+  const LeaveConfirmationModal = ({ onConfirmClick, onCancelClick }: LeaveConfirmationModalProps) => (
+    <div>
+      <div className="modal-description">
+        <h3 className="modal-description__header">{t('survey.warning')}</h3>
+        <p className="modal-description__paragraph">{t('survey.quit_surey')}</p>
+      </div>
+      <div className="modal-button-container">
+        <Button className="modal-button yes" onClick={onConfirmClick}>
+          {t('survey.yes')}
+        </Button>
+        <Button className="modal-button cancel" onClick={onCancelClick}>
+          {t('survey.cancel')}
+        </Button>
+      </div>
+    </div>
+  );
+
   return (
     <div className="survey-question">
       <BackgroundImage imageUrl={background} />
+      <Modal isOpen={showQuitModal} onClose={handleQuitModalClose}>
+        <LeaveConfirmationModal onConfirmClick={handleQuitSurvey} onCancelClick={handleQuitModalClose} />
+      </Modal>
       <div className="quit">
         <button className="quit__button" onClick={() => onQuitSurvey()} aria-label="Next">
           <img src={quit} alt="quit survey" />
