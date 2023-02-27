@@ -26,5 +26,11 @@
     "quit_surey" : "Are you sure you want to quit the survey?",
     "cancel" : "Cancel",
     "yes" : "Yes"
+  },
+  "forget_password":{
+    "forget" : "Forget",
+    "header" : "Enter your email to receive instructions for \nresetting your password.",
+    "send_email_button" : "Send Recovery Email",
+    "email_sent" : "We've emailed you instructions to reset your password."
   }
 }

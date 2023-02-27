@@ -8,7 +8,7 @@ import Alert from '.';
 
 const testAlerData = {
   dataTestId: 'testAlert',
-  errorMessage: ['test error'],
+  message: ['test error'],
   alertHeader: 'Error',
   icon: 'alert-icon',
 };
@@ -20,7 +20,7 @@ describe('Alert', () => {
         Icon={WarningIcon}
         alertHeader={testAlerData.alertHeader}
         dataTestId={testAlerData.dataTestId}
-        errorMessage={testAlerData.errorMessage}
+        message={testAlerData.message}
       ></Alert>
     );
     const container = screen.getByTestId(testAlerData.dataTestId);
@@ -32,7 +32,7 @@ describe('Alert', () => {
         Icon={WarningIcon}
         alertHeader={testAlerData.alertHeader}
         dataTestId={testAlerData.dataTestId}
-        errorMessage={testAlerData.errorMessage}
+        message={testAlerData.message}
       ></Alert>
     );
     const icon = screen.getByTestId(testAlerData.icon);
@@ -44,7 +44,7 @@ describe('Alert', () => {
         Icon={WarningIcon}
         alertHeader={testAlerData.alertHeader}
         dataTestId={testAlerData.dataTestId}
-        errorMessage={testAlerData.errorMessage}
+        message={testAlerData.message}
       ></Alert>
     );
     const header = screen.getByText(testAlerData.alertHeader);
@@ -56,10 +56,10 @@ describe('Alert', () => {
         Icon={WarningIcon}
         alertHeader={testAlerData.alertHeader}
         dataTestId={testAlerData.dataTestId}
-        errorMessage={testAlerData.errorMessage}
+        message={testAlerData.message}
       ></Alert>
     );
-    const message = screen.getByText(testAlerData.errorMessage[0]);
+    const message = screen.getByText(testAlerData.message[0]);
     expect(message).toBeVisible();
   });
 });

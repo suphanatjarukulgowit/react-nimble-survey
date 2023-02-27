@@ -2,6 +2,7 @@ import React from 'react';
 import { RouteObject } from 'react-router-dom';
 
 import RequireAuth from 'components/RequireAuth';
+import ForgetPasswordScreen from 'screens/ForgetPassword';
 import LoginScreen from 'screens/Login';
 import SurveyHomepageScreen from 'screens/Survey/SurveyHomePage';
 import SurvetOutro from 'screens/Survey/SurveyOutro';
@@ -16,6 +17,10 @@ const nomalRoutes: RouteObject[] = [
   {
     path: '/',
     element: <LoginScreen />,
+  },
+  {
+    path: '/forgetPassword',
+    element: <ForgetPasswordScreen />,
   },
 ];
 

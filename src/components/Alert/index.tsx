@@ -4,10 +4,11 @@ export type AlertProps = {
   Icon: ComponentType;
   dataTestId?: string;
   alertHeader?: string;
-  errorMessage: string[];
+  message: string[];
+  displayBullet?: boolean;
 };
 
-const Alert = ({ Icon, dataTestId, alertHeader, errorMessage }: AlertProps): JSX.Element => {
+const Alert = ({ Icon, dataTestId, alertHeader, message, displayBullet = true }: AlertProps): JSX.Element => {
   return (
     <div data-test-id={dataTestId} className="alert">
       <div className="alert-content">
@@ -15,11 +16,15 @@ const Alert = ({ Icon, dataTestId, alertHeader, errorMessage }: AlertProps): JSX
           <Icon />
         </div>
         <div className="alert-header-title">{alertHeader}</div>
-        <ul>
-          {errorMessage.map((message, index) => (
-            <li key={index}>{message}</li>
-          ))}
-        </ul>
+        {displayBullet ? (
+          <ul>
+            {message.map((msg, index) => (
+              <li key={index}>{msg}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>{message}</p>
+        )}
       </div>
     </div>
   );

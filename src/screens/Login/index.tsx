@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 import { isEmpty } from 'lodash';
@@ -85,7 +85,7 @@ const LoginScreen = (): JSX.Element => {
           <Alert
             Icon={WarningIcon}
             alertHeader="Error"
-            errorMessage={errorMessage}
+            message={errorMessage}
             dataTestId={loginScreenTestIds.loginAlertError}
           ></Alert>
         )}
@@ -103,7 +103,11 @@ const LoginScreen = (): JSX.Element => {
             type="password"
             name="password"
             data-test-id={loginScreenTestIds.loginPassWord}
-          ></Input>
+          >
+            <Link className="forgot-password" to={'/forgetPassword'}>
+              {t('forget_password.forget')}
+            </Link>
+          </Input>
           <Button disabled={formLoading} className="sign-in-btn" dataTestId={loginScreenTestIds.loginSubmit}>
             {t('auth.sign_in')}
           </Button>
