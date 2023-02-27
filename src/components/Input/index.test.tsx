@@ -11,7 +11,7 @@ const InputTestData = {
 
 describe('Input', () => {
   it('renders the component', () => {
-    render(<Input label={InputTestData.label} type="text" name="email" data-test-id={InputTestData.dataTestId}></Input>);
+    render(<Input label={InputTestData.label} type="text" name="email" data-test-id={InputTestData.dataTestId} />);
 
     const label = screen.getByText(InputTestData.label);
     const input = screen.getByRole('textbox');

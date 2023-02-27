@@ -86,11 +86,7 @@ const LoginScreen = (): JSX.Element => {
     <AuthLayout headerMessage={t('auth.heading')} data-test-id={loginScreenTestIds.loginHeader}>
       <div className="form-group">
         {errorMessage && !isEmpty(errorMessage) && (
-          <AlertWarning
-            Icon={WarningIcon}
-            errorMessage={errorMessage}
-            dataTestId={loginScreenTestIds.loginAlertError}
-          ></AlertWarning>
+          <AlertWarning Icon={WarningIcon} errorMessage={errorMessage} dataTestId={loginScreenTestIds.loginAlertError} />
         )}
         <form onSubmit={handleSubmit}>
           <Input
@@ -99,20 +95,20 @@ const LoginScreen = (): JSX.Element => {
             type="email"
             name="email"
             data-test-id={loginScreenTestIds.loginEmail}
-          ></Input>
+          />
           <Input
             label={t('auth.password')}
             onChange={handleChange}
             type="password"
             name="password"
             data-test-id={loginScreenTestIds.loginPassWord}
-          ></Input>
+          />
           <Button
             disabled={formLoading}
             name={t('auth.sign_in')}
             className="sign-in-btn"
             data-test-id={loginScreenTestIds.loginSubmit}
-          ></Button>
+          />
         </form>
       </div>
     </AuthLayout>

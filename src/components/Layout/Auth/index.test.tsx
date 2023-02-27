@@ -10,8 +10,8 @@ const inputTestData = {
   logoTestId: 'app-logo',
 };
 
-const childernContent = 'Childern content';
-const children = <p>{childernContent}</p>;
+const childrenContent = 'Children content';
+const children = <p>{childrenContent}</p>;
 
 describe('Input', () => {
   it('renders the children correctly', () => {
@@ -21,7 +21,7 @@ describe('Input', () => {
       </AuthLayout>
     );
 
-    const content = screen.getByText(childernContent);
+    const content = screen.getByText(childrenContent);
 
     expect(content).toBeVisible();
   });
