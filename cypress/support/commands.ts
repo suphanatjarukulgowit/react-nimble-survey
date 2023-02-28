@@ -10,7 +10,7 @@ const loginScreenTestIds = {
 Cypress.Commands.add('login', () => {
   cy.visit('/');
   cy.findByTestId(loginScreenTestIds.loginEmail).type('suphanat@nimblehq.co');
-  cy.findByTestId(loginScreenTestIds.loginPassWord).type('12345678');
+  cy.findByTestId(loginScreenTestIds.loginPassWord).type('123456789');
   cy.findByTestId(loginScreenTestIds.loginSubmit).click();
   cy.location('pathname').should('equal', '/home');
 });

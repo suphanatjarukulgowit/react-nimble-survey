@@ -8,7 +8,7 @@ describe('AuthAdapter', () => {
   describe('login()', () => {
     it('fires a post request to the login API with the correct data', () => {
       const email = 'suphanat@nimblehq.co';
-      const password = '12345678';
+      const password = '123456789';
 
       const expectedMethod = 'POST';
       const expectedEndpoint = '/api/v1/oauth/token';

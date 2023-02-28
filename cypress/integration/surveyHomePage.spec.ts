@@ -21,32 +21,36 @@ const surveyListDataTestIds = {
 };
 
 describe('Survey Home Page', () => {
-  it('render the survey home page with the right element', () => {
+  it('renders the survey home page with the right element', () => {
     cy.login();
     cy.findByTestId(defaultLayoutDataTestIds.layoutDefault).should('exist');
     cy.findByTestId(defaultLayoutDataTestIds.appLogo).should('exist');
   });
-  it('render the user profile after click user avatar', () => {
+
+  it('renders the user profile after click user avatar', () => {
     cy.login();
-    cy.get('[data-test-id="userAvatar"] > .user-button > .user-avatar').click();
+    cy.get(':nth-child(1) > .user-button > .user-avatar').click();
     cy.findByTestId(userProfileDatatestIds.userLine).should('exist');
     cy.findByTestId(userProfileDatatestIds.logOutButton).should('exist');
     cy.findByTestId(userProfileDatatestIds.appVersion).should('exist');
   });
+
   it('hide user profile after click user avatar', () => {
     cy.login();
-    cy.get('[data-test-id="userAvatar"] > .user-button > .user-avatar').click();
+    cy.get(':nth-child(1) > .user-button > .user-avatar').click();
     cy.findByTestId(userProfileDatatestIds.userProfileContainer).should(
       'have.class',
       'user-menu-collapse user-menu-collapse--open'
     );
   });
-  it('render date of current date', () => {
+
+  it('renders date of current date', () => {
     cy.login();
     cy.findByTestId(todayDateTestIds.date).should('exist');
     cy.findByTestId(todayDateTestIds.title).should('exist');
   });
-  it('render survey list', () => {
+
+  it('renders survey list', () => {
     cy.login();
     cy.findByTestId(surveyListDataTestIds.surveyListContainer).should('exist');
     cy.get('.swiper-slide-active > .cursor-pointer > .survey-cover-image').should('exist');
