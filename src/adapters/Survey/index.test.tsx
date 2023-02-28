@@ -1,8 +1,6 @@
-import React from 'react';
-
 import requestManager from 'lib/requestManager';
 
-import SurveyAdapter from '.';
+import { list } from '.';
 
 jest.mock('lib/requestManager', () => jest.fn());
 
@@ -12,7 +10,7 @@ describe('AuthAdapter', () => {
       const expectedMethod = 'GET';
       const expectedEndpoint = '/api/v1/surveys';
 
-      SurveyAdapter.list();
+      list();
 
       expect(requestManager).toHaveBeenCalledTimes(1);
       expect(requestManager).toHaveBeenCalledWith(expectedMethod, expectedEndpoint);

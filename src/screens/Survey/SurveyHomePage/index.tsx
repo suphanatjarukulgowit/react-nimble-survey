@@ -11,15 +11,10 @@ import SurveyList from 'components/SurveyList';
 import useAuth from 'hooks/useAuth';
 import { Survey } from 'types/survey';
 
-const SurveyHomepageScreenDataTestIds = {
-  defaultLayout: 'defaultLayout',
-  thankYouPage: 'thankYouPage',
-  surveyList: 'surveyList',
-};
-
 const SurveyHomepageScreen = (): JSX.Element => {
   const { setUserProfile } = useAuth();
   const [surveyBackground, setSurveyBackground] = useState('');
+
   const fetchUserProfile = () => {
     me()
       .then((response) => {
@@ -30,9 +25,10 @@ const SurveyHomepageScreen = (): JSX.Element => {
         console.log(error);
       });
   };
-  const [surveyLoading, setSuryveyLoading] = useState(false);
 
+  const [surveyLoading, setSuryveyLoading] = useState(true);
   const [surveys, setSurveys] = useState<Survey[]>([]);
+
   const fetchSurveyList = useCallback(async () => {
     setSuryveyLoading(true);
 
@@ -45,34 +41,33 @@ const SurveyHomepageScreen = (): JSX.Element => {
     }
     setSuryveyLoading(false);
   }, []);
+
   const onSlideChange = async (swiper: Swiper) => {
     setSurveyBackground(surveys[swiper.activeIndex].attributes.coverImageUrl);
   };
+
   useEffect(
     fetchUserProfile,
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
+
   useEffect(() => {
     fetchSurveyList();
   }, [fetchSurveyList]);
 
   return (
-    <div>
-      <DefaultLayout data-test-id={SurveyHomepageScreenDataTestIds.defaultLayout}>
+    <div data-test-id="SurveyHomepageScreen">
+      <DefaultLayout>
         {surveyLoading ? (
           <div>display skeleton loading</div>
         ) : surveys && surveys.length !== 0 ? (
           <>
             <BackgroundImage imageUrl={surveyBackground} />
-            <SurveyList
-              data-test-id={SurveyHomepageScreenDataTestIds.surveyList}
-              onSlideChange={onSlideChange}
-              surveys={surveys}
-            />
+            <SurveyList onSlideChange={onSlideChange} surveys={surveys} />
           </>
         ) : (
-          <div data-test-id={SurveyHomepageScreenDataTestIds.thankYouPage}>thank you page</div>
+          <div>thank you page</div>
         )}
       </DefaultLayout>
     </div>

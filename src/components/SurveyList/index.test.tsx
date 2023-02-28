@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
-import { Swiper } from 'swiper';
+import { screen } from '@testing-library/react';
 
 import { mockSurveyList } from 'tests/mockSurveyList';
 import { renderWithRouter } from 'tests/renderWithRouter';
@@ -13,25 +12,30 @@ const surveyListDataTestIds = {
   todayContainer: 'todayContainer',
 };
 
-const onSlideChange = async (swiper: Swiper) => {};
 describe('SurveyList', () => {
-  it('renders today date', async () => {
-    const { container } = renderWithRouter(<SurveyList surveys={mockSurveyList} onSlideChange={onSlideChange} />);
-
+  it('renders amount of survey list correctly', async () => {
+    // eslint-disable-next-line
+    const { container } = renderWithRouter(<SurveyList surveys={mockSurveyList} />);
+    // eslint-disable-next-line
     const swipers = container.getElementsByClassName('survey-cover-image');
+
     expect(swipers[0]).toBeInTheDocument();
     expect(swipers[1]).toBeInTheDocument();
   });
-  it('renders correct amount of survey list', async () => {
-    renderWithRouter(<SurveyList surveys={mockSurveyList} onSlideChange={onSlideChange} />);
+
+  it('renders today date', async () => {
+    renderWithRouter(<SurveyList surveys={mockSurveyList} />);
 
     const today = screen.getByTestId(surveyListDataTestIds.todayContainer);
-    expect(today).toBeVisible;
+
+    expect(today).toBeVisible();
   });
+
   it('renders survey container', async () => {
-    renderWithRouter(<SurveyList surveys={mockSurveyList} onSlideChange={onSlideChange} />);
+    renderWithRouter(<SurveyList surveys={mockSurveyList} />);
 
     const survey = screen.getByTestId(surveyListDataTestIds.surveyListContainer);
-    expect(survey).toBeVisible;
+
+    expect(survey).toBeVisible();
   });
 });

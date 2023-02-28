@@ -12,7 +12,7 @@ import { Survey } from 'types/survey';
 import SurveyItem from './SurveyItem';
 import styles from './SurveyList.module.css';
 export interface SurveyListProps extends React.HTMLAttributes<HTMLDivElement> {
-  onSlideChange: (swiper: SwiperInterface) => void;
+  onSlideChange?: (swiper: SwiperInterface) => void;
   surveys: Survey[];
 }
 

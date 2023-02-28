@@ -6,7 +6,7 @@
   }
 
   body {
-    background-color: black;
+    background-color: #000;
   }
 
   .root-container > header {
@@ -24,7 +24,7 @@
 
 .app-logo {
   position: absolute;
-  height: 2rem;
-  left: 2rem;
   top: 2.12rem;
+  left: 2rem;
+  height: 2rem;
 }

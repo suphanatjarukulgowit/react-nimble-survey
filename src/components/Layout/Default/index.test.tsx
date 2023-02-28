@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, screen, waitFor, within } from '@testing-library/react';
+import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { LocalStorageKey } from 'lib/localStorage';
@@ -24,6 +24,12 @@ const userProfileDatatestIds = {
   userProfileContainer: 'userProfileContainer',
   userMenu: 'userMenu',
 };
+
+const mockUseNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockUseNavigate,
+}));
 
 describe('DefaultLayout', () => {
   it('renders the app logo link', () => {
@@ -55,8 +61,13 @@ describe('DefaultLayout', () => {
         userEvent.click(userMenu);
         userEvent.click(logoutMenu);
 
+        await waitFor(() => expect(mockUseNavigate).toHaveBeenCalledWith('/'));
+
         await waitFor(() => {
           expect(localStorage.getItem(LocalStorageKey.auth)).toBe(null);
+        });
+
+        await waitFor(() => {
           expect(localStorage.getItem(LocalStorageKey.userProfile)).toBe(null);
         });
       });

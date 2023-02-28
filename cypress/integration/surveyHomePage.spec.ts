@@ -38,7 +38,7 @@ describe('Survey Home Page', () => {
     cy.get('[data-test-id="userAvatar"] > .user-button > .user-avatar').click();
     cy.findByTestId(userProfileDatatestIds.userProfileContainer).should(
       'have.class',
-      'user-menu__collapse user-menu__collapse--open'
+      'user-menu-collapse user-menu-collapse--open'
     );
   });
   it('render date of current date', () => {

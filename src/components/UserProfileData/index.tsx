@@ -37,7 +37,7 @@ const UserProfileData = ({ userProfile, onLogout }: UserProfileProps) => {
     }
   });
 
-  const collapseClasses = classNames('user-menu__collapse', isOpen ? 'user-menu__collapse--open' : 'user-menu__collapse--close');
+  const collapseClasses = classNames('user-menu-collapse', isOpen ? 'user-menu-collapse--open' : 'user-menu-collapse--close');
 
   const AvatarToggler = (togglerProps: React.HTMLAttributes<HTMLButtonElement>) => {
     return (

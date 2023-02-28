@@ -1,8 +1,6 @@
-import React from 'react';
-
 import requestManager from 'lib/requestManager';
 
-import UserAdapter from '.';
+import { me } from '.';
 
 jest.mock('lib/requestManager', () => jest.fn());
 
@@ -12,7 +10,7 @@ describe('AuthAdapter', () => {
       const expectedMethod = 'GET';
       const expectedEndpoint = '/api/v1/me';
 
-      UserAdapter.me();
+      me();
 
       expect(requestManager).toHaveBeenCalledTimes(1);
       expect(requestManager).toHaveBeenCalledWith(expectedMethod, expectedEndpoint);
