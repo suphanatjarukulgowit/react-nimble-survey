@@ -1,27 +1,35 @@
 import { useEffect, useState } from 'react';
 
-import { LocalStorageKey, setLocalStorageValue, getLocalStorageValue, removeLocalStorageValue } from 'lib/localStorage';
-import { Auths } from 'types/auth';
+import {
+  LocalStorageKey,
+  setLocalStorageValue,
+  getLocalStorageValue,
+  removeLocalStorageValue,
+  LocalStorageValue,
+} from 'lib/localStorage';
 
-type Nullable<T> = T | null;
-
-const useLocalStorageAuth = (): [Nullable<Auths>, (authData: Nullable<Auths>) => void] => {
-  const [auth, setAuth] = useState<Nullable<Auths>>(null);
+const useLocalStorage = <T extends LocalStorageKey>(
+  key: T,
+  defaultValue: LocalStorageValue<T> = null as LocalStorageValue<T>
+): [LocalStorageValue<T>, React.Dispatch<LocalStorageValue<T>>] => {
+  const [value, setValue] = useState<LocalStorageValue<T>>(defaultValue);
 
   useEffect(() => {
-    const authData = getLocalStorageValue(LocalStorageKey.auth);
-    setAuth(authData);
+    const data = getLocalStorageValue(key);
+    setValue(data || defaultValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    if (auth) {
-      setLocalStorageValue(LocalStorageKey.auth, auth);
+    if (value) {
+      setLocalStorageValue(key, value);
     } else {
-      removeLocalStorageValue(LocalStorageKey.auth);
+      removeLocalStorageValue(key);
     }
-  }, [auth]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
-  return [auth, setAuth];
+  return [value, setValue];
 };
 
-export default useLocalStorageAuth;
+export default useLocalStorage;

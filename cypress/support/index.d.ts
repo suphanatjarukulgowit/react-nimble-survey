@@ -1,8 +1,7 @@
-/* eslint-disable */
+/// <reference types="cypress" />
 
-declare global {
-  namespace Cypress {
-    interface Chainable {
-    }
+declare namespace Cypress {
+  interface Chainable {
+    login(): void;
   }
 }

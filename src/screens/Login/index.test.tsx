@@ -61,7 +61,7 @@ describe('LoginScreen', () => {
       render(<LoginScreen />);
       const { emailInput, passwordInput, submitButton, getByText } = setup();
       fireEvent.change(emailInput, { target: { value: 'xxxxxxx' } });
-      fireEvent.change(passwordInput, { target: { value: '12345678' } });
+      fireEvent.change(passwordInput, { target: { value: '123456789' } });
       fireEvent.click(submitButton);
       expect(getByText('error.email_invalid')).toBeInTheDocument();
       expect(logIn).not.toHaveBeenCalled();
@@ -76,7 +76,7 @@ describe('LoginScreen', () => {
 
       const { emailInput, passwordInput, submitButton } = setup();
       fireEvent.change(emailInput, { target: { value: 'suphanat@nimblehq.co' } });
-      fireEvent.change(passwordInput, { target: { value: '12345678' } });
+      fireEvent.change(passwordInput, { target: { value: '123456789' } });
       fireEvent.click(submitButton);
 
       const alertError = screen.queryByTestId(loginScreenTestIds.loginAlertError);

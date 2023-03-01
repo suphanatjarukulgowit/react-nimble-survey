@@ -1,45 +1,75 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useCallback, useEffect, useState } from 'react';
 
-import { logOut } from 'adapters/Auth';
+import _ from 'lodash';
+import { Swiper } from 'swiper';
+
+import { list } from 'adapters/Survey';
 import { me } from 'adapters/User';
+import BackgroundImage from 'components/BackGroundImage';
+import DefaultLayout from 'components/Layout/Default';
+import SurveyList from 'components/SurveyList';
 import useAuth from 'hooks/useAuth';
-import ApiError from 'lib/errors/ApiErrors';
+import { Survey } from 'types/survey';
 
 const SurveyHomepageScreen = (): JSX.Element => {
-  const { auth, setAuth } = useAuth();
-  const navigate = useNavigate();
+  const { setUserProfile } = useAuth();
+  const [surveyBackground, setSurveyBackground] = useState('');
+
   const fetchUserProfile = () => {
     me()
       .then((response) => {
-        console.log(response);
+        setUserProfile(response?.data?.attributes);
       })
       .catch((error) => {
         // popup error and redirect to login
         console.log(error);
       });
   };
-  useEffect(fetchUserProfile, [fetchUserProfile]);
-  const testLogOut = () => {
-    if (auth) {
-      logOut(auth.accessToken)
-        .then(() => {
-          setAuth(null);
-          navigate('/');
-        })
-        .catch((error) => {
-          if (error instanceof ApiError) {
-            console.log('Api error', error);
-          } else {
-            console.log('else error : ', error);
-          }
-        });
+
+  const [surveyLoading, setSuryveyLoading] = useState(true);
+  const [surveys, setSurveys] = useState<Survey[]>([]);
+
+  const fetchSurveyList = useCallback(async () => {
+    setSuryveyLoading(true);
+
+    const data = await list();
+    const surveysResponse: Survey[] = _.get(data, 'data');
+
+    setSurveys(surveysResponse);
+    if (surveysResponse) {
+      setSurveyBackground(surveysResponse[0].attributes.coverImageUrl);
     }
+    setSuryveyLoading(false);
+  }, []);
+
+  const onSlideChange = async (swiper: Swiper) => {
+    setSurveyBackground(surveys[swiper.activeIndex].attributes.coverImageUrl);
   };
+
+  useEffect(
+    fetchUserProfile,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
+
+  useEffect(() => {
+    fetchSurveyList();
+  }, [fetchSurveyList]);
+
   return (
-    <div className="app">
-      This is Home Screen!
-      <button onClick={testLogOut}>Logout</button>
+    <div data-test-id="SurveyHomepageScreen">
+      <DefaultLayout>
+        {surveyLoading ? (
+          <div>display skeleton loading</div>
+        ) : surveys && surveys.length !== 0 ? (
+          <>
+            <BackgroundImage imageUrl={surveyBackground} />
+            <SurveyList onSlideChange={onSlideChange} surveys={surveys} />
+          </>
+        ) : (
+          <div>thank you page</div>
+        )}
+      </DefaultLayout>
     </div>
   );
 };

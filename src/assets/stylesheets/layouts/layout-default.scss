@@ -1,0 +1,30 @@
+.layout-default {
+  &,
+  body,
+  .root-container {
+    height: 100%;
+  }
+
+  body {
+    background-color: #000;
+  }
+
+  .root-container > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: rem(32px);
+  }
+
+  main {
+    padding: rem(0 32px);
+  }
+}
+
+.app-logo {
+  position: absolute;
+  top: 2.12rem;
+  left: 2rem;
+  height: 2rem;
+}

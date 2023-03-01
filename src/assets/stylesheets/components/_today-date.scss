@@ -1,0 +1,33 @@
+.today-container {
+  position: absolute;
+  top: 13.5%;
+  right: 66.32%;
+  bottom: 78.62%;
+  left: 25.56%;
+  width: 200px;
+}
+
+.today-date {
+  &__date {
+    color: #fff;
+    font-family: 'Neuzeit S LT Std Nomal', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: -0.08px;
+    line-height: 18px;
+    line-height: 18px;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: #fff;
+    font-family: 'Neuzeit S LT Std Nomal', sans-serif;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 41px;
+    line-height: 41px;
+  }
+}
