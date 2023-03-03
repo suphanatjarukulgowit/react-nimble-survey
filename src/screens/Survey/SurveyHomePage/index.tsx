@@ -8,8 +8,16 @@ import { me } from 'adapters/User';
 import BackgroundImage from 'components/BackGroundImage';
 import DefaultLayout from 'components/Layout/Default';
 import SurveyList from 'components/SurveyList';
+import SurveyLoading from 'components/SurveyLoding';
 import useAuth from 'hooks/useAuth';
 import { Survey } from 'types/survey';
+
+const SurveyHomepageScreenDataTestIds = {
+  defaultLayout: 'defaultLayout',
+  thankYouPage: 'thankYouPage',
+  surveyList: 'surveyList',
+  loadingPage: 'loadingPage',
+};
 
 const SurveyHomepageScreen = (): JSX.Element => {
   const { setUserProfile } = useAuth();
@@ -20,9 +28,8 @@ const SurveyHomepageScreen = (): JSX.Element => {
       .then((response) => {
         setUserProfile(response?.data?.attributes);
       })
-      .catch((error) => {
+      .catch(() => {
         // popup error and redirect to login
-        console.log(error);
       });
   };
 
@@ -34,8 +41,8 @@ const SurveyHomepageScreen = (): JSX.Element => {
 
     const data = await list();
     const surveysResponse: Survey[] = _.get(data, 'data');
-
     setSurveys(surveysResponse);
+
     if (surveysResponse) {
       setSurveyBackground(surveysResponse[0].attributes.coverImageUrl);
     }
@@ -51,23 +58,28 @@ const SurveyHomepageScreen = (): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
-
   useEffect(() => {
     fetchSurveyList();
   }, [fetchSurveyList]);
 
   return (
-    <div data-test-id="SurveyHomepageScreen">
-      <DefaultLayout>
+    <div>
+      <DefaultLayout isSurveyLoading={surveyLoading} data-test-id={SurveyHomepageScreenDataTestIds.defaultLayout}>
         {surveyLoading ? (
-          <div>display skeleton loading</div>
+          <div data-test-id={SurveyHomepageScreenDataTestIds.loadingPage}>
+            <SurveyLoading></SurveyLoading>
+          </div>
         ) : surveys && surveys.length !== 0 ? (
           <>
             <BackgroundImage imageUrl={surveyBackground} />
-            <SurveyList onSlideChange={onSlideChange} surveys={surveys} />
+            <SurveyList
+              data-test-id={SurveyHomepageScreenDataTestIds.surveyList}
+              onSlideChange={onSlideChange}
+              surveys={surveys}
+            />
           </>
         ) : (
-          <div>thank you page</div>
+          <div data-test-id={SurveyHomepageScreenDataTestIds.thankYouPage}>thank you page</div>
         )}
       </DefaultLayout>
     </div>
