@@ -1,8 +1,28 @@
 .blank-state-container {
+  display: flex;
   position: absolute;
-  background-color: red;
-  width: 64px;
-  height: 64px;
-  left: 688px;
-  top: 318px;
+  top: 25.38%;
+  right: 25.56%;
+  bottom: 36.88%;
+  left: 25.56%;
+  flex-direction: column;
+  justify-content: center;
+  height: 70%;
+  margin: auto;
+
+  text-align: center;
+  white-space: pre;
+
+  .blank-state-emoji {
+    font-size: rem(64px);
+  }
+
+  .blank-state-description {
+    color: #fff;
+    font-size: rem(28px);
+    font-weight: 850;
+    letter-spacing: rem(-0.5px);
+    line-height: rem(34px);
+    line-height: 100%;
+  }
 }

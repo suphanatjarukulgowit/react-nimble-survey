@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { act, screen, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 
-import { list } from 'adapters/Survey';
-import { me } from 'adapters/User';
+// import { list } from 'adapters/Survey';
+// import { me } from 'adapters/User';
 import { renderWithRouter } from 'tests/renderWithRouter';
 
 import SurveyHomepageScreen from '.';

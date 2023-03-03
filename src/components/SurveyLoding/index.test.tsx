@@ -24,12 +24,13 @@ describe('SurveyLoading', () => {
     const surveyLinkLoader = screen.getByTestId(SurveyLoadingDataTestIds.surveyLinkLoader);
     const surveyTitleLoader = screen.getByTestId(SurveyLoadingDataTestIds.surveyTitleLoader);
     const surveyDescriptionLoader = screen.getByTestId(SurveyLoadingDataTestIds.surveyDescriptionLoader);
-    expect(avatarLoader).toBeVisible;
-    expect(dateLoader).toBeVisible;
-    expect(dateTodayLoader).toBeVisible;
-    expect(surveyListLoader).toBeVisible;
-    expect(surveyLinkLoader).toBeVisible;
-    expect(surveyTitleLoader).toBeVisible;
-    expect(surveyDescriptionLoader).toBeVisible;
+
+    expect(avatarLoader).toBeVisible();
+    expect(dateLoader).toBeVisible();
+    expect(dateTodayLoader).toBeVisible();
+    expect(surveyListLoader).toBeVisible();
+    expect(surveyLinkLoader).toBeVisible();
+    expect(surveyTitleLoader).toBeVisible();
+    expect(surveyDescriptionLoader).toBeVisible();
   });
 });
