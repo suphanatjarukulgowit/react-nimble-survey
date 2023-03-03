@@ -82,7 +82,7 @@ const SurveyHomepageScreen = (): JSX.Element => {
             />
           </>
         ) : (
-          <SurveyBlankState emoji="😎" description={t('survey.Blank_state_desctiption')}></SurveyBlankState>
+          <SurveyBlankState emoji="😎" description={t('survey.blank_state_desctiption')}></SurveyBlankState>
         )}
       </DefaultLayout>
     </div>

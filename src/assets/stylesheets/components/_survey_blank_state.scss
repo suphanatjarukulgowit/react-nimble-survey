@@ -1,24 +1,28 @@
 .blank-state-container {
-  position: absolute;
-  left: 25.56%;
-  right: 25.56%;
-  top: 25.38%;
-  bottom: 36.88%;
-  height: 70%;
-  text-align: center;
   display: flex;
+  position: absolute;
+  top: 25.38%;
+  right: 25.56%;
+  bottom: 36.88%;
+  left: 25.56%;
   flex-direction: column;
   justify-content: center;
+  height: 70%;
   margin: auto;
+
+  text-align: center;
   white-space: pre;
+
   .blank-state-emoji {
-    font-size: 4rem;
+    font-size: rem(64px);
   }
+
   .blank-state-description {
     color: #fff;
-    font-family: 'Neuzeit S LT Std Bold', sans-serif;
-    font-weight: bold;
+    font-size: rem(28px);
+    font-weight: 850;
+    letter-spacing: rem(-0.5px);
+    line-height: rem(34px);
     line-height: 100%;
-    letter-spacing: -0.5px;
   }
 }
