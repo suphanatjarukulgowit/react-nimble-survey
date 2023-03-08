@@ -1,14 +1,13 @@
 import React from 'react';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   name: string;
-  disabled?: boolean;
   className?: string;
 }
 
-const Button = ({ name, disabled, className }: ButtonProps): JSX.Element => {
+const Button = ({ name, className, ...props }: ButtonProps): JSX.Element => {
   return (
-    <button disabled={disabled} className={className}>
+    <button className={className} {...props}>
       {name}
     </button>
   );

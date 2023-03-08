@@ -1,8 +1,45 @@
-import axios, { Method as HTTPMethod, ResponseType, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { Method as HTTPMethod, AxiosRequestConfig, AxiosResponse, AxiosTransformer } from 'axios';
+import { camelizeKeys } from 'humps';
+import _ from 'lodash';
 
-export const defaultOptions: { responseType: ResponseType } = {
+import { refreshToken } from 'adapters/Auth';
+
+import ApiError from './errors/ApiErrors';
+import { getLocalStorageValue, LocalStorageKey, setLocalStorageValue, removeLocalStorageValue } from './localStorage';
+
+export const defaultOptions: AxiosRequestConfig = {
+  baseURL: process.env.REACT_APP_API_BASE_URL,
   responseType: 'json',
+  transformRequest: [
+    (data) => _.mapKeys(data, (v, k) => _.snakeCase(k)),
+    ...(axios.defaults.transformRequest as AxiosTransformer[]),
+  ],
+  transformResponse: [...(axios.defaults.transformResponse as AxiosTransformer[]), (data) => camelizeKeys(data)],
 };
+
+axios.interceptors.response.use(
+  (resp) => resp,
+  async (error) => {
+    if (error.response.status === 401) {
+      const authData = getLocalStorageValue(LocalStorageKey.auth);
+      if (authData) {
+        refreshToken(authData.refreshToken)
+          .then((response) => {
+            setLocalStorageValue(LocalStorageKey.auth, response?.data?.attributes);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${response?.data?.attributes.accessToken}`;
+            return axios(error.config);
+          })
+          .catch(() => {
+            removeLocalStorageValue(LocalStorageKey.auth);
+            window.location.href = '/';
+          });
+      }
+    } else {
+      return Promise.reject(error);
+    }
+    return error;
+  }
+);
 
 /**
  * The main API access function that comes preconfigured with useful defaults.
@@ -26,9 +63,18 @@ const requestManager = (
     ...requestOptions,
   };
 
-  return axios.request(requestParams).then((response: AxiosResponse) => {
-    return response.data;
-  });
+  return axios
+    .request(requestParams)
+    .then((response: AxiosResponse) => {
+      return response.data;
+    })
+    .catch((error) => {
+      if (axios.isAxiosError(error) && error.response) {
+        throw new ApiError(error.response);
+      } else {
+        throw error;
+      }
+    });
 };
 
 export default requestManager;
