@@ -2,10 +2,8 @@ import React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
-// import WarningIcon from 'components/Icon/WarningIcon';
 import WarningIcon from 'components/Icon/WarningIcon';
 
-// import Alert from '../Alert';
 import AlertWarning from '.';
 
 const testAlerData = {
